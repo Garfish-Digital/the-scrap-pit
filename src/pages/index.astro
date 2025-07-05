@@ -1,16 +1,628 @@
 ---
-
+// The Scrap Pit - Main Page
+import FightLayout from '../layouts/FightLayout.astro';
+import CombatButton from '../components/CombatButton.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<FightLayout 
+  title="The Scrap Pit - Combat Sports Training Gym"
+  description="Forged in Fire. Tested in Battle. Raw, uncompromising combat sports training for fighters who refuse to settle."
+>
+  <!-- Hero Section: "The Arena Entrance" -->
+  <section class="hero section-hero" id="hero">
+    <div class="hero-background mono-to-color">
+      <div class="hero-image-overlay"></div>
+    </div>
+    
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title display-title">
+          THE SCRAP PIT
+        </h1>
+        <p class="hero-subtitle display-subtitle">
+          FORGED IN FIRE. TESTED IN BATTLE.
+        </p>
+        <p class="hero-description">
+          Raw, uncompromising combat sports training for fighters who refuse to settle. 
+          Step into the pit where champions are forged and weakness is eliminated.
+        </p>
+        
+        <div class="hero-actions combat-btn-group">
+          <CombatButton 
+            text="Start Your Journey" 
+            href="#join" 
+            variant="accent" 
+            size="mega"
+            className="brutalist-shadow"
+          />
+          <CombatButton 
+            text="View Training" 
+            href="#training" 
+            variant="ghost" 
+            size="large"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Training Regimens: "The Gauntlet Stages" -->
+  <section class="training section" id="training">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">THE GAUNTLET STAGES</h2>
+        <p class="section-description">
+          Three paths to mastery. Each designed to break you down and build you back stronger.
+        </p>
+      </div>
+      
+      <div class="training-grid">
+        <div class="training-block" data-stage="striking">
+          <div class="training-image duotone-red-black">
+            <div class="training-image-content">
+              <div class="training-overlay"></div>
+            </div>
+          </div>
+          <div class="training-content">
+            <h3 class="training-title">STRIKING</h3>
+            <p class="training-description">
+              Master the art of controlled violence. Boxing, Muay Thai, and kickboxing 
+              fundamentals that turn your body into a weapon.
+            </p>
+            <div class="training-stats">
+              <span class="stat">45 MIN SESSIONS</span>
+              <span class="stat">HIGH INTENSITY</span>
+              <span class="stat">TECHNIQUE FOCUS</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="training-block" data-stage="grappling">
+          <div class="training-image duotone-gold-black">
+            <div class="training-image-content">
+              <div class="training-overlay"></div>
+            </div>
+          </div>
+          <div class="training-content">
+            <h3 class="training-title">GRAPPLING</h3>
+            <p class="training-description">
+              The chess match of combat. Brazilian Jiu-Jitsu, wrestling, and submission 
+              techniques that make you dangerous at every range.
+            </p>
+            <div class="training-stats">
+              <span class="stat">60 MIN SESSIONS</span>
+              <span class="stat">TACTICAL FOCUS</span>
+              <span class="stat">MENTAL WARFARE</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="training-block" data-stage="conditioning">
+          <div class="training-image tritone-combat">
+            <div class="training-image-content">
+              <div class="training-overlay"></div>
+            </div>
+          </div>
+          <div class="training-content">
+            <h3 class="training-title">CONDITIONING</h3>
+            <p class="training-description">
+              Where warriors are forged. Brutal strength and conditioning sessions 
+              that build unbreakable mental and physical fortitude.
+            </p>
+            <div class="training-stats">
+              <span class="stat">30 MIN SESSIONS</span>
+              <span class="stat">MAXIMUM INTENSITY</span>
+              <span class="stat">PAIN TOLERANCE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fighter Spotlight: "Iron Will Profiles" -->
+  <section class="fighters section bg-dark" id="fighters">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title text-inverse">IRON WILL PROFILES</h2>
+        <p class="section-description text-inverse">
+          Voices from the pit. Real fighters, real stories, real results.
+        </p>
+      </div>
+      
+      <div class="fighters-grid">
+        <div class="fighter-profile">
+          <div class="fighter-image chromatic-displacement mono-to-color">
+            <div class="fighter-image-content"></div>
+          </div>
+          <div class="fighter-content">
+            <blockquote class="fighter-quote">
+              "The Scrap Pit didn't just teach me to fight. It taught me to conquer 
+              the voice in my head that says I can't."
+            </blockquote>
+            <cite class="fighter-name">- Marcus "Iron" Rodriguez</cite>
+            <span class="fighter-title">Amateur Boxing Champion</span>
+          </div>
+        </div>
+        
+        <div class="fighter-profile">
+          <div class="fighter-image chromatic-displacement mono-to-color">
+            <div class="fighter-image-content"></div>
+          </div>
+          <div class="fighter-content">
+            <blockquote class="fighter-quote">
+              "Every session breaks you down. Every session builds you back up. 
+              That's where real strength comes from."
+            </blockquote>
+            <cite class="fighter-name">- Sarah "Savage" Chen</cite>
+            <span class="fighter-title">MMA Fighter & Trainer</span>
+          </div>
+        </div>
+        
+        <div class="fighter-profile">
+          <div class="fighter-image chromatic-displacement mono-to-color">
+            <div class="fighter-image-content"></div>
+          </div>
+          <div class="fighter-content">
+            <blockquote class="fighter-quote">
+              "The pit strips away everything fake. What's left is who you really are 
+              and what you're really capable of."
+            </blockquote>
+            <cite class="fighter-name">- James "Thunder" Thompson</cite>
+            <span class="fighter-title">Kickboxing Instructor</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Join The Fight: "The Call to Arms" -->
+  <section class="join-fight section" id="join">
+    <div class="container">
+      <div class="join-content">
+        <div class="join-header">
+          <h2 class="join-title display-title">
+            JOIN THE FIGHT
+          </h2>
+          <p class="join-subtitle display-subtitle">
+            THE CALL TO ARMS
+          </p>
+        </div>
+        
+        <div class="join-body">
+          <p class="join-description">
+            Are you ready to step into the pit? To face your fears, push your limits, 
+            and discover what you're truly capable of? The Scrap Pit doesn't accept 
+            the weak-minded or half-hearted. We forge warriors.
+          </p>
+          
+          <div class="join-features">
+            <div class="feature">
+              <span class="feature-icon">🥊</span>
+              <span class="feature-text">UNLIMITED TRAINING</span>
+            </div>
+            <div class="feature">
+              <span class="feature-icon">🏆</span>
+              <span class="feature-text">CHAMPIONSHIP COACHING</span>
+            </div>
+            <div class="feature">
+              <span class="feature-icon">⚡</span>
+              <span class="feature-text">BRUTAL CONDITIONING</span>
+            </div>
+          </div>
+          
+          <div class="join-actions combat-btn-group center">
+            <CombatButton 
+              text="Start Free Trial" 
+              href="#contact" 
+              variant="accent" 
+              size="mega"
+              className="impact-flash brutalist-shadow"
+            />
+            <CombatButton 
+              text="View Pricing" 
+              href="#pricing" 
+              variant="victory" 
+              size="large"
+            />
+          </div>
+          
+          <div class="join-guarantee">
+            <p class="guarantee-text">
+              <strong>30-DAY WARRIOR GUARANTEE:</strong> If you're not completely transformed 
+              in 30 days, we'll refund every penny. But you won't need it.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</FightLayout>
+
+<style lang="scss">
+@import '../styles/variables';
+@import '../styles/color_filters';
+
+// Hero Section Styles
+.section-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  
+  .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+      rgba($iron-black, 0.7) 0%, 
+      rgba($iron-black, 0.5) 50%, 
+      rgba($iron-black, 0.8) 100%
+    ),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><rect width="1000" height="1000" fill="%23F8F8FF"/><g fill="%23E00000" opacity="0.1"><rect x="100" y="100" width="200" height="200"/><rect x="400" y="300" width="150" height="150"/><rect x="700" y="200" width="100" height="100"/></g></svg>');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    
+    .hero-image-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        45deg,
+        rgba($iron-black, 0.9) 0%,
+        rgba($iron-black, 0.3) 50%,
+        rgba($iron-black, 0.8) 100%
+      );
+    }
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: $text-inverse;
+    
+    .hero-title {
+      margin-bottom: $space-md;
+      text-shadow: 4px 4px 0 $iron-black;
+    }
+    
+    .hero-subtitle {
+      margin-bottom: $space-lg;
+      color: $text-highlight;
+      text-shadow: 2px 2px 0 $iron-black;
+    }
+    
+    .hero-description {
+      max-width: 600px;
+      margin: 0 auto $space-xl;
+      font-size: $font-size-medium;
+      line-height: $line-height-loose;
+      opacity: 0.9;
+    }
+    
+    .hero-actions {
+      justify-content: center;
+      gap: $space-lg;
+    }
+  }
+}
+
+// Training Section Styles
+.training {
+  padding: $space-mega 0;
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: $space-xxl;
+    
+    .section-title {
+      font-size: $font-size-huge;
+      margin-bottom: $space-md;
+    }
+    
+    .section-description {
+      font-size: $font-size-medium;
+      max-width: 600px;
+      margin: 0 auto;
+      opacity: 0.8;
+    }
+  }
+  
+  .training-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-xl;
+    
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: 1fr;
+      gap: $space-lg;
+    }
+  }
+  
+  .training-block {
+    position: relative;
+    border: $border-primary;
+    background: $bg-primary;
+    transition: all $transition-normal;
+    
+    &:hover {
+      transform: translate(-4px, -4px);
+      box-shadow: $shadow-harsh;
+      
+      .training-image {
+        transform: scale(1.05);
+      }
+    }
+    
+    .training-image {
+      position: relative;
+      height: 300px;
+      overflow: hidden;
+      transition: transform $transition-normal;
+      
+      .training-image-content {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, 
+          rgba($iron-black, 0.3) 0%, 
+          rgba($blood-red, 0.2) 50%, 
+          rgba($championship-gold, 0.1) 100%
+        );
+      }
+      
+      .training-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          transparent 0%,
+          rgba($iron-black, 0.8) 100%
+        );
+      }
+    }
+    
+    .training-content {
+      padding: $space-lg;
+      
+      .training-title {
+        font-size: $font-size-large;
+        margin-bottom: $space-md;
+        color: $text-accent;
+      }
+      
+      .training-description {
+        margin-bottom: $space-md;
+        line-height: $line-height-loose;
+      }
+      
+      .training-stats {
+        display: flex;
+        gap: $space-sm;
+        flex-wrap: wrap;
+        
+        .stat {
+          display: inline-block;
+          padding: $space-xs $space-sm;
+          background: $iron-black;
+          color: $text-inverse;
+          font-size: $font-size-small;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        }
+      }
+    }
+  }
+}
+
+// Fighters Section Styles
+.fighters {
+  padding: $space-mega 0;
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: $space-xxl;
+    
+    .section-title {
+      font-size: $font-size-huge;
+      margin-bottom: $space-md;
+    }
+    
+    .section-description {
+      font-size: $font-size-medium;
+      max-width: 600px;
+      margin: 0 auto;
+      opacity: 0.8;
+    }
+  }
+  
+  .fighters-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-xl;
+    
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: 1fr;
+      gap: $space-lg;
+    }
+  }
+  
+  .fighter-profile {
+    text-align: center;
+    
+    .fighter-image {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto $space-lg;
+      border-radius: 50%;
+      overflow: hidden;
+      border: $border-thick solid $championship-gold;
+      position: relative;
+      
+      .fighter-image-content {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, 
+          rgba($iron-black, 0.8) 0%, 
+          rgba($blood-red, 0.3) 50%, 
+          rgba($championship-gold, 0.2) 100%
+        );
+      }
+      
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+    
+    .fighter-content {
+      .fighter-quote {
+        font-size: $font-size-medium;
+        line-height: $line-height-loose;
+        font-style: italic;
+        margin-bottom: $space-md;
+        color: $text-inverse;
+        
+        &::before,
+        &::after {
+          content: '"';
+          font-size: $font-size-large;
+          color: $championship-gold;
+        }
+      }
+      
+      .fighter-name {
+        display: block;
+        font-family: $font-display;
+        font-size: $font-size-medium;
+        color: $championship-gold;
+        margin-bottom: $space-xs;
+      }
+      
+      .fighter-title {
+        font-size: $font-size-small;
+        color: rgba($text-inverse, 0.7);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+    }
+  }
+}
+
+// Join Fight Section Styles
+.join-fight {
+  padding: $space-mega 0;
+  background: linear-gradient(135deg, 
+    rgba($iron-black, 0.05) 0%, 
+    rgba($blood-red, 0.05) 50%, 
+    rgba($championship-gold, 0.05) 100%
+  );
+  
+  .join-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    
+    .join-header {
+      margin-bottom: $space-xl;
+      
+      .join-title {
+        margin-bottom: $space-md;
+      }
+      
+      .join-subtitle {
+        color: $text-accent;
+        margin-bottom: $space-lg;
+      }
+    }
+    
+    .join-body {
+      .join-description {
+        font-size: $font-size-medium;
+        line-height: $line-height-loose;
+        margin-bottom: $space-xl;
+        opacity: 0.9;
+      }
+      
+      .join-features {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: $space-lg;
+        margin-bottom: $space-xl;
+        
+        @media (max-width: $breakpoint-md) {
+          grid-template-columns: 1fr;
+        }
+        
+        .feature {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: $space-sm;
+          
+          .feature-icon {
+            font-size: $font-size-huge;
+            filter: grayscale(1);
+          }
+          
+          .feature-text {
+            font-family: $font-display;
+            font-size: $font-size-medium;
+            color: $text-primary;
+            text-align: center;
+          }
+        }
+      }
+      
+      .join-actions {
+        margin-bottom: $space-xl;
+      }
+      
+      .join-guarantee {
+        padding: $space-lg;
+        border: $border-thick solid $championship-gold;
+        background: rgba($championship-gold, 0.1);
+        
+        .guarantee-text {
+          font-size: $font-size-normal;
+          margin: 0;
+          
+          strong {
+            color: $championship-gold;
+            font-family: $font-display;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: $breakpoint-md) {
+  .hero-content {
+    .hero-actions {
+      flex-direction: column;
+      align-items: center;
+      gap: $space-md;
+    }
+  }
+  
+  .training-grid,
+  .fighters-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .join-features {
+    grid-template-columns: 1fr;
+  }
+}
+</style>

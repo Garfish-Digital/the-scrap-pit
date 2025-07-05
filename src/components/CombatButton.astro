@@ -1,0 +1,298 @@
+---
+// CombatButton.astro - Brutalist Combat Sports Button Component
+interface Props {
+  text: string;
+  href?: string;
+  variant?: 'primary' | 'accent' | 'victory' | 'ghost';
+  size?: 'small' | 'medium' | 'large' | 'mega';
+  className?: string;
+  target?: string;
+  impact?: boolean;
+  disabled?: boolean;
+}
+
+const { 
+  text, 
+  href, 
+  variant = 'primary', 
+  size = 'medium',
+  className = '',
+  target,
+  impact = true,
+  disabled = false
+} = Astro.props;
+
+const Tag = href ? 'a' : 'button';
+const classes = `combat-btn combat-btn--${variant} combat-btn--${size} ${impact ? 'impact-flash' : ''} ${className}`;
+---
+
+<Tag 
+  class={classes}
+  href={href}
+  target={target}
+  disabled={disabled}
+  {...(href && target ? { rel: "noopener noreferrer" } : {})}
+>
+  <span class="combat-btn__text">{text}</span>
+  <span class="combat-btn__impact" aria-hidden="true"></span>
+</Tag>
+
+<style lang="scss">
+@import '../styles/variables';
+@import '../styles/color_filters';
+
+.combat-btn {
+  position: relative;
+  display: inline-block;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: $font-body;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all $transition-quick;
+  overflow: hidden;
+  
+  // Disabled state
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  
+  // Button text
+  &__text {
+    position: relative;
+    z-index: 2;
+    display: block;
+    transition: all $transition-quick;
+  }
+  
+  // Impact effect overlay
+  &__impact {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba($blood-red, 0.3);
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all $impact-duration;
+    z-index: 1;
+  }
+  
+  // Variants
+  &--primary {
+    background: $bg-primary;
+    color: $text-primary;
+    border: $border-primary;
+    
+    &:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: $shadow-harsh;
+    }
+    
+    &:active {
+      transform: translate(-1px, -1px) scale($impact-scale);
+      box-shadow: 2px 2px 0 $iron-black;
+    }
+  }
+  
+  &--accent {
+    background: $blood-red;
+    color: $text-inverse;
+    border: $border-thick solid $blood-red;
+    
+    &:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: $shadow-accent;
+      background: darken($blood-red, 10%);
+    }
+    
+    &:active {
+      transform: translate(-1px, -1px) scale($impact-scale);
+      box-shadow: 2px 2px 0 darken($blood-red, 20%);
+    }
+  }
+  
+  &--victory {
+    background: $championship-gold;
+    color: $text-primary;
+    border: $border-thick solid $championship-gold;
+    
+    &:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: $shadow-victory;
+      background: darken($championship-gold, 10%);
+    }
+    
+    &:active {
+      transform: translate(-1px, -1px) scale($impact-scale);
+      box-shadow: 2px 2px 0 darken($championship-gold, 20%);
+    }
+  }
+  
+  &--ghost {
+    background: transparent;
+    color: $text-primary;
+    border: $border-primary;
+    
+    &:hover {
+      background: $bg-primary;
+      transform: translate(-2px, -2px);
+      box-shadow: $shadow-harsh;
+    }
+    
+    &:active {
+      transform: scale($impact-scale);
+      background: darken($bg-primary, 5%);
+    }
+  }
+  
+  // Sizes
+  &--small {
+    padding: $space-xs $space-sm;
+    font-size: $font-size-small;
+    
+    .combat-btn__text {
+      letter-spacing: 0.05em;
+    }
+  }
+  
+  &--medium {
+    padding: $space-sm $space-md;
+    font-size: $font-size-normal;
+  }
+  
+  &--large {
+    padding: $space-md $space-lg;
+    font-size: $font-size-medium;
+    border-width: $border-mega;
+    
+    &:hover {
+      transform: translate(-4px, -4px);
+    }
+  }
+  
+  &--mega {
+    padding: $space-lg $space-xl;
+    font-size: $font-size-large;
+    border-width: $border-mega;
+    
+    .combat-btn__text {
+      font-family: $font-display;
+      letter-spacing: 0.05em;
+    }
+    
+    &:hover {
+      transform: translate(-6px, -6px);
+      box-shadow: 8px 8px 0 currentColor;
+    }
+  }
+  
+  // Impact flash effect
+  &.impact-flash {
+    &:active,
+    &.flash {
+      .combat-btn__impact {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+  
+  // Special effects
+  &.brutalist-shadow {
+    box-shadow: $shadow-harsh;
+    
+    &:hover {
+      box-shadow: 
+        $shadow-harsh,
+        inset 0 0 10px rgba($iron-black, 0.1);
+    }
+  }
+  
+  &.gritty-texture {
+    @extend .gritty-overlay;
+  }
+  
+  // Responsive adjustments
+  @media (max-width: $breakpoint-md) {
+    &--mega {
+      padding: $space-md $space-lg;
+      font-size: $font-size-medium;
+    }
+    
+    &--large {
+      padding: $space-sm $space-md;
+      font-size: $font-size-normal;
+    }
+  }
+  
+  // Focus states for accessibility
+  &:focus {
+    outline: 2px solid $blood-red;
+    outline-offset: 2px;
+  }
+  
+  // Animation for loading state
+  &.loading {
+    .combat-btn__text {
+      opacity: 0.7;
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      margin: -10px 0 0 -10px;
+      border: 2px solid transparent;
+      border-top: 2px solid currentColor;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+  }
+}
+
+// Loading animation
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// Hover effect for parent containers
+.combat-btn-group {
+  display: flex;
+  gap: $space-md;
+  flex-wrap: wrap;
+  align-items: center;
+  
+  &.center {
+    justify-content: center;
+  }
+  
+  &.stack {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    gap: $space-sm;
+    
+    &.responsive-stack {
+      flex-direction: column;
+      
+      .combat-btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
+</style>

@@ -1,0 +1,90 @@
+// The Scrap Pit - Design System Variables
+// Raw, uncompromising visual experience for combat sports
+
+// Primary Colors
+$ghost-white: #F8F8FF;    // Base background, negative space
+$iron-black: #1A1A1A;     // Deep black for contrast and depth
+$blood-red: #E00000;      // Aggression and impact
+$championship-gold: #CC9900; // Victory and focus
+
+// Color Aliases for Context
+$color-primary: $ghost-white;
+$color-primary-dark: $iron-black;
+$color-accent-aggressive: $blood-red;
+$color-accent-victory: $championship-gold;
+
+// Background Colors
+$bg-primary: $ghost-white;
+$bg-dark: $iron-black;
+$bg-overlay: rgba($iron-black, 0.8);
+
+// Text Colors
+$text-primary: $iron-black;
+$text-inverse: $ghost-white;
+$text-accent: $blood-red;
+$text-highlight: $championship-gold;
+
+// Typography
+// Headings/Display: Bebas Neue or Anton (tall, condensed, strong)
+$font-display: 'Bebas Neue', 'Anton', 'Arial Black', sans-serif;
+// Body/Utility: Space Mono or IBM Plex Mono (technical, raw, legible)
+$font-body: 'Space Mono', 'IBM Plex Mono', 'Courier New', monospace;
+
+// Font Sizes (Brutalist - Big and Bold)
+$font-size-mega: 4rem;     // 64px - Massive headlines
+$font-size-huge: 3rem;     // 48px - Large titles
+$font-size-large: 2rem;    // 32px - Section headers
+$font-size-medium: 1.5rem; // 24px - Subheadings
+$font-size-normal: 1rem;   // 16px - Body text
+$font-size-small: 0.875rem; // 14px - Small text
+
+// Line Heights
+$line-height-tight: 0.9;   // For display text
+$line-height-normal: 1.2;  // For body text
+$line-height-loose: 1.5;   // For longer text
+
+// Spacing (Big spaces for brutalist design)
+$space-xs: 0.5rem;   // 8px
+$space-sm: 1rem;     // 16px
+$space-md: 2rem;     // 32px
+$space-lg: 4rem;     // 64px
+$space-xl: 6rem;     // 96px
+$space-xxl: 8rem;    // 128px
+$space-mega: 12rem;  // 192px
+
+// Borders (Sharp, bold edges)
+$border-thin: 2px;
+$border-thick: 4px;
+$border-mega: 8px;
+
+// Border Styles
+$border-primary: $border-thick solid $iron-black;
+$border-accent: $border-thick solid $blood-red;
+$border-victory: $border-thick solid $championship-gold;
+
+// Shadows (Hard, stark shadows for brutalism)
+$shadow-harsh: 8px 8px 0 $iron-black;
+$shadow-accent: 6px 6px 0 $blood-red;
+$shadow-victory: 4px 4px 0 $championship-gold;
+
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1200px;
+
+// Z-Index
+$z-cursor: 9999;
+$z-overlay: 1000;
+$z-modal: 100;
+$z-header: 50;
+$z-content: 1;
+
+// Transition/Animation
+$transition-quick: 0.15s ease-out;
+$transition-normal: 0.3s ease-out;
+$transition-slow: 0.5s ease-out;
+
+// Impact animations (sharp, decisive)
+$impact-scale: 0.95;
+$impact-duration: 0.1s;

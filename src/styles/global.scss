@@ -1,0 +1,310 @@
+// Global Styles for The Scrap Pit
+// Brutalist Combat Sports Aesthetic
+
+@import 'variables';
+@import 'color_filters';
+
+// Import fonts
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&family=Space+Mono:wght@400;700&display=swap');
+
+// Reset and Base Styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-body;
+  font-size: $font-size-normal;
+  line-height: $line-height-normal;
+  color: $text-primary;
+  background-color: $bg-primary;
+  overflow-x: hidden;
+  
+  // Brutalist typography
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+// Typography Hierarchy
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-display;
+  font-weight: 400;
+  line-height: $line-height-tight;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: $space-sm;
+}
+
+h1 {
+  font-size: $font-size-mega;
+  margin-bottom: $space-lg;
+}
+
+h2 {
+  font-size: $font-size-huge;
+  margin-bottom: $space-md;
+}
+
+h3 {
+  font-size: $font-size-large;
+  margin-bottom: $space-md;
+}
+
+h4 {
+  font-size: $font-size-medium;
+  margin-bottom: $space-sm;
+}
+
+// Massive Display Text
+.display-title {
+  font-family: $font-display;
+  font-size: clamp(3rem, 8vw, 8rem);
+  line-height: $line-height-tight;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+}
+
+.display-subtitle {
+  font-family: $font-display;
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  line-height: $line-height-tight;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+// Body Text
+p {
+  margin-bottom: $space-sm;
+  font-size: $font-size-normal;
+  line-height: $line-height-normal;
+  
+  &.large {
+    font-size: $font-size-medium;
+    line-height: $line-height-loose;
+  }
+  
+  &.small {
+    font-size: $font-size-small;
+  }
+}
+
+// Links
+a {
+  color: $text-accent;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color $transition-quick;
+  
+  &:hover {
+    border-bottom-color: $text-accent;
+  }
+  
+  &.button-link {
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+  }
+}
+
+// Brutalist Layout Utilities
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $space-md;
+}
+
+.section {
+  padding: $space-xl 0;
+  
+  &.hero {
+    padding: $space-xxl 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+  
+  &.large-spacing {
+    padding: $space-mega 0;
+  }
+}
+
+// Grid System (Brutalist)
+.grid {
+  display: grid;
+  gap: $space-lg;
+  
+  &.two-col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  &.three-col {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  &.four-col {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    &.two-col,
+    &.three-col,
+    &.four-col {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+// Flexbox Utilities
+.flex {
+  display: flex;
+  
+  &.center {
+    justify-content: center;
+    align-items: center;
+  }
+  
+  &.between {
+    justify-content: space-between;
+  }
+  
+  &.column {
+    flex-direction: column;
+  }
+}
+
+// Spacing Utilities
+.mt-auto { margin-top: auto; }
+.mb-auto { margin-bottom: auto; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+
+.mt-lg { margin-top: $space-lg; }
+.mb-lg { margin-bottom: $space-lg; }
+.mt-xl { margin-top: $space-xl; }
+.mb-xl { margin-bottom: $space-xl; }
+
+// Text Utilities
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.text-inverse { color: $text-inverse; }
+.text-accent { color: $text-accent; }
+.text-highlight { color: $text-highlight; }
+
+.text-uppercase { text-transform: uppercase; }
+.text-bold { font-weight: 700; }
+
+// Background Utilities
+.bg-dark { background-color: $bg-dark; }
+.bg-primary { background-color: $bg-primary; }
+
+// Image Handling
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.image-fit {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// Buttons Base (will be extended in components)
+.btn {
+  display: inline-block;
+  padding: $space-sm $space-md;
+  border: $border-primary;
+  background: $bg-primary;
+  color: $text-primary;
+  font-family: $font-body;
+  font-size: $font-size-normal;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all $transition-quick;
+  text-decoration: none;
+  
+  &:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: $shadow-harsh;
+  }
+  
+  &:active {
+    transform: scale($impact-scale);
+  }
+  
+  &.accent {
+    background: $blood-red;
+    color: $text-inverse;
+    border-color: $blood-red;
+    
+    &:hover {
+      box-shadow: $shadow-accent;
+    }
+  }
+  
+  &.victory {
+    background: $championship-gold;
+    color: $text-primary;
+    border-color: $championship-gold;
+    
+    &:hover {
+      box-shadow: $shadow-victory;
+    }
+  }
+}
+
+// Responsive Typography
+@media (max-width: $breakpoint-md) {
+  .display-title {
+    font-size: clamp(2rem, 6vw, 4rem);
+  }
+  
+  .display-subtitle {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+  }
+  
+  h1 { font-size: $font-size-huge; }
+  h2 { font-size: $font-size-large; }
+  h3 { font-size: $font-size-medium; }
+  
+  .section {
+    padding: $space-lg 0;
+    
+    &.hero {
+      padding: $space-xl 0;
+    }
+  }
+}
+
+// Accessibility
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Custom Cursor Support
+.cursor-grit {
+  cursor: none;
+}

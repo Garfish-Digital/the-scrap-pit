@@ -1,0 +1,342 @@
+---
+// FightLayout.astro - Brutalist Combat Sports Layout
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+}
+
+const { title, description = "The Scrap Pit - Forged in Fire. Tested in Battle.", image = "/og-image.jpg" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content={description}>
+  <meta name="generator" content={Astro.generator}>
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content={Astro.url}>
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:image" content={image}>
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content={Astro.url}>
+  <meta property="twitter:title" content={title}>
+  <meta property="twitter:description" content={description}>
+  <meta property="twitter:image" content={image}>
+  
+  <title>{title}</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  
+  <!-- Preload Critical Fonts -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&family=Space+Mono:wght@400;700&display=swap" as="style">
+  
+  <!-- Global Styles -->
+  <style lang="scss">
+    @import '../styles/global.scss';
+  </style>
+</head>
+
+<body class="cursor-grit">
+  <!-- Custom Cursor Component -->
+  <div id="grit-cursor" class="grit-cursor">
+    <div class="cursor-trail"></div>
+  </div>
+  
+  <!-- Navigation -->
+  <nav class="nav-brutalist">
+    <div class="container">
+      <div class="nav-content">
+        <a href="/" class="nav-logo">
+          <span class="logo-text">THE SCRAP PIT</span>
+        </a>
+        
+        <ul class="nav-links">
+          <li><a href="#training" class="nav-link">TRAINING</a></li>
+          <li><a href="#fighters" class="nav-link">FIGHTERS</a></li>
+          <li><a href="#join" class="nav-link">JOIN</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Main Content -->
+  <main>
+    <slot />
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer-brutalist">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>THE SCRAP PIT</h3>
+          <p>Forged in Fire. Tested in Battle.</p>
+        </div>
+        
+        <div class="footer-section">
+          <h4>TRAINING</h4>
+          <ul>
+            <li><a href="#striking">Striking</a></li>
+            <li><a href="#grappling">Grappling</a></li>
+            <li><a href="#conditioning">Conditioning</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>CONNECT</h4>
+          <ul>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#location">Location</a></li>
+            <li><a href="#schedule">Schedule</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2024 The Scrap Pit. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- JavaScript for Custom Cursor and Scroll Effects -->
+  <script>
+    // Custom Cursor Trail
+    class GritCursor {
+      constructor() {
+        this.cursor = document.getElementById('grit-cursor');
+        this.trail = this.cursor.querySelector('.cursor-trail');
+        this.pos = { x: 0, y: 0 };
+        this.targetPos = { x: 0, y: 0 };
+        
+        this.init();
+      }
+      
+      init() {
+        document.addEventListener('mousemove', (e) => {
+          this.targetPos.x = e.clientX;
+          this.targetPos.y = e.clientY;
+        });
+        
+        this.animate();
+      }
+      
+      animate() {
+        // Smooth follow with slight delay
+        this.pos.x += (this.targetPos.x - this.pos.x) * 0.1;
+        this.pos.y += (this.targetPos.y - this.pos.y) * 0.1;
+        
+        this.cursor.style.transform = `translate(${this.pos.x}px, ${this.pos.y}px)`;
+        
+        requestAnimationFrame(() => this.animate());
+      }
+    }
+    
+    // Scroll-triggered Monochrome to Color Effect
+    class ScrollColorReveal {
+      constructor() {
+        this.elements = document.querySelectorAll('.mono-to-color');
+        this.init();
+      }
+      
+      init() {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+            }
+          });
+        }, {
+          threshold: 0.3
+        });
+        
+        this.elements.forEach(el => observer.observe(el));
+      }
+    }
+    
+    // Impact Button Effects
+    class ImpactEffects {
+      constructor() {
+        this.buttons = document.querySelectorAll('.impact-flash');
+        this.init();
+      }
+      
+      init() {
+        this.buttons.forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.target.classList.add('flash');
+            setTimeout(() => {
+              e.target.classList.remove('flash');
+            }, 150);
+          });
+        });
+      }
+    }
+    
+    // Initialize all effects
+    document.addEventListener('DOMContentLoaded', () => {
+      new GritCursor();
+      new ScrollColorReveal();
+      new ImpactEffects();
+    });
+  </script>
+</body>
+</html>
+
+<style lang="scss">
+@import '../styles/variables';
+@import '../styles/color_filters';
+
+// Navigation Styles
+.nav-brutalist {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: $bg-primary;
+  border-bottom: $border-primary;
+  z-index: $z-header;
+  
+  .nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $space-sm 0;
+  }
+  
+  .nav-logo {
+    .logo-text {
+      font-family: $font-display;
+      font-size: $font-size-large;
+      font-weight: 400;
+      color: $text-primary;
+      text-decoration: none;
+      letter-spacing: 0.1em;
+    }
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: $space-lg;
+    
+    .nav-link {
+      font-family: $font-body;
+      font-size: $font-size-normal;
+      font-weight: 700;
+      color: $text-primary;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-bottom: 2px solid transparent;
+      transition: border-color $transition-quick;
+      
+      &:hover {
+        border-bottom-color: $text-accent;
+      }
+    }
+  }
+}
+
+// Main Content Spacing
+main {
+  margin-top: 80px; // Account for fixed nav
+}
+
+// Footer Styles
+.footer-brutalist {
+  background: $bg-dark;
+  color: $text-inverse;
+  padding: $space-xl 0 $space-md;
+  border-top: $border-thick solid $text-accent;
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-lg;
+    margin-bottom: $space-lg;
+    
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .footer-section {
+    h3, h4 {
+      font-family: $font-display;
+      color: $text-highlight;
+      margin-bottom: $space-sm;
+    }
+    
+    ul {
+      list-style: none;
+      
+      li {
+        margin-bottom: $space-xs;
+        
+        a {
+          color: $text-inverse;
+          text-decoration: none;
+          
+          &:hover {
+            color: $text-accent;
+          }
+        }
+      }
+    }
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    padding-top: $space-md;
+    border-top: 1px solid rgba($text-inverse, 0.2);
+    font-size: $font-size-small;
+  }
+}
+
+// Custom Cursor Styles
+.grit-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  z-index: $z-cursor;
+  
+  .cursor-trail {
+    width: 100%;
+    height: 100%;
+    background: $blood-red;
+    border-radius: 50%;
+    opacity: 0.8;
+    box-shadow: 0 0 10px rgba($blood-red, 0.5);
+  }
+}
+
+// Responsive Navigation
+@media (max-width: $breakpoint-md) {
+  .nav-brutalist {
+    .nav-content {
+      flex-direction: column;
+      gap: $space-sm;
+    }
+    
+    .nav-links {
+      gap: $space-md;
+    }
+  }
+  
+  main {
+    margin-top: 120px; // Adjust for stacked nav
+  }
+}
+</style>

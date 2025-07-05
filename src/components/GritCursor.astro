@@ -1,0 +1,345 @@
+---
+// GritCursor.astro - Custom Combat Sports Cursor Component
+interface Props {
+  variant?: 'default' | 'red' | 'gold' | 'minimal';
+  size?: 'small' | 'medium' | 'large';
+  trailLength?: number;
+  className?: string;
+  disabled?: boolean;
+}
+
+const { 
+  variant = 'default', 
+  size = 'medium',
+  trailLength = 5,
+  className = '',
+  disabled = false
+} = Astro.props;
+
+const cursorId = `grit-cursor-${Math.random().toString(36).substr(2, 9)}`;
+const classes = `grit-cursor grit-cursor--${variant} grit-cursor--${size} ${className}`;
+---
+
+{!disabled && (
+  <div id={cursorId} class={classes}>
+    <div class="cursor-core"></div>
+    <div class="cursor-trail"></div>
+    {Array.from({ length: trailLength }).map((_, i) => (
+      <div class="cursor-particle" data-delay={i * 0.05}></div>
+    ))}
+  </div>
+)}
+
+<script define:vars={{ cursorId, disabled, trailLength }}>
+  if (!disabled) {
+    class GritCursor {
+      constructor(cursorId, trailLength) {
+        this.cursor = document.getElementById(cursorId);
+        this.core = this.cursor.querySelector('.cursor-core');
+        this.trail = this.cursor.querySelector('.cursor-trail');
+        this.particles = this.cursor.querySelectorAll('.cursor-particle');
+        this.pos = { x: 0, y: 0 };
+        this.targetPos = { x: 0, y: 0 };
+        this.trailHistory = [];
+        this.isActive = false;
+        this.clickEffect = false;
+        
+        this.init();
+      }
+      
+      init() {
+        // Hide default cursor
+        document.body.style.cursor = 'none';
+        
+        // Mouse movement
+        document.addEventListener('mousemove', (e) => {
+          this.targetPos.x = e.clientX;
+          this.targetPos.y = e.clientY;
+          
+          if (!this.isActive) {
+            this.isActive = true;
+            this.cursor.style.opacity = '1';
+          }
+        });
+        
+        // Mouse leave
+        document.addEventListener('mouseleave', () => {
+          this.isActive = false;
+          this.cursor.style.opacity = '0';
+        });
+        
+        // Click effects
+        document.addEventListener('mousedown', () => {
+          this.clickEffect = true;
+          this.cursor.classList.add('clicking');
+        });
+        
+        document.addEventListener('mouseup', () => {
+          this.clickEffect = false;
+          this.cursor.classList.remove('clicking');
+        });
+        
+        // Hover effects on interactive elements
+        this.setupHoverEffects();
+        
+        // Start animation
+        this.animate();
+      }
+      
+      setupHoverEffects() {
+        const interactiveElements = 'a, button, [role="button"], .combat-btn, .nav-link, .btn';
+        
+        document.addEventListener('mouseover', (e) => {
+          if (e.target.matches(interactiveElements)) {
+            this.cursor.classList.add('hovering');
+          }
+        });
+        
+        document.addEventListener('mouseout', (e) => {
+          if (e.target.matches(interactiveElements)) {
+            this.cursor.classList.remove('hovering');
+          }
+        });
+      }
+      
+      animate() {
+        // Smooth follow with slight delay
+        const ease = 0.15;
+        this.pos.x += (this.targetPos.x - this.pos.x) * ease;
+        this.pos.y += (this.targetPos.y - this.pos.y) * ease;
+        
+        // Update cursor position
+        this.cursor.style.transform = `translate(${this.pos.x}px, ${this.pos.y}px)`;
+        
+        // Update trail history
+        this.trailHistory.push({ x: this.pos.x, y: this.pos.y });
+        if (this.trailHistory.length > trailLength) {
+          this.trailHistory.shift();
+        }
+        
+        // Update particles
+        this.particles.forEach((particle, index) => {
+          const historyIndex = this.trailHistory.length - 1 - (index + 1);
+          if (historyIndex >= 0) {
+            const pos = this.trailHistory[historyIndex];
+            particle.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
+            particle.style.opacity = (1 - (index / trailLength)) * 0.7;
+          }
+        });
+        
+        requestAnimationFrame(() => this.animate());
+      }
+    }
+    
+    // Initialize cursor when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      new GritCursor(cursorId, trailLength);
+    });
+  }
+</script>
+
+<style lang="scss">
+@import '../styles/variables';
+
+.grit-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: $z-cursor;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  
+  .cursor-core {
+    position: absolute;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.15s ease;
+  }
+  
+  .cursor-trail {
+    position: absolute;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.3;
+    transition: all 0.2s ease;
+  }
+  
+  .cursor-particle {
+    position: absolute;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.1s ease;
+  }
+  
+  // Variants
+  &--default {
+    .cursor-core {
+      width: 8px;
+      height: 8px;
+      background: $blood-red;
+      border: 2px solid $ghost-white;
+      box-shadow: 0 0 10px rgba($blood-red, 0.5);
+    }
+    
+    .cursor-trail {
+      width: 20px;
+      height: 20px;
+      background: rgba($blood-red, 0.3);
+      border: 1px solid rgba($blood-red, 0.5);
+    }
+    
+    .cursor-particle {
+      width: 4px;
+      height: 4px;
+      background: rgba($blood-red, 0.6);
+    }
+  }
+  
+  &--red {
+    .cursor-core {
+      width: 10px;
+      height: 10px;
+      background: $blood-red;
+      box-shadow: 0 0 15px rgba($blood-red, 0.7);
+    }
+    
+    .cursor-trail {
+      width: 25px;
+      height: 25px;
+      background: rgba($blood-red, 0.2);
+      border: 2px solid rgba($blood-red, 0.4);
+    }
+    
+    .cursor-particle {
+      width: 6px;
+      height: 6px;
+      background: rgba($blood-red, 0.8);
+    }
+  }
+  
+  &--gold {
+    .cursor-core {
+      width: 8px;
+      height: 8px;
+      background: $championship-gold;
+      border: 2px solid $iron-black;
+      box-shadow: 0 0 12px rgba($championship-gold, 0.6);
+    }
+    
+    .cursor-trail {
+      width: 18px;
+      height: 18px;
+      background: rgba($championship-gold, 0.3);
+      border: 1px solid rgba($championship-gold, 0.5);
+    }
+    
+    .cursor-particle {
+      width: 3px;
+      height: 3px;
+      background: rgba($championship-gold, 0.7);
+    }
+  }
+  
+  &--minimal {
+    .cursor-core {
+      width: 6px;
+      height: 6px;
+      background: $iron-black;
+      border: 1px solid $ghost-white;
+    }
+    
+    .cursor-trail {
+      width: 12px;
+      height: 12px;
+      background: rgba($iron-black, 0.2);
+    }
+    
+    .cursor-particle {
+      width: 2px;
+      height: 2px;
+      background: rgba($iron-black, 0.4);
+    }
+  }
+  
+  // Sizes
+  &--small {
+    .cursor-core {
+      width: 6px;
+      height: 6px;
+    }
+    
+    .cursor-trail {
+      width: 15px;
+      height: 15px;
+    }
+    
+    .cursor-particle {
+      width: 2px;
+      height: 2px;
+    }
+  }
+  
+  &--large {
+    .cursor-core {
+      width: 12px;
+      height: 12px;
+    }
+    
+    .cursor-trail {
+      width: 30px;
+      height: 30px;
+    }
+    
+    .cursor-particle {
+      width: 8px;
+      height: 8px;
+    }
+  }
+  
+  // States
+  &.hovering {
+    .cursor-core {
+      transform: translate(-50%, -50%) scale(1.5);
+      background: $championship-gold;
+      box-shadow: 0 0 20px rgba($championship-gold, 0.8);
+    }
+    
+    .cursor-trail {
+      transform: translate(-50%, -50%) scale(1.2);
+      background: rgba($championship-gold, 0.4);
+    }
+  }
+  
+  &.clicking {
+    .cursor-core {
+      transform: translate(-50%, -50%) scale(0.8);
+      background: $ghost-white;
+      box-shadow: 0 0 15px rgba($ghost-white, 0.9);
+    }
+    
+    .cursor-trail {
+      transform: translate(-50%, -50%) scale(1.5);
+      background: rgba($blood-red, 0.6);
+    }
+  }
+}
+
+// Responsive - Hide on touch devices
+@media (hover: none) and (pointer: coarse) {
+  .grit-cursor {
+    display: none;
+  }
+}
+
+// Accessibility - Respect user preferences
+@media (prefers-reduced-motion: reduce) {
+  .grit-cursor {
+    .cursor-core,
+    .cursor-trail,
+    .cursor-particle {
+      transition: none;
+    }
+  }
+}
+</style>
