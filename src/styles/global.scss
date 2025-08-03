@@ -27,6 +27,14 @@ body {
   background-color: $bg-primary;
   overflow-x: hidden;
   
+  // Hide scrollbars globally while maintaining scroll functionality
+  scrollbar-width: none; // Firefox
+  -ms-overflow-style: none; // Internet Explorer 10+
+  
+  &::-webkit-scrollbar {
+    display: none; // WebKit browsers (Chrome, Safari, Edge)
+  }
+  
   // Brutalist typography
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -302,6 +310,16 @@ img {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+// Global Scrollbar Hiding for All Elements
+* {
+  scrollbar-width: none; // Firefox
+  -ms-overflow-style: none; // Internet Explorer 10+
+  
+  &::-webkit-scrollbar {
+    display: none; // WebKit browsers (Chrome, Safari, Edge)
+  }
 }
 
 // Custom Cursor Support

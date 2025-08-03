@@ -1,0 +1,493 @@
+---
+// Pricing Page - The Scrap Pit
+import FightLayout from '../layouts/FightLayout.astro';
+import CombatButton from '../components/CombatButton.astro';
+---
+
+<FightLayout 
+  title="Pricing - The Scrap Pit"
+  description="Choose your path to greatness. Flexible membership options for every fighter's journey."
+>
+  <!-- Pricing Hero -->
+  <section class="pricing-hero section">
+    <div class="container">
+      <div class="pricing-hero-content">
+        <h1 class="display-title">CHOOSE YOUR BATTLE</h1>
+        <p class="display-subtitle">PRICING PLANS FOR EVERY WARRIOR</p>
+        <p class="hero-description">
+          From beginner to champion, we have a plan that fits your commitment level and goals.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Plans -->
+  <section class="pricing-plans section">
+    <div class="container">
+      
+      <div class="pricing-grid">
+        
+        <!-- Warrior Plan -->
+        <div class="pricing-card basic">
+          <div class="card-header">
+            <div class="plan-icon">
+              <i class="fa-solid fa-shield"></i>
+            </div>
+            <h3 class="plan-name">WARRIOR</h3>
+            <p class="plan-subtitle">Perfect for beginners</p>
+          </div>
+          
+          <div class="card-pricing">
+            <span class="price">$89</span>
+            <span class="period">/month</span>
+          </div>
+          
+          <div class="card-features">
+            <ul class="features-list">
+              <li><i class="fa-solid fa-check"></i> 8 Classes per month</li>
+              <li><i class="fa-solid fa-check"></i> Basic locker access</li>
+              <li><i class="fa-solid fa-check"></i> Open gym access</li>
+              <li><i class="fa-solid fa-check"></i> Beginner workshops</li>
+              <li><i class="fa-solid fa-times"></i> Personal training</li>
+              <li><i class="fa-solid fa-times"></i> Advanced seminars</li>
+            </ul>
+          </div>
+          
+          <div class="card-action">
+            <CombatButton text="Start Training" variant="ghost" size="large" className="pricing-btn" />
+          </div>
+        </div>
+
+        <!-- Champion Plan (Popular) -->
+        <div class="pricing-card popular">
+          <div class="popular-badge">
+            <i class="fa-solid fa-crown"></i>
+            MOST POPULAR
+          </div>
+          
+          <div class="card-header">
+            <div class="plan-icon">
+              <i class="fa-solid fa-fist-raised"></i>
+            </div>
+            <h3 class="plan-name">CHAMPION</h3>
+            <p class="plan-subtitle">For serious fighters</p>
+          </div>
+          
+          <div class="card-pricing">
+            <span class="price">$149</span>
+            <span class="period">/month</span>
+          </div>
+          
+          <div class="card-features">
+            <ul class="features-list">
+              <li><i class="fa-solid fa-check"></i> Unlimited classes</li>
+              <li><i class="fa-solid fa-check"></i> Premium locker</li>
+              <li><i class="fa-solid fa-check"></i> 24/7 gym access</li>
+              <li><i class="fa-solid fa-check"></i> All workshops</li>
+              <li><i class="fa-solid fa-check"></i> 2 Personal training/month</li>
+              <li><i class="fa-solid fa-check"></i> Advanced seminars</li>
+            </ul>
+          </div>
+          
+          <div class="card-action">
+            <CombatButton text="Become Champion" variant="accent" size="large" className="pricing-btn" />
+          </div>
+        </div>
+
+        <!-- Legend Plan -->
+        <div class="pricing-card premium">
+          <div class="card-header">
+            <div class="plan-icon">
+              <i class="fa-solid fa-trophy"></i>
+            </div>
+            <h3 class="plan-name">LEGEND</h3>
+            <p class="plan-subtitle">Elite training experience</p>
+          </div>
+          
+          <div class="card-pricing">
+            <span class="price">$249</span>
+            <span class="period">/month</span>
+          </div>
+          
+          <div class="card-features">
+            <ul class="features-list">
+              <li><i class="fa-solid fa-check"></i> Unlimited everything</li>
+              <li><i class="fa-solid fa-check"></i> VIP locker room</li>
+              <li><i class="fa-solid fa-check"></i> Private training area</li>
+              <li><i class="fa-solid fa-check"></i> Priority class booking</li>
+              <li><i class="fa-solid fa-check"></i> Unlimited personal training</li>
+              <li><i class="fa-solid fa-check"></i> Exclusive events</li>
+            </ul>
+          </div>
+          
+          <div class="card-action">
+            <CombatButton text="Join Elite" variant="victory" size="large" className="pricing-btn" />
+          </div>
+        </div>
+        
+      </div>
+      
+      <!-- Additional Options -->
+      <div class="additional-options">
+        <h2 class="section-title">
+          <i class="fa-solid fa-plus"></i>
+          ADDITIONAL OPTIONS
+        </h2>
+        
+        <div class="options-grid">
+          <div class="option-card">
+            <h4><i class="fa-solid fa-clock"></i> Day Pass</h4>
+            <p class="option-price">$25</p>
+            <p>Perfect for trying us out</p>
+          </div>
+          
+          <div class="option-card">
+            <h4><i class="fa-solid fa-calendar-week"></i> Weekly Pass</h4>
+            <p class="option-price">$65</p>
+            <p>One week unlimited access</p>
+          </div>
+          
+          <div class="option-card">
+            <h4><i class="fa-solid fa-user-graduate"></i> Personal Training</h4>
+            <p class="option-price">$80/session</p>
+            <p>One-on-one expert coaching</p>
+          </div>
+          
+          <div class="option-card">
+            <h4><i class="fa-solid fa-users"></i> Small Group (2-4)</h4>
+            <p class="option-price">$45/person</p>
+            <p>Semi-private training</p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Guarantee Section -->
+  <section class="guarantee section bg-dark">
+    <div class="container">
+      <div class="guarantee-content">
+        <div class="guarantee-icon">
+          <i class="fa-solid fa-medal"></i>
+        </div>
+        <h2 class="guarantee-title">30-DAY WARRIOR GUARANTEE</h2>
+        <p class="guarantee-text">
+          Not satisfied with your training? Get a full refund within 30 days. 
+          But once you experience The Scrap Pit, you won't want to leave.
+        </p>
+        <div class="guarantee-action">
+          <CombatButton text="Start Risk-Free Trial" href="/contact" variant="victory" size="mega" />
+        </div>
+      </div>
+    </div>
+  </section>
+</FightLayout>
+
+<style lang="scss">
+@import '../styles/variables';
+@import '../styles/color_filters';
+
+// Pricing Hero
+.pricing-hero {
+  padding: $space-mega 0 $space-xl 0;
+  background: linear-gradient(135deg, 
+    rgba($iron-black, 0.95) 0%, 
+    rgba($iron-black, 0.8) 50%, 
+    rgba($iron-black, 0.95) 100%
+  );
+  
+  .pricing-hero-content {
+    text-align: center;
+    color: $text-inverse;
+    max-width: 800px;
+    margin: 0 auto;
+    
+    .display-title {
+      margin-bottom: $space-md;
+      color: $text-inverse;
+      text-shadow: 4px 4px 0 $blood-red;
+    }
+    
+    .display-subtitle {
+      color: $championship-gold;
+      margin-bottom: $space-lg;
+    }
+    
+    .hero-description {
+      font-size: $font-size-medium;
+      opacity: 0.9;
+    }
+  }
+}
+
+// Pricing Plans
+.pricing-plans {
+  padding: $space-xl $space-sm;
+  
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-lg;
+    margin-bottom: $space-xxl;
+    
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: 1fr;
+      gap: $space-md;
+    }
+  }
+}
+
+// Pricing Cards
+.pricing-card {
+  position: relative;
+  border: $border-primary;
+  background: $bg-primary;
+  padding: $space-lg;
+  transition: all $transition-normal;
+  
+  &:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: $shadow-harsh;
+  }
+  
+  &.popular {
+    border-color: $blood-red;
+    border-width: $border-mega;
+    transform: scale(1.05);
+    
+    &:hover {
+      transform: scale(1.05) translate(-4px, -4px);
+      box-shadow: $shadow-accent;
+    }
+  }
+  
+  .popular-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: $blood-red;
+    color: $text-inverse;
+    padding: $space-xs $space-md;
+    font-family: $font-display;
+    font-size: $font-size-small;
+    letter-spacing: 0.1em;
+    
+    i {
+      margin-right: $space-xs;
+    }
+  }
+  
+  .card-header {
+    text-align: center;
+    margin-bottom: $space-lg;
+    
+    .plan-icon {
+      font-size: $font-size-huge;
+      color: $blood-red;
+      margin-bottom: $space-md;
+      
+      .premium & {
+        color: $championship-gold;
+      }
+    }
+    
+    .plan-name {
+      font-family: $font-display;
+      font-size: $font-size-large;
+      color: $text-primary;
+      margin-bottom: $space-xs;
+    }
+    
+    .plan-subtitle {
+      color: rgba($text-primary, 0.7);
+      font-size: $font-size-small;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+  }
+  
+  .card-pricing {
+    text-align: center;
+    margin-bottom: $space-lg;
+    
+    .price {
+      font-family: $font-display;
+      font-size: $font-size-huge;
+      color: $text-primary;
+    }
+    
+    .period {
+      font-size: $font-size-normal;
+      color: rgba($text-primary, 0.7);
+    }
+  }
+  
+  .card-features {
+    margin-bottom: $space-lg;
+    
+    .features-list {
+      list-style: none;
+      
+      li {
+        display: flex;
+        align-items: center;
+        gap: $space-sm;
+        padding: $space-xs 0;
+        border-bottom: 1px solid rgba($iron-black, 0.1);
+        
+        &:last-child {
+          border-bottom: none;
+        }
+        
+        i {
+          width: 20px;
+          font-size: $font-size-normal;
+          
+          &.fa-check {
+            color: $championship-gold;
+          }
+          
+          &.fa-times {
+            color: rgba($text-primary, 0.3);
+          }
+        }
+      }
+    }
+  }
+  
+  .card-action {
+    .pricing-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}
+
+// Additional Options
+.additional-options {
+  .section-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-sm;
+    margin-bottom: $space-lg;
+    text-align: center;
+    
+    i {
+      color: $championship-gold;
+    }
+  }
+  
+  .options-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $space-md;
+    
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .option-card {
+    text-align: center;
+    padding: $space-md;
+    border: $border-primary;
+    background: rgba($ghost-white, 0.5);
+    transition: all $transition-quick;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 4px 4px 0 $iron-black;
+    }
+    
+    h4 {
+      font-family: $font-display;
+      font-size: $font-size-medium;
+      color: $text-primary;
+      margin-bottom: $space-sm;
+      
+      i {
+        color: $blood-red;
+        margin-right: $space-xs;
+      }
+    }
+    
+    .option-price {
+      font-family: $font-display;
+      font-size: $font-size-large;
+      color: $championship-gold;
+      margin-bottom: $space-xs;
+    }
+    
+    p:last-child {
+      font-size: $font-size-small;
+      color: rgba($text-primary, 0.7);
+      margin: 0;
+    }
+  }
+}
+
+// Guarantee Section
+.guarantee {
+  padding: $space-xl 0;
+  text-align: center;
+  
+  .guarantee-content {
+    max-width: 800px;
+    margin: 0 auto;
+    color: $text-inverse;
+    
+    .guarantee-icon {
+      font-size: 4rem;
+      color: $championship-gold;
+      margin-bottom: $space-md;
+    }
+    
+    .guarantee-title {
+      font-family: $font-display;
+      font-size: $font-size-huge;
+      color: $text-inverse;
+      margin-bottom: $space-md;
+      text-shadow: 2px 2px 0 $blood-red;
+    }
+    
+    .guarantee-text {
+      font-size: $font-size-medium;
+      line-height: $line-height-loose;
+      margin-bottom: $space-lg;
+      opacity: 0.9;
+    }
+    
+    .guarantee-action {
+      margin-top: $space-lg;
+    }
+  }
+}
+
+// Responsive
+@media (max-width: $breakpoint-md) {
+  .pricing-hero {
+    padding: $space-xl 0 $space-lg 0;
+    
+    .display-title {
+      font-size: $font-size-huge;
+    }
+  }
+  
+  .pricing-card {
+    &.popular {
+      transform: none;
+      
+      &:hover {
+        transform: translate(-4px, -4px);
+      }
+    }
+  }
+}
+</style>

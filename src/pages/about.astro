@@ -1,0 +1,562 @@
+---
+// About Page - The Scrap Pit
+import FightLayout from '../layouts/FightLayout.astro';
+import CombatButton from '../components/CombatButton.astro';
+---
+
+<FightLayout 
+  title="About - The Scrap Pit"
+  description="Discover the philosophy behind The Scrap Pit. Where champions are forged in fire and tested in battle."
+>
+  <!-- About Hero -->
+  <section class="about-hero section">
+    <div class="container">
+      <div class="about-hero-content">
+        <h1 class="display-title">FORGED IN FIRE</h1>
+        <p class="display-subtitle">THE SCRAP PIT PHILOSOPHY</p>
+        <p class="hero-description">
+          We don't just train fighters. We forge warriors who refuse to accept limits, 
+          who turn pain into power, and who emerge from every battle stronger than before.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section class="our-story section">
+    <div class="container">
+      <div class="story-grid">
+        
+        <div class="story-content">
+          <h2 class="section-title">
+            <i class="fa-solid fa-fire"></i>
+            OUR STORY
+          </h2>
+          
+          <div class="story-text">
+            <p>
+              The Scrap Pit was born from a simple belief: <strong>authentic strength comes from authentic struggle</strong>. 
+              Founded in 2018 by former professional fighters who understood that the modern world had gone soft, 
+              we created a space where weakness is not coddled, but conquered.
+            </p>
+            
+            <p>
+              In an era of participation trophies and safe spaces, The Scrap Pit stands as a fortress of 
+              uncompromising training. Here, you don't get rewarded for showing up—you earn respect through 
+              blood, sweat, and the willingness to push beyond what you thought possible.
+            </p>
+            
+            <p>
+              Every piece of equipment, every training method, every philosophy we embrace serves one purpose: 
+              <strong>to strip away everything fake and reveal the warrior within</strong>.
+            </p>
+          </div>
+        </div>
+        
+        <div class="story-stats">
+          <h3><i class="fa-solid fa-chart-line"></i> BY THE NUMBERS</h3>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-number">2,500+</span>
+              <span class="stat-label">Warriors Trained</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">150+</span>
+              <span class="stat-label">Fight Victories</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">50,000+</span>
+              <span class="stat-label">Hours of Training</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Commitment Required</span>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values -->
+  <section class="core-values section bg-dark">
+    <div class="container">
+      <h2 class="section-title text-center">
+        <i class="fa-solid fa-fist-raised"></i>
+        OUR CODE
+      </h2>
+      
+      <div class="values-grid">
+        
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fa-solid fa-shield-alt"></i>
+          </div>
+          <h3>NO PARTICIPATION TROPHIES</h3>
+          <p>
+            Results are earned, not given. We measure success in sweat, determination, 
+            and the willingness to get back up after being knocked down.
+          </p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fa-solid fa-hammer"></i>
+          </div>
+          <h3>FORGE STRENGTH THROUGH STRUGGLE</h3>
+          <p>
+            Comfort is the enemy of growth. We embrace discomfort as the price of 
+            transformation and the pathway to unbreakable mental toughness.
+          </p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <h3>BROTHERHOOD THROUGH BATTLE</h3>
+          <p>
+            The bonds forged in training are stronger than blood. When you suffer together, 
+            sweat together, and push each other to new limits, you become family.
+          </p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fa-solid fa-target"></i>
+          </div>
+          <h3>AUTHENTICITY OVER EVERYTHING</h3>
+          <p>
+            No fake motivational quotes. No instagram filters. Just raw, honest training 
+            that strips away pretense and reveals who you really are.
+          </p>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership Team -->
+  <section class="leadership section">
+    <div class="container">
+      <h2 class="section-title text-center">
+        <i class="fa-solid fa-crown"></i>
+        FORGED LEADERS
+      </h2>
+      
+      <div class="leadership-grid">
+        
+        <div class="leader-card">
+          <div class="leader-image mono-to-color" style="background: url('/images/leader-mike-rodriguez-coach-and-founder.jpg'); background-size: cover; background-position: center;">
+          </div>
+          <div class="leader-content">
+            <h3>Mike "The Hammer" Rodriguez</h3>
+            <p class="leader-title">Head Coach & Founder</p>
+            <p class="leader-bio">
+              Former professional boxer with 15 years in the ring. Believes that 
+              true strength comes from facing your fears head-on and never backing down.
+            </p>
+            <div class="leader-credentials">
+              <span><i class="fa-solid fa-medal"></i> 25-3 Professional Record</span>
+              <span><i class="fa-solid fa-graduation-cap"></i> Certified Boxing Coach</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="leader-card">
+          <div class="leader-image mono-to-color" style="background: url('/images/leader-sarah-chen-mma-director.jpg'); background-size: cover; background-position: center;">
+          </div>
+          <div class="leader-content">
+            <h3>Sarah "Iron Will" Chen</h3>
+            <p class="leader-title">MMA Director</p>
+            <p class="leader-bio">
+              Black belt in Brazilian Jiu-Jitsu and former MMA competitor. 
+              Specializes in turning mental toughness into physical dominance.
+            </p>
+            <div class="leader-credentials">
+              <span><i class="fa-solid fa-medal"></i> BJJ Black Belt</span>
+              <span><i class="fa-solid fa-graduation-cap"></i> MMA Coach Certification</span>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="about-cta section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">READY TO BE FORGED?</h2>
+        <p class="cta-text">
+          The Scrap Pit isn't for everyone. We don't coddle weakness or make excuses. 
+          But if you're ready to discover what you're truly capable of, step into the fire.
+        </p>
+        <div class="cta-actions">
+          <CombatButton 
+            text="Start Your Trial" 
+            href="/contact" 
+            variant="accent" 
+            size="mega"
+            className="cta-primary"
+          />
+          <CombatButton 
+            text="View Pricing" 
+            href="/pricing" 
+            variant="victory" 
+            size="large"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+</FightLayout>
+
+<style lang="scss">
+@import '../styles/variables';
+@import '../styles/color_filters';
+
+// About Hero
+.about-hero {
+  padding: $space-mega 0 $space-xl 0;
+  background: linear-gradient(135deg, 
+    rgba($iron-black, 0.95) 0%, 
+    rgba($iron-black, 0.8) 50%, 
+    rgba($iron-black, 0.95) 100%
+  );
+  
+  .about-hero-content {
+    text-align: center;
+    color: $text-inverse;
+    max-width: 900px;
+    margin: 0 auto;
+    
+    .display-title {
+      margin-bottom: $space-md;
+      color: $text-inverse;
+      text-shadow: 4px 4px 0 $blood-red;
+    }
+    
+    .display-subtitle {
+      color: $championship-gold;
+      margin-bottom: $space-lg;
+    }
+    
+    .hero-description {
+      font-size: $font-size-medium;
+      line-height: $line-height-loose;
+      opacity: 0.9;
+    }
+  }
+}
+
+// Our Story
+.our-story {
+  padding: $space-xl $space-sm;
+  
+  .story-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: $space-xxl;
+    
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: 1fr;
+      gap: $space-xl;
+    }
+  }
+  
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    margin-bottom: $space-lg;
+    
+    i {
+      color: $blood-red;
+      font-size: $font-size-large;
+    }
+  }
+  
+  .story-text {
+    p {
+      font-size: $font-size-medium;
+      line-height: $line-height-loose;
+      margin-bottom: $space-md;
+      
+      strong {
+        color: $blood-red;
+        font-weight: 700;
+      }
+    }
+  }
+  
+  .story-stats {
+    h3 {
+      display: flex;
+      align-items: center;
+      gap: $space-sm;
+      font-family: $font-display;
+      font-size: $font-size-medium;
+      color: $text-primary;
+      margin-bottom: $space-lg;
+      
+      i {
+        color: $championship-gold;
+      }
+    }
+    
+    .stats-grid {
+      display: grid;
+      gap: $space-md;
+    }
+    
+    .stat-item {
+      text-align: center;
+      padding: $space-md;
+      border: $border-primary;
+      background: rgba($ghost-white, 0.5);
+      
+      .stat-number {
+        display: block;
+        font-family: $font-display;
+        font-size: $font-size-large;
+        color: $blood-red;
+        margin-bottom: $space-xs;
+      }
+      
+      .stat-label {
+        font-size: $font-size-small;
+        color: $text-primary;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+    }
+  }
+}
+
+// Core Values
+.core-values {
+  padding: $space-xl $space-sm;
+  
+  .section-title {
+    color: $text-inverse;
+    margin-bottom: $space-xxl;
+    
+    i {
+      color: $championship-gold;
+      margin-right: $space-sm;
+    }
+  }
+  
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-lg;
+    
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .value-card {
+    padding: $space-lg;
+    border: $border-thick solid $championship-gold;
+    background: rgba($championship-gold, 0.1);
+    text-align: center;
+    color: $text-inverse;
+    
+    .value-icon {
+      font-size: $font-size-huge;
+      color: $championship-gold;
+      margin-bottom: $space-md;
+    }
+    
+    h3 {
+      font-family: $font-display;
+      font-size: $font-size-medium;
+      color: $blood-red;
+      margin-bottom: $space-md;
+      letter-spacing: 0.05em;
+    }
+    
+    p {
+      line-height: $line-height-loose;
+      color: $iron-black;
+      opacity: 0.9;
+    }
+  }
+}
+
+// Leadership
+.leadership {
+  padding: $space-xl $space-sm;
+  
+  .section-title {
+    margin-bottom: $space-xxl;
+    
+    i {
+      color: $championship-gold;
+      margin-right: $space-sm;
+    }
+  }
+  
+  .leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-xl;
+    
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .leader-card {
+    display: flex;
+    gap: $space-lg;
+    padding: $space-lg;
+    border: $border-primary;
+    background: rgba($ghost-white, 0.5);
+    
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .leader-image {
+      flex-shrink: 0;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: $border-thick solid $championship-gold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba($iron-black, 0.1);
+      
+      .leader-placeholder {
+        font-size: $font-size-huge;
+        color: rgba($iron-black, 0.3);
+      }
+    }
+    
+    .leader-content {
+      flex: 1;
+      
+      h3 {
+        font-family: $font-display;
+        font-size: $font-size-medium;
+        color: $text-primary;
+        margin-bottom: $space-xs;
+      }
+      
+      .leader-title {
+        color: $blood-red;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: $font-size-small;
+        margin-bottom: $space-md;
+        letter-spacing: 0.05em;
+      }
+      
+      .leader-bio {
+        line-height: $line-height-loose;
+        margin-bottom: $space-md;
+      }
+      
+      .leader-credentials {
+        display: flex;
+        flex-direction: column;
+        gap: $space-xs;
+        
+        span {
+          display: flex;
+          align-items: center;
+          gap: $space-xs;
+          font-size: $font-size-small;
+          color: $championship-gold;
+          
+          i {
+            color: $blood-red;
+          }
+        }
+      }
+    }
+  }
+}
+
+// About CTA
+.about-cta {
+  padding: $space-xl 0;
+  background: linear-gradient(135deg, 
+    rgba($iron-black, 0.05) 0%, 
+    rgba($blood-red, 0.05) 50%, 
+    rgba($championship-gold, 0.05) 100%
+  );
+  
+  .cta-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    
+    .cta-title {
+      font-family: $font-display;
+      font-size: $font-size-huge;
+      color: $text-primary;
+      margin-bottom: $space-md;
+      text-shadow: 2px 2px 0 $blood-red;
+    }
+    
+    .cta-text {
+      font-size: $font-size-medium;
+      line-height: $line-height-loose;
+      margin-bottom: $space-lg;
+      opacity: 0.9;
+    }
+    
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+      gap: $space-lg;
+      flex-wrap: wrap;
+      
+      @media (max-width: $breakpoint-md) {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+}
+
+// Responsive
+@media (max-width: $breakpoint-md) {
+  .about-hero {
+    padding: $space-xl 0 $space-lg 0;
+    
+    .display-title {
+      font-size: $font-size-huge;
+    }
+  }
+  
+  .story-grid {
+    .story-stats .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .values-grid {
+    .value-card {
+      padding: $space-md;
+      
+      .value-icon {
+        font-size: $font-size-large;
+      }
+      
+      h3 {
+        font-size: $font-size-normal;
+      }
+    }
+  }
+}
+</style>

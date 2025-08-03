@@ -1,0 +1,407 @@
+---
+// Contact Page - The Scrap Pit
+import FightLayout from '../layouts/FightLayout.astro';
+import CombatButton from '../components/CombatButton.astro';
+---
+
+<FightLayout 
+  title="Contact - The Scrap Pit"
+  description="Get in touch with The Scrap Pit. Located in the heart of the city, ready to forge champions."
+>
+  <!-- Contact Hero -->
+  <section class="contact-hero section">
+    <div class="container">
+      <div class="contact-hero-content">
+        <h1 class="display-title">CONTACT THE PIT</h1>
+        <p class="display-subtitle">READY TO START YOUR JOURNEY?</p>
+        <p class="hero-description">
+          Step into the arena. Contact us to begin your transformation into a champion.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Content -->
+  <section class="contact-content section">
+    <div class="container">
+      <div class="contact-grid">
+        
+        <!-- Contact Form -->
+        <div class="contact-form-section">
+          <h2 class="section-title">
+            <i class="fa-solid fa-fist-raised"></i>
+            GET IN TOUCH
+          </h2>
+          
+          <form class="contact-form">
+            <div class="form-group">
+              <label for="name">NAME</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">EMAIL</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="phone">PHONE</label>
+              <input type="tel" id="phone" name="phone">
+            </div>
+            
+            <div class="form-group">
+              <label for="interest">TRAINING INTEREST</label>
+              <select id="interest" name="interest">
+                <option>Select Training Type</option>
+                <option>Striking (Boxing, Muay Thai)</option>
+                <option>Grappling (BJJ, Wrestling)</option>
+                <option>Conditioning</option>
+                <option>All Training Types</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">MESSAGE</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell us about your goals..."></textarea>
+            </div>
+            
+            <CombatButton 
+              text="Send Message" 
+              variant="accent" 
+              size="large"
+              className="form-submit-btn"
+            />
+          </form>
+        </div>
+        
+        <!-- Contact Info -->
+        <div class="contact-info-section">
+          <h2 class="section-title">
+            <i class="fa-solid fa-location-dot"></i>
+            FIND THE PIT
+          </h2>
+          
+          <div class="contact-info">
+            <div class="info-block">
+              <h3><i class="fa-solid fa-map-marker-alt"></i> LOCATION</h3>
+              <p>123 Fighter Street<br>Combat District<br>City, State 12345</p>
+            </div>
+            
+            <div class="info-block">
+              <h3><i class="fa-solid fa-phone"></i> PHONE</h3>
+              <p><a href="tel:+15551234567">(555) 123-FIGHT</a></p>
+            </div>
+            
+            <div class="info-block">
+              <h3><i class="fa-solid fa-envelope"></i> EMAIL</h3>
+              <p><a href="mailto:info@thescrappit.com">info@thescrappit.com</a></p>
+            </div>
+            
+            <div class="info-block">
+              <h3><i class="fa-solid fa-clock"></i> HOURS</h3>
+              <div class="hours-list">
+                <div class="hour-row"><span>MON-FRI</span><span>5:00 AM - 10:00 PM</span></div>
+                <div class="hour-row"><span>SATURDAY</span><span>6:00 AM - 8:00 PM</span></div>
+                <div class="hour-row"><span>SUNDAY</span><span>8:00 AM - 6:00 PM</span></div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Quick Links -->
+          <div class="quick-actions">
+            <h3><i class="fa-solid fa-bolt"></i> QUICK ACTIONS</h3>
+            <div class="action-buttons">
+              <CombatButton text="View Pricing" href="/pricing" variant="victory" size="medium" />
+              <CombatButton text="About Us" href="/about" variant="ghost" size="medium" />
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+</FightLayout>
+
+<style lang="scss">
+@import '../styles/variables';
+@import '../styles/color_filters';
+
+// Contact Hero
+.contact-hero {
+  padding: $space-mega 0 $space-xl 0;
+  background: linear-gradient(135deg, 
+    rgba($iron-black, 0.95) 0%, 
+    rgba($iron-black, 0.8) 50%, 
+    rgba($iron-black, 0.95) 100%
+  );
+  
+  .contact-hero-content {
+    text-align: center;
+    color: $text-inverse;
+    max-width: 800px;
+    margin: 0 auto;
+    
+    .display-title {
+      margin-bottom: $space-md;
+      color: $text-inverse;
+      text-shadow: 4px 4px 0 $blood-red;
+    }
+    
+    .display-subtitle {
+      color: $championship-gold;
+      margin-bottom: $space-lg;
+    }
+    
+    .hero-description {
+      font-size: $font-size-medium;
+      opacity: 0.9;
+    }
+  }
+}
+
+// Contact Content
+.contact-content {
+  padding: $space-xl $space-sm;
+  
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $space-xxl;
+    
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: 1fr;
+      gap: $space-xl;
+    }
+  }
+}
+
+// Contact Form
+.contact-form-section {
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    margin-bottom: $space-lg;
+    
+    i {
+      color: $blood-red;
+      font-size: $font-size-large;
+    }
+  }
+}
+
+.contact-form {
+  .form-group {
+    margin-bottom: $space-lg;
+    
+    label {
+      display: block;
+      font-family: $font-display;
+      font-size: $font-size-normal;
+      color: $text-primary;
+      margin-bottom: $space-xs;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    input,
+    textarea {
+      width: 100%;
+      padding: $space-sm;
+      border: $border-primary;
+      background: $bg-primary;
+      color: $text-primary;
+      font-family: $font-body;
+      font-size: $font-size-normal;
+      
+      &:focus {
+        outline: none;
+        border-color: $blood-red;
+        box-shadow: 0 0 0 2px rgba($blood-red, 0.2);
+      }
+    }
+    
+    // Special styling for select to ensure cross-browser compatibility
+    select {
+      width: 100%;
+      padding: $space-sm;
+      border: $border-primary;
+      background: $bg-primary;
+      color: $text-primary;
+      font-family: $font-body;
+      font-size: $font-size-normal;
+      
+      // Remove default styling
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      
+      // Add custom dropdown arrow
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231A1A1A' stroke-width='2' stroke-linecap='square' stroke-linejoin='miter'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right $space-sm center;
+      background-size: 16px;
+      padding-right: calc(#{$space-sm} + 24px); // Extra space for arrow
+      
+      // Ensure consistent height across browsers
+      min-height: calc(#{$font-size-normal} + #{$space-sm} * 2 + 4px);
+      line-height: $line-height-normal;
+      
+      &:focus {
+        outline: none;
+        border-color: $blood-red;
+        box-shadow: 0 0 0 2px rgba($blood-red, 0.2);
+        
+        // Change arrow color on focus
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E00000' stroke-width='2' stroke-linecap='square' stroke-linejoin='miter'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+      }
+      
+      // Style the options (limited browser support but helpful)
+      option {
+        background: $bg-primary;
+        color: $text-primary;
+        font-family: $font-body;
+        padding: $space-xs;
+      }
+      
+      // Mobile-specific improvements
+      @media (max-width: $breakpoint-md) {
+        font-size: 16px; // Prevents zoom on iOS
+        min-height: 44px; // Better touch target
+      }
+      
+      // Safari-specific fixes
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+    
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+  }
+  
+  .form-submit-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+// Contact Info
+.contact-info-section {
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    margin-bottom: $space-lg;
+    
+    i {
+      color: $championship-gold;
+      font-size: $font-size-large;
+    }
+  }
+}
+
+.contact-info {
+  margin-bottom: $space-xl;
+  
+  .info-block {
+    margin-bottom: $space-lg;
+    padding: $space-md;
+    border: $border-primary;
+    background: rgba($ghost-white, 0.5);
+    
+    h3 {
+      display: flex;
+      align-items: center;
+      gap: $space-sm;
+      font-family: $font-display;
+      font-size: $font-size-medium;
+      color: $text-primary;
+      margin-bottom: $space-sm;
+      
+      i {
+        color: $blood-red;
+      }
+    }
+    
+    p {
+      margin: 0;
+      line-height: $line-height-loose;
+      
+      a {
+        color: $text-primary;
+        text-decoration: none;
+        
+        &:hover {
+          color: $blood-red;
+        }
+      }
+    }
+    
+    .hours-list {
+      .hour-row {
+        display: flex;
+        justify-content: space-between;
+        padding: $space-xs 0;
+        border-bottom: 1px solid rgba($iron-black, 0.1);
+        
+        &:last-child {
+          border-bottom: none;
+        }
+        
+        span:first-child {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+.quick-actions {
+  h3 {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    font-family: $font-display;
+    font-size: $font-size-medium;
+    color: $text-primary;
+    margin-bottom: $space-md;
+    
+    i {
+      color: $championship-gold;
+    }
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: $space-md;
+    flex-wrap: wrap;
+    
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column;
+    }
+  }
+}
+
+// Responsive
+@media (max-width: $breakpoint-md) {
+  .contact-hero {
+    padding: $space-xl 0 $space-lg 0;
+    
+    .display-title {
+      font-size: $font-size-huge;
+    }
+  }
+  
+  .quick-actions .action-buttons {
+    .combat-btn {
+      flex: 1;
+      text-align: center;
+    }
+  }
+}
+</style>

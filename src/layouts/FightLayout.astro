@@ -7,6 +7,9 @@ interface Props {
 }
 
 const { title, description = "The Scrap Pit - Forged in Fire. Tested in Battle.", image = "/og-image.jpg" } = Astro.props;
+
+// Get current path for active nav state
+const currentPath = Astro.url.pathname;
 ---
 
 <!DOCTYPE html>
@@ -16,6 +19,7 @@ const { title, description = "The Scrap Pit - Forged in Fire. Tested in Battle."
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content={description}>
   <meta name="generator" content={Astro.generator}>
+  <meta name="robots" content="noindex, nofollow" />
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -39,6 +43,10 @@ const { title, description = "The Scrap Pit - Forged in Fire. Tested in Battle."
   <!-- Preload Critical Fonts -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&family=Space+Mono:wght@400;700&display=swap" as="style">
   
+  <!-- Font Awesome Pro 7 - Add your Pro Kit URL here -->
+  <!-- Replace 'YOUR_KIT_ID' with your actual Font Awesome Pro kit ID -->
+    <script src="https://kit.fontawesome.com/950db21282.js" crossorigin="anonymous"></script>
+
   <!-- Global Styles -->
   <style lang="scss">
     @import '../styles/global.scss';
@@ -46,10 +54,12 @@ const { title, description = "The Scrap Pit - Forged in Fire. Tested in Battle."
 </head>
 
 <body class="cursor-grit">
-  <!-- Custom Cursor Component -->
+  <!-- Enhanced Grit Cursor System -->
   <div id="grit-cursor" class="grit-cursor">
+    <div class="cursor-core"></div>
     <div class="cursor-trail"></div>
   </div>
+  <div id="cursor-trail-particles"></div>
   
   <!-- Navigation -->
   <nav class="nav-brutalist">
@@ -60,9 +70,11 @@ const { title, description = "The Scrap Pit - Forged in Fire. Tested in Battle."
         </a>
         
         <ul class="nav-links">
-          <li><a href="#training" class="nav-link">TRAINING</a></li>
-          <li><a href="#fighters" class="nav-link">FIGHTERS</a></li>
-          <li><a href="#join" class="nav-link">JOIN</a></li>
+          <li><a href="/#training" class="nav-link">TRAINING</a></li>
+          <li><a href="/#fighters" class="nav-link">FIGHTERS</a></li>
+          <li><a href="/about" class={`nav-link ${currentPath === '/about' ? 'active' : ''}`}>ABOUT</a></li>
+          <li><a href="/pricing" class={`nav-link ${currentPath === '/pricing' ? 'active' : ''}`}>PRICING</a></li>
+          <li><a href="/contact" class={`nav-link ${currentPath === '/contact' ? 'active' : ''}`}>CONTACT</a></li>
         </ul>
       </div>
     </div>
@@ -109,32 +121,147 @@ const { title, description = "The Scrap Pit - Forged in Fire. Tested in Battle."
   
   <!-- JavaScript for Custom Cursor and Scroll Effects -->
   <script>
-    // Custom Cursor Trail
+    // Enhanced Grit Cursor with Sharp Trail
     class GritCursor {
       constructor() {
         this.cursor = document.getElementById('grit-cursor');
+        this.core = this.cursor.querySelector('.cursor-core');
         this.trail = this.cursor.querySelector('.cursor-trail');
+        this.particleContainer = document.getElementById('cursor-trail-particles');
+        
         this.pos = { x: 0, y: 0 };
         this.targetPos = { x: 0, y: 0 };
+        this.velocity = { x: 0, y: 0 };
+        this.particles = [];
+        this.isHovering = false;
+        this.clickRipples = [];
         
         this.init();
       }
       
       init() {
+        // Mouse movement
         document.addEventListener('mousemove', (e) => {
           this.targetPos.x = e.clientX;
           this.targetPos.y = e.clientY;
+          
+          // Calculate velocity for particle generation
+          this.velocity.x = e.clientX - this.pos.x;
+          this.velocity.y = e.clientY - this.pos.y;
+          
+          // Generate trail particles on fast movement
+          if (Math.abs(this.velocity.x) > 3 || Math.abs(this.velocity.y) > 3) {
+            this.createTrailParticle();
+          }
+        });
+        
+        // Click effects
+        document.addEventListener('mousedown', (e) => {
+          this.createClickRipple(e.clientX, e.clientY);
+          this.cursor.classList.add('clicking');
+        });
+        
+        document.addEventListener('mouseup', () => {
+          this.cursor.classList.remove('clicking');
+        });
+        
+        // Hover effects for interactive elements
+        const interactiveElements = document.querySelectorAll('a, button, .combat-btn, input, textarea, select');
+        interactiveElements.forEach(el => {
+          el.addEventListener('mouseenter', () => {
+            this.isHovering = true;
+            this.cursor.classList.add('hovering');
+          });
+          
+          el.addEventListener('mouseleave', () => {
+            this.isHovering = false;
+            this.cursor.classList.remove('hovering');
+          });
         });
         
         this.animate();
       }
       
-      animate() {
-        // Smooth follow with slight delay
-        this.pos.x += (this.targetPos.x - this.pos.x) * 0.1;
-        this.pos.y += (this.targetPos.y - this.pos.y) * 0.1;
+      createTrailParticle() {
+        const particle = document.createElement('div');
+        particle.className = 'cursor-particle';
         
-        this.cursor.style.transform = `translate(${this.pos.x}px, ${this.pos.y}px)`;
+        // Random sharp angles for brutalist effect
+        const angle = Math.random() * Math.PI * 2;
+        const speed = Math.random() * 20 + 10;
+        const size = Math.random() * 4 + 2;
+        
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        particle.style.position = 'fixed';
+        particle.style.left = (this.pos.x - size/2) + 'px';
+        particle.style.top = (this.pos.y - size/2) + 'px';
+        
+        // Sharp-edged particle with random red/gold color
+        const colors = ['#E00000', '#CC9900', '#1A1A1A'];
+        particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+        
+        this.particleContainer.appendChild(particle);
+        
+        // Animate particle
+        let life = 1;
+        const decay = 0.02;
+        let x = this.pos.x;
+        let y = this.pos.y;
+        const vx = Math.cos(angle) * speed * 0.1;
+        const vy = Math.sin(angle) * speed * 0.1;
+        
+        const animateParticle = () => {
+          life -= decay;
+          x += vx;
+          y += vy;
+          
+          particle.style.left = x + 'px';
+          particle.style.top = y + 'px';
+          particle.style.opacity = life;
+          particle.style.transform = `scale(${life})`;
+          
+          if (life > 0) {
+            requestAnimationFrame(animateParticle);
+          } else {
+            particle.remove();
+          }
+        };
+        
+        requestAnimationFrame(animateParticle);
+      }
+      
+      createClickRipple(x, y) {
+        const ripple = document.createElement('div');
+        ripple.className = 'cursor-ripple';
+        ripple.style.position = 'fixed';  
+        ripple.style.left = (x - 10) + 'px';
+        ripple.style.top = (y - 10) + 'px';
+        
+        this.particleContainer.appendChild(ripple);
+        
+        // Animate ripple expansion
+        setTimeout(() => {
+          ripple.style.transform = 'scale(10)';
+          ripple.style.opacity = '0';
+        }, 10);
+        
+        setTimeout(() => ripple.remove(), 600);
+      }
+      
+      animate() {
+        // Sharp, responsive cursor movement
+        const ease = this.isHovering ? 0.3 : 0.15;
+        this.pos.x += (this.targetPos.x - this.pos.x) * ease;
+        this.pos.y += (this.targetPos.y - this.pos.y) * ease;
+        
+        // Update cursor position with proper centering
+        this.cursor.style.transform = `translate(${this.pos.x - 12}px, ${this.pos.y - 12}px)`;
+        
+        // Dynamic trail length based on velocity
+        const speed = Math.sqrt(this.velocity.x ** 2 + this.velocity.y ** 2);
+        const trailScale = Math.min(speed * 0.1, 3);
+        this.trail.style.transform = `scale(${1 + trailScale})`;
         
         requestAnimationFrame(() => this.animate());
       }
@@ -151,11 +278,16 @@ const { title, description = "The Scrap Pit - Forged in Fire. Tested in Battle."
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
+              // In view: transition from monochrome to full color
               entry.target.classList.add('in-view');
+            } else {
+              // Out of view: transition back to monochrome
+              entry.target.classList.remove('in-view');
             }
           });
         }, {
-          threshold: 0.3
+          threshold: 0.3,
+          rootMargin: '-10% 0px -10% 0px' // Trigger with some margin for smoother effect
         });
         
         this.elements.forEach(el => observer.observe(el));
@@ -181,11 +313,90 @@ const { title, description = "The Scrap Pit - Forged in Fire. Tested in Battle."
       }
     }
     
+    // Scroll-based Navigation Active States
+    class ScrollNavigation {
+      constructor() {
+        this.navLinks = {
+          training: document.querySelector('a[href="/#training"]'),
+          fighters: document.querySelector('a[href="/#fighters"]')
+        };
+        this.sections = {
+          training: document.getElementById('training'),
+          fighters: document.getElementById('fighters')
+        };
+        this.init();
+      }
+      
+      init() {
+        // Only initialize on home page where sections exist
+        if (!this.sections.training || !this.sections.fighters) return;
+        
+        // Check initial hash on page load
+        this.handleInitialHash();
+        
+        const observerOptions = {
+          root: null,
+          rootMargin: '-20% 0px -60% 0px', // Trigger when section is 20% visible from top
+          threshold: 0
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            const sectionId = entry.target.id;
+            const navLink = this.navLinks[sectionId];
+            
+            if (navLink) {
+              if (entry.isIntersecting) {
+                navLink.classList.add('active');
+              } else {
+                navLink.classList.remove('active');
+              }
+            }
+          });
+        }, observerOptions);
+        
+        // Observe the sections
+        Object.values(this.sections).forEach(section => {
+          if (section) observer.observe(section);
+        });
+        
+        // Listen for hash changes (when clicking nav links)
+        window.addEventListener('hashchange', () => {
+          this.handleHashChange();
+        });
+      }
+      
+      handleInitialHash() {
+        const hash = window.location.hash;
+        if (hash === '#training' && this.navLinks.training) {
+          this.navLinks.training.classList.add('active');
+        } else if (hash === '#fighters' && this.navLinks.fighters) {
+          this.navLinks.fighters.classList.add('active');
+        }
+      }
+      
+      handleHashChange() {
+        // Clear all active states first
+        Object.values(this.navLinks).forEach(link => {
+          if (link) link.classList.remove('active');
+        });
+        
+        // Add active state based on new hash
+        const hash = window.location.hash;
+        if (hash === '#training' && this.navLinks.training) {
+          this.navLinks.training.classList.add('active');
+        } else if (hash === '#fighters' && this.navLinks.fighters) {
+          this.navLinks.fighters.classList.add('active');
+        }
+      }
+    }
+    
     // Initialize all effects
     document.addEventListener('DOMContentLoaded', () => {
       new GritCursor();
       new ScrollColorReveal();
       new ImpactEffects();
+      new ScrollNavigation();
     });
   </script>
 </body>
@@ -237,10 +448,36 @@ const { title, description = "The Scrap Pit - Forged in Fire. Tested in Battle."
       text-transform: uppercase;
       letter-spacing: 0.1em;
       border-bottom: 2px solid transparent;
-      transition: border-color $transition-quick;
+      transition: all $transition-quick;
       
       &:hover {
         border-bottom-color: $text-accent;
+      }
+      
+      // Active state for current page
+      &.active {
+        color: $text-highlight;
+        border-bottom-color: $text-highlight;
+        position: relative;
+        
+        // Add a subtle glow effect for active state
+        &::before {
+          content: '';
+          position: absolute;
+          top: -2px;
+          left: -4px;
+          right: -4px;
+          bottom: -2px;
+          background: rgba($championship-gold, 0.1);
+          z-index: -1;
+          clip-path: polygon(10% 0%, 90% 0%, 100% 25%, 100% 75%, 90% 100%, 10% 100%, 0% 75%, 0% 25%);
+          opacity: 0;
+          transition: opacity $transition-quick;
+        }
+        
+        &:hover::before {
+          opacity: 1;
+        }
       }
     }
   }
@@ -302,23 +539,137 @@ main {
   }
 }
 
-// Custom Cursor Styles
+// Enhanced Grit Cursor System
 .grit-cursor {
   position: fixed;
   top: 0;
   left: 0;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   pointer-events: none;
   z-index: $z-cursor;
+  transition: transform 0.1s ease-out;
+  
+  .cursor-core {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    top: 8px;
+    left: 8px;
+    background: $blood-red;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%); // Sharp triangle
+    transform: rotate(45deg);
+    transition: all 0.2s ease;
+  }
   
   .cursor-trail {
-    width: 100%;
-    height: 100%;
-    background: $blood-red;
-    border-radius: 50%;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border: 2px solid rgba($blood-red, 0.3);
+    clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+    transform-origin: center;
+    transition: all 0.3s ease;
+  }
+  
+  // Hovering state - grows and changes to gold accent
+  &.hovering {
+    transform: scale(1.5);
+    
+    .cursor-core {
+      background: $championship-gold;
+      width: 12px;
+      height: 12px;
+      top: 6px;
+      left: 6px;
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); // Sharp star
+    }
+    
+    .cursor-trail {
+      border-color: rgba($championship-gold, 0.6);
+      border-width: 3px;
+      animation: cursor-pulse 0.6s ease-in-out infinite alternate;
+    }
+  }
+  
+  // Clicking state - sharp impact effect
+  &.clicking {
+    transform: scale(0.8);
+    
+    .cursor-core {
+      background: $ghost-white;
+      transform: rotate(45deg) scale(1.5);
+      clip-path: polygon(40% 0%, 40% 40%, 100% 40%, 60% 40%, 60% 100%, 60% 60%, 0% 60%, 40% 60%); // Sharp cross
+    }
+    
+    .cursor-trail {
+      border-color: rgba($ghost-white, 0.8);
+      transform: scale(0.5) rotate(45deg);
+    }
+  }
+}
+
+// Trail particles
+#cursor-trail-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: $z-cursor - 1;
+}
+
+.cursor-particle {
+  position: absolute;
+  pointer-events: none;
+  clip-path: polygon(50% 0%, 0% 50%, 50% 100%, 100% 50%); // Sharp diamond
+  opacity: 0.8;
+  animation: particle-fade 0.5s ease-out forwards;
+}
+
+.cursor-ripple {
+  width: 20px;
+  height: 20px;
+  border: 2px solid $blood-red;
+  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%); // Sharp octagon
+  opacity: 0.6;
+  transition: all 0.6s ease-out;
+  pointer-events: none;
+}
+
+// Animations
+@keyframes cursor-pulse {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.2) rotate(90deg);
+    opacity: 0.9;
+  }
+}
+
+@keyframes particle-fade {
+  0% {
     opacity: 0.8;
-    box-shadow: 0 0 10px rgba($blood-red, 0.5);
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+// Hide cursor on touch devices
+@media (hover: none) and (pointer: coarse) {
+  .grit-cursor,
+  #cursor-trail-particles {
+    display: none;
+  }
+  
+  body {
+    cursor: auto !important;
   }
 }
 
