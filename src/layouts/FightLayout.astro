@@ -690,4 +690,17 @@ main {
     margin-top: 120px; // Adjust for stacked nav
   }
 }
+
+// Extra small screens - reduce nav link spacing and size
+@media (max-width: 530px) {
+  .nav-brutalist {
+    .nav-links {
+      gap: $space-xs;
+      
+      .nav-link {
+        font-size: $font-size-small;
+      }
+    }
+  }
+}
 </style>

@@ -151,7 +151,7 @@ import CombatButton from '../components/CombatButton.astro';
           <div class="leader-image mono-to-color" style="background: url('/images/leader-mike-rodriguez-coach-and-founder.jpg'); background-size: cover; background-position: center;">
           </div>
           <div class="leader-content">
-            <h3>Mike "The Hammer" Rodriguez</h3>
+            <h3>"Iron" Mike Rodriguez</h3>
             <p class="leader-title">Head Coach & Founder</p>
             <p class="leader-bio">
               Former professional boxer with 15 years in the ring. Believes that 
@@ -168,7 +168,7 @@ import CombatButton from '../components/CombatButton.astro';
           <div class="leader-image mono-to-color" style="background: url('/images/leader-sarah-chen-mma-director.jpg'); background-size: cover; background-position: center;">
           </div>
           <div class="leader-content">
-            <h3>Sarah "Iron Will" Chen</h3>
+            <h3>Sarah Chen</h3>
             <p class="leader-title">MMA Director</p>
             <p class="leader-bio">
               Black belt in Brazilian Jiu-Jitsu and former MMA competitor. 
@@ -405,7 +405,7 @@ import CombatButton from '../components/CombatButton.astro';
   .leadership-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: $space-xl;
+    gap: $space-lg;
     
     @media (max-width: $breakpoint-lg) {
       grid-template-columns: 1fr;
@@ -512,6 +512,7 @@ import CombatButton from '../components/CombatButton.astro';
       font-size: $font-size-medium;
       line-height: $line-height-loose;
       margin-bottom: $space-lg;
+      padding: 0 $space-sm;
       opacity: 0.9;
     }
     
@@ -555,6 +556,17 @@ import CombatButton from '../components/CombatButton.astro';
       
       h3 {
         font-size: $font-size-normal;
+      }
+    }
+  }
+  
+  // Leadership images - center and make larger on mobile
+  .leadership {
+    .leader-card {
+      .leader-image {
+        width: 160px;
+        height: 160px;
+        margin: 0 auto $space-lg;
       }
     }
   }
