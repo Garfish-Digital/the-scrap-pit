@@ -8,6 +8,9 @@ interface Props {
 
 const { title, description = "The Scrap Pit - Forged in Fire. Tested in Battle.", image = "/og-image.jpg" } = Astro.props;
 
+// Ensure absolute URL for OG image
+const absoluteImageUrl = new URL(image, Astro.url).href;
+
 // Get current path for active nav state
 const currentPath = Astro.url.pathname;
 ---
@@ -26,14 +29,19 @@ const currentPath = Astro.url.pathname;
   <meta property="og:url" content={Astro.url}>
   <meta property="og:title" content={title}>
   <meta property="og:description" content={description}>
-  <meta property="og:image" content={image}>
+  <meta property="og:image" content={absoluteImageUrl}>
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:site_name" content="The Scrap Pit">
   
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content={Astro.url}>
   <meta property="twitter:title" content={title}>
   <meta property="twitter:description" content={description}>
-  <meta property="twitter:image" content={image}>
+  <meta property="twitter:image" content={absoluteImageUrl}>
+  <meta property="twitter:image:alt" content="The Scrap Pit - Combat Sports Training Gym">
   
   <title>{title}</title>
   
@@ -270,27 +278,45 @@ const currentPath = Astro.url.pathname;
     // Scroll-triggered Monochrome to Color Effect
     class ScrollColorReveal {
       constructor() {
-        this.elements = document.querySelectorAll('.mono-to-color');
+        this.heroElement = document.querySelector('.hero-background.mono-to-color');
+        this.otherElements = document.querySelectorAll('.mono-to-color:not(.hero-background)');
         this.init();
       }
       
       init() {
-        const observer = new IntersectionObserver((entries) => {
+        // Standard observer for all non-hero mono-to-color elements
+        const standardObserver = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
-              // In view: transition from monochrome to full color
               entry.target.classList.add('in-view');
             } else {
-              // Out of view: transition back to monochrome
               entry.target.classList.remove('in-view');
             }
           });
         }, {
-          threshold: 0.3,
-          rootMargin: '-10% 0px -10% 0px' // Trigger with some margin for smoother effect
+          threshold: 0.5,
+          rootMargin: '-20% 0px -20% 0px'
         });
         
-        this.elements.forEach(el => observer.observe(el));
+        // Slower observer specifically for hero image
+        const heroObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+            } else {
+              entry.target.classList.remove('in-view');
+            }
+          });
+        }, {
+          threshold: 0.7,
+          rootMargin: '-30% 0px -30% 0px' // Much slower trigger for hero
+        });
+        
+        // Apply observers
+        this.otherElements.forEach(el => standardObserver.observe(el));
+        if (this.heroElement) {
+          heroObserver.observe(this.heroElement);
+        }
       }
     }
     
@@ -439,6 +465,24 @@ const currentPath = Astro.url.pathname;
     list-style: none;
     gap: $space-lg;
     
+    // Invisible spacers using pseudo-elements on li elements
+    li {
+      position: relative;
+      
+      &:not(:last-child)::after {
+        content: '|';
+        position: absolute;
+        top: 50%;
+        right: calc(-#{$space-lg} / 2);
+        transform: translateY(-50%);
+        color: rgba($text-primary, 0.15);
+        font-weight: 300;
+        font-size: $font-size-small;
+        pointer-events: none;
+        z-index: 1;
+      }
+    }
+    
     .nav-link {
       font-family: $font-body;
       font-size: $font-size-normal;
@@ -449,6 +493,7 @@ const currentPath = Astro.url.pathname;
       letter-spacing: 0.1em;
       border-bottom: 2px solid transparent;
       transition: all $transition-quick;
+      position: relative;
       
       &:hover {
         border-bottom-color: $text-accent;
@@ -458,7 +503,6 @@ const currentPath = Astro.url.pathname;
       &.active {
         color: $text-highlight;
         border-bottom-color: $text-highlight;
-        position: relative;
         
         // Add a subtle glow effect for active state
         &::before {
@@ -683,6 +727,11 @@ main {
     
     .nav-links {
       gap: $space-md;
+      
+      // Hide separators on mobile since nav stacks vertically
+      li:not(:last-child)::after {
+        display: none;
+      }
     }
   }
   
