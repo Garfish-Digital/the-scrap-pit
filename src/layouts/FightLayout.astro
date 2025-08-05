@@ -732,6 +732,12 @@ main {
       li:not(:last-child)::after {
         display: none;
       }
+      
+      // Ensure active state works on mobile with higher specificity
+      .nav-link.active {
+        color: $text-highlight !important;
+        border-bottom-color: $text-highlight !important;
+      }
     }
   }
   
