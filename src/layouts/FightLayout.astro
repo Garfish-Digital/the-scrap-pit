@@ -755,7 +755,21 @@ main {
       .nav-link {
         font-size: $font-size-small;
       }
+      
+      // Android-specific active state fix
+      .nav-link.active {
+        color: $text-highlight !important;
+        border-bottom-color: $text-highlight !important;
+      }
     }
+  }
+}
+
+// Android-specific fixes
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .nav-brutalist .nav-links .nav-link.active {
+    color: $text-highlight !important;
+    border-bottom: 2px solid $text-highlight !important;
   }
 }
 </style>
