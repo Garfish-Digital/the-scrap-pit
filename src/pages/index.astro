@@ -341,7 +341,12 @@ import CombatButton from '../components/CombatButton.astro';
     grid-template-columns: repeat(3, 1fr);
     gap: $space-xl;
     
-    @media (max-width: $breakpoint-lg) {
+    @media (max-width: 1366px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: $space-lg;
+    }
+    
+    @media (max-width: $breakpoint-md) {
       grid-template-columns: 1fr;
       gap: $space-lg;
     }
