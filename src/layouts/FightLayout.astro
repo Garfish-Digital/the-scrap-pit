@@ -10,9 +10,6 @@ const { title, description = "The Scrap Pit - Forged in Fire. Tested in Battle."
 
 // Ensure absolute URL for OG image
 const absoluteImageUrl = new URL(image, Astro.url).href;
-
-// Get current path for active nav state
-const currentPath = Astro.url.pathname;
 ---
 
 <!DOCTYPE html>
@@ -77,11 +74,11 @@ const currentPath = Astro.url.pathname;
         </a>
         
         <ul class="nav-links">
-          <li><a href="/#training" class="nav-link">TRAINING</a></li>
-          <li><a href="/#fighters" class="nav-link">FIGHTERS</a></li>
-          <li><a href="/about" class={`nav-link ${currentPath === '/about' ? 'active' : ''}`}>ABOUT</a></li>
-          <li><a href="/pricing" class={`nav-link ${currentPath === '/pricing' ? 'active' : ''}`}>PRICING</a></li>
-          <li><a href="/contact" class={`nav-link ${currentPath === '/contact' ? 'active' : ''}`}>CONTACT</a></li>
+          <li><a href="#training" class="nav-link">TRAINING</a></li>
+          <li><a href="#fighters" class="nav-link">FIGHTERS</a></li>
+          <li><a href="#about" class="nav-link">ABOUT</a></li>
+          <li><a href="#pricing" class="nav-link">PRICING</a></li>
+          <li><a href="#contact" class="nav-link">CONTACT</a></li>
         </ul>
       </div>
     </div>
@@ -104,24 +101,24 @@ const currentPath = Astro.url.pathname;
         <div class="footer-section">
           <h4>TRAINING</h4>
           <ul>
-            <li><a href="#striking">Striking</a></li>
-            <li><a href="#grappling">Grappling</a></li>
-            <li><a href="#conditioning">Conditioning</a></li>
+            <li><a href="#training">Training Programs</a></li>
+            <li><a href="#fighters">Fighter Profiles</a></li>
+            <li><a href="#pricing">Pricing</a></li>
           </ul>
         </div>
-        
+
         <div class="footer-section">
           <h4>CONNECT</h4>
           <ul>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#location">Location</a></li>
-            <li><a href="#schedule">Schedule</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#hero">Back to Top</a></li>
           </ul>
         </div>
       </div>
       
       <div class="footer-bottom">
-        <p>&copy; 2024 The Scrap Pit. All rights reserved.</p>
+        <p>&copy; 2025 The Scrap Pit. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -341,87 +338,108 @@ const currentPath = Astro.url.pathname;
     // Scroll-based Navigation Active States
     class ScrollNavigation {
       constructor() {
-        this.navLinks = {
-          training: document.querySelector('a[href="/#training"]'),
-          fighters: document.querySelector('a[href="/#fighters"]')
-        };
-        this.sections = {
-          training: document.getElementById('training'),
-          fighters: document.getElementById('fighters')
-        };
+        this.sectionIds = ['training', 'fighters', 'about', 'pricing', 'contact'];
         this.init();
       }
-      
+
       init() {
-        // Only initialize on home page where sections exist
-        if (!this.sections.training || !this.sections.fighters) return;
-        
-        // Check initial hash on page load
-        this.handleInitialHash();
-        
-        const observerOptions = {
-          root: null,
-          rootMargin: '-20% 0px -60% 0px', // Trigger when section is 20% visible from top
-          threshold: 0
-        };
-        
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
-            const sectionId = entry.target.id;
-            const navLink = this.navLinks[sectionId];
-            
-            if (navLink) {
-              if (entry.isIntersecting) {
+            if (entry.isIntersecting) {
+              const sectionId = entry.target.id;
+              const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+              if (navLink) {
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
                 navLink.classList.add('active');
-              } else {
-                navLink.classList.remove('active');
               }
             }
           });
-        }, observerOptions);
-        
-        // Observe the sections
-        Object.values(this.sections).forEach(section => {
-          if (section) observer.observe(section);
+        }, {
+          root: null,
+          rootMargin: '-20% 0px -60% 0px',
+          threshold: 0
         });
-        
-        // Listen for hash changes (when clicking nav links)
-        window.addEventListener('hashchange', () => {
-          this.handleHashChange();
+
+        this.sectionIds.forEach(id => {
+          const el = document.getElementById(id);
+          if (el) observer.observe(el);
         });
-      }
-      
-      handleInitialHash() {
-        const hash = window.location.hash;
-        if (hash === '#training' && this.navLinks.training) {
-          this.navLinks.training.classList.add('active');
-        } else if (hash === '#fighters' && this.navLinks.fighters) {
-          this.navLinks.fighters.classList.add('active');
-        }
-      }
-      
-      handleHashChange() {
-        // Clear all active states first
-        Object.values(this.navLinks).forEach(link => {
-          if (link) link.classList.remove('active');
-        });
-        
-        // Add active state based on new hash
-        const hash = window.location.hash;
-        if (hash === '#training' && this.navLinks.training) {
-          this.navLinks.training.classList.add('active');
-        } else if (hash === '#fighters' && this.navLinks.fighters) {
-          this.navLinks.fighters.classList.add('active');
-        }
       }
     }
     
+    // Scroll-triggered Entrance Reveals
+    // Two observers: section headers fire later (threshold 0.6),
+    // content reveals fire earlier (threshold 0.15) so large grids trigger reliably.
+    // One-time trigger — .revealed is never removed once added.
+    class SectionReveal {
+      constructor() {
+        this.init();
+      }
+
+      init() {
+        const reveal = (el: Element, observer: IntersectionObserver) => {
+          el.classList.add('revealed');
+          observer.unobserve(el);
+        };
+
+        // Section headers — later trigger matches user preference
+        const headerObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) reveal(entry.target, headerObserver);
+          });
+        }, {
+          threshold: 0.6,
+          rootMargin: '0px 0px -10% 0px'
+        });
+
+        // Content reveals — earlier trigger so large grids don't get skipped
+        const contentObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) reveal(entry.target, contentObserver);
+          });
+        }, {
+          threshold: 0.15,
+          rootMargin: '0px 0px -5% 0px'
+        });
+
+        document.querySelectorAll('.section-header-animated').forEach(el => headerObserver.observe(el));
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => contentObserver.observe(el));
+      }
+    }
+
+    // Training Block Click/Tap Interactivity
+    // Adds .impact on press, removes on release — "punching the card" feel.
+    class TrainingInteractivity {
+      constructor() {
+        this.init();
+      }
+
+      init() {
+        document.querySelectorAll('.training-block').forEach(block => {
+          const addImpact = () => block.classList.add('impact');
+          const removeImpact = () => block.classList.remove('impact');
+
+          block.addEventListener('mousedown', addImpact);
+          block.addEventListener('mouseup', removeImpact);
+          block.addEventListener('mouseleave', removeImpact);
+
+          block.addEventListener('touchstart', addImpact, { passive: true });
+          block.addEventListener('touchend', () => {
+            setTimeout(removeImpact, 150);
+          }, { passive: true });
+          block.addEventListener('touchcancel', removeImpact, { passive: true });
+        });
+      }
+    }
+
     // Initialize all effects
     document.addEventListener('DOMContentLoaded', () => {
       new GritCursor();
       new ScrollColorReveal();
       new ImpactEffects();
       new ScrollNavigation();
+      new SectionReveal();
+      new TrainingInteractivity();
     });
   </script>
 </body>
@@ -490,36 +508,33 @@ const currentPath = Astro.url.pathname;
       text-decoration: none;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      border-bottom: 2px solid transparent;
-      transition: all $transition-quick;
       position: relative;
-      
-      &:hover {
-        border-bottom-color: $text-accent;
+      border-bottom: none;
+
+      // Punchy scaleX underline — snaps in from center with overshoot
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: $blood-red;
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.15s cubic-bezier(0.68, -0.55, 0.27, 1.55);
       }
-      
-      // Active state for current page
+
+      &:hover::after {
+        transform: scaleX(1);
+      }
+
       &.active {
         color: $text-highlight;
-        border-bottom-color: $text-highlight;
-        
-        // Add a subtle glow effect for active state
-        &::before {
-          content: '';
-          position: absolute;
-          top: -2px;
-          left: -4px;
-          right: -4px;
-          bottom: -2px;
-          background: rgba($championship-gold, 0.1);
-          z-index: -1;
-          clip-path: polygon(10% 0%, 90% 0%, 100% 25%, 100% 75%, 90% 100%, 10% 100%, 0% 75%, 0% 25%);
-          opacity: 0;
-          transition: opacity $transition-quick;
-        }
-        
-        &:hover::before {
-          opacity: 1;
+
+        &::after {
+          transform: scaleX(1);
+          background: $championship-gold;
         }
       }
     }
@@ -726,20 +741,14 @@ main {
     
     .nav-links {
       gap: $space-md;
-      
+
       // Hide separators on mobile since nav stacks vertically
       li:not(:last-child)::after {
         display: none;
       }
-      
-      // Ensure active state works on mobile with higher specificity
-      .nav-link.active {
-        color: $text-highlight !important;
-        border-bottom-color: $text-highlight !important;
-      }
     }
   }
-  
+
   main {
     margin-top: 120px; // Adjust for stacked nav
   }
@@ -750,25 +759,11 @@ main {
   .nav-brutalist {
     .nav-links {
       gap: $space-xs;
-      
+
       .nav-link {
         font-size: $font-size-small;
       }
-      
-      // Android-specific active state fix
-      .nav-link.active {
-        color: $text-highlight !important;
-        border-bottom-color: $text-highlight !important;
-      }
     }
-  }
-}
-
-// Android-specific fixes
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  .nav-brutalist .nav-links .nav-link.active {
-    color: $text-highlight !important;
-    border-bottom: 2px solid $text-highlight !important;
   }
 }
 </style>

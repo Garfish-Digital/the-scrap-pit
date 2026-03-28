@@ -694,3 +694,21 @@ This comprehensive plan provides a roadmap for completing The Scrap Pit website 
 
 **Timeline Estimate:** 5-6 weeks for full implementation
 **Resource Requirements:** High-quality combat sports photography, performance testing tools, multiple device testing setup
+
+
+```astro
+<div class="join-features">
+            <div class="feature">
+              <span class="feature-icon">🥊</span>
+              <span class="feature-text">UNLIMITED TRAINING</span>
+            </div>
+            <div class="feature">
+              <span class="feature-icon">🏆</span>
+              <span class="feature-text">CHAMPIONSHIP COACHING</span>
+            </div>
+            <div class="feature">
+              <span class="feature-icon">⚡</span>
+              <span class="feature-text">BRUTAL CONDITIONING</span>
+            </div>
+          </div>
+```

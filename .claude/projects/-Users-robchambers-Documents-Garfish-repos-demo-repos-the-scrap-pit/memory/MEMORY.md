@@ -1,0 +1,2 @@
+- [Garfish Digital Profile](user_garfish.md) — Rob's web dev company, dark luxury aesthetic, targets edgy businesses at affordable pricing
+- [Scrap Pit Rework](project_scrap_pit_rework.md) — Converting from multi-page to single scroll, retaining brutalist effects, Opus plans / Sonnet executes

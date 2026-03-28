@@ -1,44 +1,47 @@
 ---
-// The Scrap Pit - Main Page
+// The Scrap Pit - Single Scroll Page
 import FightLayout from '../layouts/FightLayout.astro';
 import CombatButton from '../components/CombatButton.astro';
 ---
 
-<FightLayout 
+<FightLayout
   title="The Scrap Pit - Combat Sports Training Gym"
   description="Forged in Fire. Tested in Battle. Raw, uncompromising combat sports training for fighters who refuse to settle."
 >
-  <!-- Hero Section: "The Arena Entrance" -->
+
+  <!-- ============================================================
+       1. HERO — "THE ARENA"
+       Background: DARK (hero image with overlay)
+  ============================================================ -->
   <section class="hero section-hero" id="hero">
     <div class="hero-background mono-to-color">
       <div class="hero-image-overlay"></div>
     </div>
-    
+
     <div class="container">
       <div class="hero-content">
         <h1 class="hero-title display-title">
           THE SCRAP PIT
         </h1>
         <p class="hero-subtitle display-subtitle">
-          FORGED IN FIRE. TESTED IN BATTLE.
+          FORGET POTENTIAL - BRING THE OUTPUT
         </p>
         <p class="hero-description">
-          Raw, uncompromising combat sports training for fighters who refuse to settle. 
-          Step into the pit where champions are forged and weakness is eliminated.
+          Raw, uncompromising combat sports training for fighters who get the work done.
         </p>
-        
+
         <div class="hero-actions combat-btn-group">
-          <CombatButton 
-            text="Start Your Journey" 
-            href="#join" 
-            variant="accent" 
+          <CombatButton
+            text="Start Your Journey"
+            href="#contact"
+            variant="accent"
             size="mega"
             className="brutalist-shadow"
           />
-          <CombatButton 
-            text="View Training" 
-            href="#training" 
-            variant="victory" 
+          <CombatButton
+            text="View Training"
+            href="#training"
+            variant="victory"
             size="large"
           />
         </div>
@@ -46,7 +49,10 @@ import CombatButton from '../components/CombatButton.astro';
     </div>
   </section>
 
-  <!-- Training Regimens: "The Gauntlet Stages" -->
+  <!-- ============================================================
+       2. TRAINING — "THE GAUNTLET STAGES"
+       Background: LIGHT 1 (ghost-white)
+  ============================================================ -->
   <section class="training section" id="training">
     <div class="container">
       <div class="section-header">
@@ -55,8 +61,8 @@ import CombatButton from '../components/CombatButton.astro';
           Three paths to mastery. Each designed to break you down and build you back stronger.
         </p>
       </div>
-      
-      <div class="training-grid">
+
+      <div class="training-grid reveal-on-scroll stagger-children">
         <div class="training-block" data-stage="striking">
           <div class="training-image duotone-red-black">
             <div class="training-image-content">
@@ -66,17 +72,17 @@ import CombatButton from '../components/CombatButton.astro';
           <div class="training-content">
             <h3 class="training-title">STRIKING</h3>
             <p class="training-description">
-              Master the art of controlled violence. Boxing, Muay Thai, and kickboxing 
-              fundamentals that turn your body into a weapon.
+              Master the art of controlled violence. Boxing, Muay Thai, and kickboxing
+              fundamentals that make you precise under pressure.
             </p>
             <div class="training-stats">
-              <span class="stat">45 MIN SESSIONS</span>
-              <span class="stat">HIGH INTENSITY</span>
+              <span class="stat">45 MIN SESSIONS</span><br/>
+              <span class="stat">HIGH INTENSITY</span><br/>
               <span class="stat">TECHNIQUE FOCUS</span>
             </div>
           </div>
         </div>
-        
+
         <div class="training-block" data-stage="grappling">
           <div class="training-image duotone-gold-black">
             <div class="training-image-content">
@@ -86,17 +92,17 @@ import CombatButton from '../components/CombatButton.astro';
           <div class="training-content">
             <h3 class="training-title">GRAPPLING</h3>
             <p class="training-description">
-              The chess match of combat. Brazilian Jiu-Jitsu, wrestling, and submission 
+              Control every outcome. Brazilian Jiu-Jitsu, wrestling, and submission
               techniques that make you dangerous at every range.
             </p>
             <div class="training-stats">
-              <span class="stat">60 MIN SESSIONS</span>
-              <span class="stat">TACTICAL FOCUS</span>
+              <span class="stat">60 MIN SESSIONS</span><br/>
+              <span class="stat">FULL TACTICAL FOCUS</span><br/>
               <span class="stat">MENTAL WARFARE</span>
             </div>
           </div>
         </div>
-        
+
         <div class="training-block" data-stage="conditioning">
           <div class="training-image tritone-combat">
             <div class="training-image-content">
@@ -106,12 +112,12 @@ import CombatButton from '../components/CombatButton.astro';
           <div class="training-content">
             <h3 class="training-title">CONDITIONING</h3>
             <p class="training-description">
-              Where warriors are forged. Brutal strength and conditioning sessions 
+              Discover new ceilings. Brutal strength and conditioning sessions
               that build unbreakable mental and physical fortitude.
             </p>
             <div class="training-stats">
-              <span class="stat">30 MIN SESSIONS</span>
-              <span class="stat">MAXIMUM INTENSITY</span>
+              <span class="stat">30 MIN SESSIONS</span><br/>
+              <span class="stat">MAXIMUM INTENSITY</span><br/>
               <span class="stat">PAIN TOLERANCE</span>
             </div>
           </div>
@@ -120,19 +126,22 @@ import CombatButton from '../components/CombatButton.astro';
     </div>
   </section>
 
-  <!-- Fighter Spotlight: "Iron Will Profiles" -->
-  <section class="fighters section bg-dark" id="fighters">
+  <!-- ============================================================
+       3. FIGHTERS — "IRON WILL PROFILES"
+       Background: LIGHT 1 (ghost-white) — changed from bg-dark
+  ============================================================ -->
+  <section class="fighters section" id="fighters">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title text-inverse">IRON WILL PROFILES</h2>
-        <p class="section-description text-inverse">
-          Voices from the pit. Real fighters, real stories, real results.
+        <h2 class="section-title">IRON WILL PROFILES</h2>
+        <p class="section-description">
+          Voices changed by the pit. Real fighters, real stories, real results.
         </p>
       </div>
-      
-      <div class="fighters-grid">
+
+      <div class="fighters-grid reveal-on-scroll stagger-children">
         <div class="fighter-profile">
-          <div class="fighter-image chromatic-displacement mono-to-color" style="background: url('/images/fighter-profile-1.jpg'), linear-gradient(135deg, rgba(26, 26, 26, 0.3) 0%, rgba(224, 0, 0, 0.1) 50%, rgba(204, 153, 0, 0.1) 100%); background-size: cover; background-position: center; border: 4px solid red;">
+          <div class="fighter-image chromatic-displacement mono-to-color" style="background: url('/images/fighter-profile-1.jpg') center/cover;">
           </div>
           <div class="fighter-content">
             <blockquote class="fighter-quote">The Scrap Pit didn't just teach me to fight. It taught me to conquer the voice in my head that says I can't.</blockquote>
@@ -140,9 +149,9 @@ import CombatButton from '../components/CombatButton.astro';
             <span class="fighter-title">Amateur Boxing Champion</span>
           </div>
         </div>
-        
+
         <div class="fighter-profile">
-          <div class="fighter-image chromatic-displacement mono-to-color" style="background: url('/images/fighter-profile-2.jpg'), linear-gradient(135deg, rgba(26, 26, 26, 0.3) 0%, rgba(224, 0, 0, 0.1) 50%, rgba(204, 153, 0, 0.1) 100%); background-size: cover; background-position: center; border: 4px solid blue;">
+          <div class="fighter-image chromatic-displacement mono-to-color" style="background: url('/images/fighter-profile-2.jpg') center/cover;">
           </div>
           <div class="fighter-content">
             <blockquote class="fighter-quote">Every session breaks you down. Every session builds you back up. That's where real strength comes from.</blockquote>
@@ -150,12 +159,12 @@ import CombatButton from '../components/CombatButton.astro';
             <span class="fighter-title">MMA Fighter & Trainer</span>
           </div>
         </div>
-        
+
         <div class="fighter-profile">
-          <div class="fighter-image chromatic-displacement mono-to-color" style="background: url('/images/fighter-profile-3.jpg'), linear-gradient(135deg, rgba(26, 26, 26, 0.3) 0%, rgba(224, 0, 0, 0.1) 50%, rgba(204, 153, 0, 0.1) 100%); background-size: cover; background-position: center; border: 4px solid green;">
+          <div class="fighter-image chromatic-displacement mono-to-color" style="background: url('/images/fighter-profile-3.jpg') center/cover;">
           </div>
           <div class="fighter-content">
-            <blockquote class="fighter-quote">The pit strips away everything fake. What's left is who you really are and what you're really capable of.</blockquote>
+            <blockquote class="fighter-quote">The pit strips away everything fake. What's left is who you really are and what you're capable of.</blockquote>
             <cite class="fighter-name">- James "Blackout" Thompson</cite>
             <span class="fighter-title">Kickboxing Instructor</span>
           </div>
@@ -164,10 +173,13 @@ import CombatButton from '../components/CombatButton.astro';
     </div>
   </section>
 
-  <!-- Join The Fight: "The Call to Arms" -->
+  <!-- ============================================================
+       4. JOIN THE FIGHT — "THE CALL TO ARMS"
+       Background: LIGHT 2 (subtle tri-gradient)
+  ============================================================ -->
   <section class="join-fight section" id="join">
     <div class="container">
-      <div class="join-content">
+      <div class="join-content reveal-on-scroll">
         <div class="join-header">
           <h2 class="join-title display-title">
             JOIN THE FIGHT
@@ -176,14 +188,13 @@ import CombatButton from '../components/CombatButton.astro';
             THE CALL TO ARMS
           </p>
         </div>
-        
+
         <div class="join-body">
           <p class="join-description">
-            Are you ready to step into the pit? To face your fears, push your limits, 
-            and discover what you're truly capable of? The Scrap Pit doesn't accept 
-            the weak-minded or half-hearted. We forge warriors.
+            Are you ready to step into the pit? To face your fears, push your limits,
+            and discover what you're truly capable of? You already know this is for you.
           </p>
-          
+
           <div class="join-features">
             <div class="feature">
               <span class="feature-icon">🥊</span>
@@ -198,26 +209,26 @@ import CombatButton from '../components/CombatButton.astro';
               <span class="feature-text">BRUTAL CONDITIONING</span>
             </div>
           </div>
-          
+
           <div class="join-actions combat-btn-group center">
-            <CombatButton 
-              text="Start Free Trial" 
-              href="/contact" 
-              variant="accent" 
+            <CombatButton
+              text="Start Free Trial"
+              href="#contact"
+              variant="accent"
               size="mega"
               className="impact-flash brutalist-shadow"
             />
-            <CombatButton 
-              text="View Pricing" 
-              href="/pricing" 
-              variant="victory" 
+            <CombatButton
+              text="View Pricing"
+              href="#pricing"
+              variant="victory"
               size="large"
             />
           </div>
-          
+
           <div class="join-guarantee">
             <p class="guarantee-text">
-              <strong>30-DAY WARRIOR GUARANTEE:</strong> If you're not completely transformed 
+              <strong>30-DAY WARRIOR GUARANTEE:</strong> If you're not completely transformed
               in 30 days, we'll refund every penny. But you won't need it.
             </p>
           </div>
@@ -225,48 +236,680 @@ import CombatButton from '../components/CombatButton.astro';
       </div>
     </div>
   </section>
+
+  <!-- ============================================================
+       5. ABOUT HEADER
+       Background: DARK (iron-black gradient)
+  ============================================================ -->
+  <section class="about-hero section section-header-animated" id="about">
+    <div class="container">
+      <div class="about-hero-content">
+        <h1 class="display-title">FORGED IN FIRE</h1>
+        <p class="display-subtitle">THE SCRAP PIT PHILOSOPHY</p>
+        <p class="hero-description">
+          We don't just train fighters. We build warriors who refuse to accept limits,
+          who turn pain into power, and who emerge from every battle stronger than before.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. OUR STORY + STATS
+       Background: LIGHT 1 (ghost-white)
+  ============================================================ -->
+  <section class="our-story section" id="our-story">
+    <div class="container">
+      <div class="story-grid reveal-on-scroll">
+
+        <div class="story-content">
+          <h2 class="section-title">
+            <i class="fa-solid fa-fire"></i>
+            OUR STORY
+          </h2>
+
+          <div class="story-text">
+            <p>
+              The Scrap Pit was born from a simple belief: <strong>authentic strength comes from authentic struggle</strong>.
+              Founded in 2018 by former professional fighters who understood that training had become entertainment,
+              we created a space where weakness is not coddled, but conquered.
+            </p>
+
+            <p>
+              In an era of participation trophies and safe spaces, The Scrap Pit stands as a fortress of
+              uncompromising training. Here, you don't get rewarded for showing up—you earn respect through
+              raising your expectations and pushing beyond what you thought possible.
+            </p>
+
+            <p>
+              Every piece of equipment, every training method, every philosophy we embrace serves one purpose:
+              <strong>to strip away everything and reveal what you're truly made of</strong>.
+            </p>
+          </div>
+        </div>
+
+        <div class="story-stats">
+          <h3><i class="fa-solid fa-chart-line"></i> BY THE NUMBERS</h3>
+          <div class="stats-grid reveal-on-scroll stagger-children">
+            <div class="stat-item">
+              <span class="stat-number">2,500+</span>
+              <span class="stat-label">Warriors Trained</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">150+</span>
+              <span class="stat-label">Fight Victories</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">50,000+</span>
+              <span class="stat-label">Hours of Training</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Commitment Required</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. OUR CODE (CORE VALUES)
+       Background: DARK (bg-dark) — kept as-is
+  ============================================================ -->
+  <section class="core-values section bg-dark" id="values">
+    <div class="container">
+      <h2 class="section-title text-center">
+        <i class="fa-solid fa-fist-raised"></i>
+        OUR CODE
+      </h2>
+
+      <div class="values-grid reveal-on-scroll stagger-children">
+
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fa-solid fa-shield-alt"></i>
+          </div>
+          <h3>NO PARTICIPATION TROPHIES</h3>
+          <p>
+            Results are earned, not given. We measure success in sweat, determination,
+            and the willingness to get back up after being knocked down.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fa-solid fa-hammer"></i>
+          </div>
+          <h3>STRENGTH THROUGH STRUGGLE</h3>
+          <p>
+            Comfort is the enemy of growth. We embrace discomfort as the price of
+            transformation and the pathway to unbreakable mental toughness.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <h3>BROTHERHOOD THROUGH BATTLE</h3>
+          <p>
+            The bonds forged in training are stronger than blood. When you suffer together,
+            sweat together, and push each other to new limits, you become family.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fa-solid fa-target"></i>
+          </div>
+          <h3>AUTHENTICITY OVER EVERYTHING</h3>
+          <p>
+            No fake motivational quotes. No instagram filters. Just raw, honest training
+            that disregards convenience and ensures a champion mentality.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       8. FORGED LEADERS
+       Background: LIGHT 1 (ghost-white)
+  ============================================================ -->
+  <section class="leadership section" id="leaders">
+    <div class="container">
+      <h2 class="section-title text-center">
+        <i class="fa-solid fa-crown"></i>
+        HARDENED LEADERS
+      </h2>
+
+      <div class="leadership-grid reveal-on-scroll stagger-children">
+
+        <div class="leader-card">
+          <div class="leader-image mono-to-color chromatic-displacement" style="background: url('/images/leader-mike-rodriguez-coach-and-founder.jpg'); background-size: cover; background-position: center;">
+          </div>
+          <div class="leader-content">
+            <h3>"Iron" Mike Rodriguez</h3>
+            <p class="leader-title">Head Coach & Founder</p>
+            <p class="leader-bio">
+              Former professional boxer with 15 years in the ring. Believes that
+              true strength comes from facing your fears head-on and never backing down.
+            </p>
+            <div class="leader-credentials">
+              <span><i class="fa-solid fa-medal"></i> 25-3 Professional Record</span>
+              <span><i class="fa-solid fa-graduation-cap"></i> Certified Boxing Coach</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="leader-card">
+          <div class="leader-image mono-to-color chromatic-displacement" style="background: url('/images/leader-sarah-chen-mma-director.jpg'); background-size: cover; background-position: center;">
+          </div>
+          <div class="leader-content">
+            <h3>Sarah Chen</h3>
+            <p class="leader-title">MMA Director</p>
+            <p class="leader-bio">
+              Black belt in Brazilian Jiu-Jitsu and former MMA competitor.
+              Specializes in turning mental toughness into physical dominance.
+            </p>
+            <div class="leader-credentials">
+              <span><i class="fa-solid fa-medal"></i> BJJ Black Belt</span>
+              <span><i class="fa-solid fa-graduation-cap"></i> MMA Coach Certification</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       9. READY TO BE FORGED? (CTA)
+       Background: LIGHT 2 (subtle tri-gradient)
+  ============================================================ -->
+  <section class="about-cta section" id="forged">
+    <div class="container">
+      <div class="cta-content reveal-on-scroll">
+        <h2 class="cta-title">READY FOR THE PIT?</h2>
+        <p class="cta-text">
+          The Scrap Pit isn't for everyone. The door is open. What you do with it is yours.
+        </p>
+        <div class="cta-actions">
+          <CombatButton
+            text="Start Your Trial"
+            href="#contact"
+            variant="accent"
+            size="mega"
+            className="cta-primary"
+          />
+          <CombatButton
+            text="View Pricing"
+            href="#pricing"
+            variant="victory"
+            size="large"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       10. PRICING HEADER
+       Background: DARK (iron-black gradient)
+  ============================================================ -->
+  <section class="pricing-hero section section-header-animated" id="pricing">
+    <div class="container">
+      <div class="pricing-hero-content">
+        <h1 class="display-title">CHOOSE YOUR TRAINING</h1>
+        <p class="display-subtitle">PRICING PLANS FOR EVERY FIGHTER</p>
+        <p class="hero-description">
+          From beginner to champion, we have a plan that fits your commitment level and goals.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       11. PRICING PLANS + ADDITIONAL OPTIONS
+       Background: LIGHT 1 (ghost-white)
+  ============================================================ -->
+  <section class="pricing-plans section" id="plans">
+    <div class="container">
+
+      <div class="pricing-grid reveal-on-scroll stagger-children">
+
+        <!-- Warrior Plan -->
+        <div class="pricing-card basic">
+          <div class="card-header">
+            <div class=" warrior-icon">
+              <i class="fa-solid fa-shield"></i>
+            </div>
+            <h3 class="plan-name">WARRIOR</h3>
+            <p class="plan-subtitle">Where it starts</p>
+          </div>
+
+          <div class="card-pricing">
+            <span class="price">$89</span>
+            <span class="period">/month</span>
+          </div>
+
+          <div class="card-features">
+            <ul class="features-list">
+              <li><i class="fa-solid fa-check"></i> 8 Classes per month</li>
+              <li><i class="fa-solid fa-check"></i> Basic locker access</li>
+              <li><i class="fa-solid fa-check"></i> Open gym access</li>
+              <li><i class="fa-solid fa-check"></i> Beginner workshops</li>
+              <li><i class="fa-solid fa-times"></i> Personal training</li>
+              <li><i class="fa-solid fa-times"></i> Advanced seminars</li>
+            </ul>
+          </div>
+
+          <div class="card-action">
+            <CombatButton
+                text="Start Training"
+                href="#contact"
+                variant="ghost"
+                size="large"
+                className="pricing-btn" />
+          </div>
+        </div>
+
+        <!-- Champion Plan (Popular) -->
+        <div class="pricing-card popular">
+          <div class="popular-badge">
+            <i class="fa-solid fa-crown"></i>
+            MOST POPULAR
+          </div>
+
+          <div class="card-header">
+            <div class="plan-icon">
+              <i class="fa-solid fa-fist-raised"></i>
+            </div>
+            <h3 class="plan-name">CHAMPION</h3>
+            <p class="plan-subtitle">The full commitment</p>
+          </div>
+
+          <div class="card-pricing">
+            <span class="price">$149</span>
+            <span class="period">/month</span>
+          </div>
+
+          <div class="card-features">
+            <ul class="features-list">
+              <li><i class="fa-solid fa-check"></i> Unlimited classes</li>
+              <li><i class="fa-solid fa-check"></i> Premium locker</li>
+              <li><i class="fa-solid fa-check"></i> 24/7 gym access</li>
+              <li><i class="fa-solid fa-check"></i> All workshops</li>
+              <li><i class="fa-solid fa-check"></i> 2 Personal training/month</li>
+              <li><i class="fa-solid fa-check"></i> Advanced seminars</li>
+            </ul>
+          </div>
+
+          <div class="card-action">
+            <CombatButton
+                text="Become Champion"
+                href="#contact"
+                variant="accent"
+                size="large"
+                className="pricing-btn" />
+          </div>
+        </div>
+
+        <!-- Legend Plan -->
+        <div class="pricing-card premium">
+          <div class="card-header">
+            <div class="plan-icon">
+              <i class="fa-solid fa-trophy"></i>
+            </div>
+            <h3 class="plan-name">LEGEND</h3>
+            <p class="plan-subtitle">Unmatched experience</p>
+          </div>
+
+          <div class="card-pricing">
+            <span class="price">$249</span>
+            <span class="period">/month</span>
+          </div>
+
+          <div class="card-features">
+            <ul class="features-list">
+              <li><i class="fa-solid fa-check"></i> Unlimited everything</li>
+              <li><i class="fa-solid fa-check"></i> VIP locker room</li>
+              <li><i class="fa-solid fa-check"></i> Private training area</li>
+              <li><i class="fa-solid fa-check"></i> Priority class booking</li>
+              <li><i class="fa-solid fa-check"></i> Unlimited personal training</li>
+              <li><i class="fa-solid fa-check"></i> Exclusive events</li>
+            </ul>
+          </div>
+
+          <div class="card-action">
+            <CombatButton
+                text="Join Elite"
+                href="#contact"
+                variant="victory"
+                size="large"
+                className="pricing-btn" />
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Additional Options -->
+      <div class="additional-options">
+        <h2 class="section-title">
+          <i class="fa-solid fa-plus"></i>
+          ADDITIONAL OPTIONS
+        </h2>
+
+        <div class="options-grid reveal-on-scroll stagger-children">
+          <div class="option-card">
+            <h4><i class="fa-solid fa-clock"></i> Day Pass</h4>
+            <p class="option-price">$25</p>
+            <p>One session. See for yourself.</p>
+          </div>
+
+          <div class="option-card">
+            <h4><i class="fa-solid fa-calendar-week"></i> Weekly Pass</h4>
+            <p class="option-price">$65</p>
+            <p>One week unlimited access</p>
+          </div>
+
+          <div class="option-card">
+            <h4><i class="fa-solid fa-user-graduate"></i> Personal Training</h4>
+            <p class="option-price">$80/session</p>
+            <p>One-on-one expert coaching</p>
+          </div>
+
+          <div class="option-card">
+            <h4><i class="fa-solid fa-users"></i> Small Group (2-4)</h4>
+            <p class="option-price">$45/person</p>
+            <p>Semi-private training</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       12. 30-DAY WARRIOR GUARANTEE
+       Background: LIGHT 1 (ghost-white) — changed from bg-dark
+  ============================================================ -->
+  <section class="guarantee section" id="guarantee">
+    <div class="container">
+      <div class="guarantee-content reveal-on-scroll">
+        <div class="guarantee-icon">
+          <i class="fa-solid fa-medal"></i>
+        </div>
+        <h2 class="guarantee-title">30-DAY WARRIOR GUARANTEE</h2>
+        <p class="guarantee-text">
+          Not satisfied with your training? Get a full refund within 30 days.
+          We've never had to honor it.
+        </p>
+        <div class="guarantee-action">
+          <CombatButton text="Start Risk-Free Trial" href="#contact" variant="victory" size="mega" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       13. CONTACT HEADER
+       Background: DARK (iron-black gradient)
+  ============================================================ -->
+  <section class="contact-hero section section-header-animated" id="contact">
+    <div class="container">
+      <div class="contact-hero-content">
+        <h1 class="display-title">CONTACT THE PIT</h1>
+        <p class="display-subtitle">READY TO START YOUR JOURNEY?</p>
+        <p class="hero-description">
+          Step into our octagon. Tell us where you are. We'll tell you what comes next.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       14. CONTACT CONTENT
+       Background: LIGHT 1 (ghost-white)
+  ============================================================ -->
+  <section class="contact-content section" id="contact-form">
+    <div class="container">
+      <div class="contact-grid reveal-on-scroll">
+
+        <!-- Contact Form -->
+        <div class="contact-form-section">
+          <h2 class="section-title">
+            <i class="fa-solid fa-fist-raised"></i>
+            GET IN TOUCH
+          </h2>
+
+          <form class="contact-form">
+            <div class="form-group">
+              <label for="name">NAME</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">EMAIL</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">PHONE</label>
+              <input type="tel" id="phone" name="phone">
+            </div>
+
+            <div class="form-group">
+              <label for="interest">TRAINING INTEREST</label>
+              <select id="interest" name="interest">
+                <option>Select Training Type</option>
+                <option>Striking (Boxing, Muay Thai)</option>
+                <option>Grappling (BJJ, Wrestling)</option>
+                <option>Conditioning</option>
+                <option>All Training Types</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">MESSAGE</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell us about your goals..."></textarea>
+            </div>
+
+            <CombatButton
+              text="Send Message"
+              variant="accent"
+              size="large"
+              className="form-submit-btn"
+            />
+          </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="contact-info-section">
+          <h2 class="section-title">
+            <i class="fa-solid fa-location-dot"></i>
+            FIND THE PIT
+          </h2>
+
+          <div class="contact-info">
+            <div class="info-block">
+              <h3><i class="fa-solid fa-map-marker-alt"></i> LOCATION</h3>
+              <p>123 Fighter Street<br>Combat District<br>City, State 12345</p>
+            </div>
+
+            <div class="info-block">
+              <h3><i class="fa-solid fa-phone"></i> PHONE</h3>
+              <p><a href="tel:+15551234567">(555) 123-FIGHT</a></p>
+            </div>
+
+            <div class="info-block">
+              <h3><i class="fa-solid fa-envelope"></i> EMAIL</h3>
+              <p><a href="mailto:info@thescrappit.com">info@thescrappit.com</a></p>
+            </div>
+
+            <div class="info-block">
+              <h3><i class="fa-solid fa-clock"></i> HOURS</h3>
+              <div class="hours-list">
+                <div class="hour-row"><span>MON-FRI</span><span>5:00 AM - 10:00 PM</span></div>
+                <div class="hour-row"><span>SATURDAY</span><span>6:00 AM - 8:00 PM</span></div>
+                <div class="hour-row"><span>SUNDAY</span><span>8:00 AM - 6:00 PM</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="quick-actions">
+            <h3><i class="fa-solid fa-bolt"></i> QUICK ACTIONS</h3>
+            <div class="action-buttons">
+              <CombatButton text="View Pricing" href="#pricing" variant="victory" size="medium" />
+              <CombatButton text="About Us" href="#about" variant="ghost" size="medium" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
 </FightLayout>
 
 <style lang="scss">
 @import '../styles/variables';
 @import '../styles/color_filters';
 
-// Hero Section Styles
+// ============================================================
+// SECTION HEADER ENTRANCE ANIMATIONS
+// Delays are baked into the base transition so they fire
+// reliably when .revealed is added by JS.
+// ============================================================
+
+.section-header-animated {
+  // Title enters first — no delay
+  .display-title {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.3s ease-out 0s,
+                transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) 0s;
+  }
+
+  // Subtitle enters second
+  .display-subtitle {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.3s ease-out 0.12s,
+                transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) 0.12s;
+  }
+
+  // Description enters third
+  .hero-description {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.3s ease-out 0.24s,
+                transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) 0.24s;
+  }
+
+  &.revealed {
+    .display-title,
+    .display-subtitle,
+    .hero-description {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+// ============================================================
+// SCROLL-TRIGGERED CONTENT REVEALS
+// ============================================================
+
+// Single-element reveal
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.35s ease-out,
+              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Staggered grid children — initial hidden state with nth-child delays
+.stagger-children {
+  .training-block,
+  .fighter-profile,
+  .stat-item,
+  .value-card,
+  .leader-card,
+  .pricing-card,
+  .option-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.35s ease-out,
+                transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @for $i from 1 through 6 {
+    .training-block:nth-child(#{$i}),
+    .fighter-profile:nth-child(#{$i}),
+    .stat-item:nth-child(#{$i}),
+    .value-card:nth-child(#{$i}),
+    .leader-card:nth-child(#{$i}),
+    .pricing-card:nth-child(#{$i}),
+    .option-card:nth-child(#{$i}) {
+      transition-delay: #{($i - 1) * 0.08}s;
+    }
+  }
+
+  // When parent is revealed, cascade children to visible
+  &.revealed {
+    .training-block,
+    .fighter-profile,
+    .stat-item,
+    .value-card,
+    .leader-card,
+    .pricing-card,
+    .option-card {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+// ============================================================
+// HERO SECTION
+// ============================================================
+
 .section-hero {
   position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
   overflow: hidden;
-  
+
   .hero-background {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, 
-      rgba($iron-black, 0.6) 0%, 
-      rgba($iron-black, 0.3) 50%, 
+    background: linear-gradient(135deg,
+      rgba($iron-black, 0.6) 0%,
+      rgba($iron-black, 0.3) 50%,
       rgba($iron-black, 0.7) 100%
     ),
+    // url('/images/hero-octagon-2.png');
     url('/images/hero-octagon-scrap.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    filter: grayscale(.5);
-    
-    // Modern browser optimization
-    @supports (background-image: url('image.webp')) {
-      background-image: linear-gradient(135deg, 
-        rgba($iron-black, 0.6) 0%, 
-        rgba($iron-black, 0.3) 50%, 
-        rgba($iron-black, 0.7) 100%
-      ),
-      url('/images/hero-octagon-scrap.jpg');
-    }
+    filter: grayscale(.75);
     z-index: -1;
-    
+
     .hero-image-overlay {
       position: absolute;
       top: 0;
@@ -282,24 +925,24 @@ import CombatButton from '../components/CombatButton.astro';
       );
     }
   }
-  
+
   .hero-content {
     position: relative;
     z-index: 2;
     text-align: center;
     color: $text-inverse;
-    
+
     .hero-title {
       margin-bottom: $space-md;
       text-shadow: 4px 4px 0 $iron-black;
     }
-    
+
     .hero-subtitle {
       margin-bottom: $space-lg;
       color: $text-highlight;
       text-shadow: 2px 2px 0 $iron-black;
     }
-    
+
     .hero-description {
       max-width: 600px;
       margin: 0 auto $space-xl;
@@ -307,7 +950,7 @@ import CombatButton from '../components/CombatButton.astro';
       line-height: $line-height-loose;
       opacity: 0.9;
     }
-    
+
     .hero-actions {
       justify-content: center;
       gap: $space-lg;
@@ -315,19 +958,22 @@ import CombatButton from '../components/CombatButton.astro';
   }
 }
 
-// Training Section Styles
+// ============================================================
+// TRAINING SECTION
+// ============================================================
+
 .training {
   padding: $space-mega $space-sm;
-  
+
   .section-header {
     text-align: center;
     margin-bottom: $space-xxl;
-    
+
     .section-title {
       font-size: $font-size-huge;
       margin-bottom: $space-md;
     }
-    
+
     .section-description {
       font-size: $font-size-medium;
       max-width: 600px;
@@ -335,188 +981,203 @@ import CombatButton from '../components/CombatButton.astro';
       opacity: 0.8;
     }
   }
-  
+
   .training-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: $space-xl;
-    
+
     @media (max-width: 1366px) {
       grid-template-columns: repeat(2, 1fr);
       gap: $space-lg;
     }
-    
+
     @media (max-width: $breakpoint-md) {
       grid-template-columns: 1fr;
       gap: $space-lg;
     }
   }
-  
+
   .training-block {
     position: relative;
     border: $border-primary;
     background: $bg-primary;
-    transition: all $transition-normal;
-    
+    cursor: pointer;
+    transition: all $transition-quick;
+
     &:hover {
-      transform: translate(-4px, -4px);
-      box-shadow: $shadow-harsh;
-      
+      transform: translate(-6px, -6px);
+      box-shadow: 10px 10px 0 $iron-black;
+
       .training-image {
-        transform: scale(1.05);
-        
-        // Enhance duotone effects on hover
+        transform: scale(1.08);
+
         &.duotone-red-black {
-          filter: 
-            grayscale(1) 
-            contrast(1.4) 
-            sepia(1) 
-            hue-rotate(315deg) 
+          filter:
+            grayscale(1)
+            contrast(1.4)
+            sepia(1)
+            hue-rotate(315deg)
             saturate(1.2)
             brightness(1.1);
         }
-        
+
         &.duotone-gold-black {
-          filter: 
-            grayscale(1) 
-            contrast(1.3) 
-            sepia(1) 
-            hue-rotate(38deg) 
+          filter:
+            grayscale(1)
+            contrast(1.3)
+            sepia(1)
+            hue-rotate(38deg)
             saturate(1.1)
             brightness(1.1);
         }
-        
+
         &.tritone-combat {
-          filter: 
-            contrast(1.6) 
-            saturate(0.8) 
-            sepia(0.4) 
+          filter:
+            contrast(1.6)
+            saturate(0.8)
+            sepia(0.4)
             hue-rotate(10deg)
             brightness(1.05);
         }
       }
+
+      .training-content {
+        .training-title {
+          text-shadow: 2px 2px 0 rgba($blood-red, 0.3);
+        }
+
+        .training-stats .stat {
+          transform: scale(1.05);
+          background: $blood-red;
+        }
+      }
     }
-    
+
+    // Click/tap impact — card compresses in, springs back on release
+    &.impact {
+      transform: translate(0, 0) scale(0.97) !important;
+      box-shadow: 2px 2px 0 $iron-black !important;
+      transition-duration: 0.08s !important;
+
+      .training-image {
+        transform: scale(1) !important;
+      }
+    }
+
     .training-image {
       position: relative;
       height: 300px;
       overflow: hidden;
-      transition: transform $transition-normal;
-      
-      // Default fallback background for debugging
-      background: linear-gradient(135deg, 
-        rgba($iron-black, 0.8) 0%, 
-        rgba($iron-black, 0.6) 100%
-      );
-      
+      transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+
       .training-image-content {
         width: 100%;
         height: 100%;
-        // Background will be applied to parent .training-image instead
       }
-      
+    }
+
+    .training-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba($iron-black, 0.8) 100%
+      );
+    }
+
+    .training-content {
+      padding: $space-lg;
+
+      .training-title {
+        font-size: $font-size-large;
+        margin-bottom: $space-md;
+        color: $text-accent;
+        transition: text-shadow 0.15s ease;
+      }
+
+      .training-description {
+        margin-bottom: $space-md;
+        line-height: $line-height-loose;
+      }
+
+      .training-stats {
+        display: flex;
+        gap: $space-sm;
+        flex-wrap: wrap;
+
+        .stat {
+          display: inline-block;
+          padding: $space-xs $space-sm;
+          background: $iron-black;
+          color: $text-inverse;
+          font-size: $font-size-small;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          transition: transform 0.1s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+                      background 0.15s ease;
+        }
+      }
     }
   }
-  
-  // Individual training images - moved outside to fix specificity
+
+  // Individual training block background images
   .training-block[data-stage="striking"] .training-image.duotone-red-black {
-    background: linear-gradient(135deg, 
-      rgba($iron-black, 0.4) 0%, 
-      rgba($blood-red, 0.2) 50%, 
+    background: linear-gradient(135deg,
+      rgba($iron-black, 0.4) 0%,
+      rgba($blood-red, 0.2) 50%,
       rgba($iron-black, 0.3) 100%
     ),
     url('/images/fighter-striking.jpg');
     background-size: cover;
     background-position: center;
-    border: 3px solid red !important; // Debug - this should be visible
   }
-  
+
   .training-block[data-stage="grappling"] .training-image.duotone-gold-black {
-    background: linear-gradient(135deg, 
-      rgba($iron-black, 0.4) 0%, 
-      rgba($championship-gold, 0.2) 50%, 
+    background: linear-gradient(135deg,
+      rgba($iron-black, 0.4) 0%,
+      rgba($championship-gold, 0.2) 50%,
       rgba($iron-black, 0.3) 100%
     ),
     url('/images/fighters-grappling.jpg');
     background-size: cover;
     background-position: center;
-    border: 3px solid gold !important; // Debug - this should be visible
   }
-  
+
   .training-block[data-stage="conditioning"] .training-image.tritone-combat {
-    background: linear-gradient(135deg, 
-      rgba($iron-black, 0.4) 0%, 
-      rgba($blood-red, 0.1) 30%, 
-      rgba($championship-gold, 0.1) 70%, 
+    background: linear-gradient(135deg,
+      rgba($iron-black, 0.4) 0%,
+      rgba($blood-red, 0.1) 30%,
+      rgba($championship-gold, 0.1) 70%,
       rgba($iron-black, 0.3) 100%
     ),
     url('/images/fighter-conditioning.jpg');
     background-size: cover;
     background-position: center;
-    border: 3px solid blue !important; // Debug - this should be visible
-  }
-  
-  // Training overlay (moved to correct level)
-  .training-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgba($iron-black, 0.8) 100%
-    );
-  }
-  
-  // Training content (moved to correct level)
-  .training-content {
-    padding: $space-lg;
-    
-    .training-title {
-      font-size: $font-size-large;
-      margin-bottom: $space-md;
-      color: $text-accent;
-    }
-    
-    .training-description {
-      margin-bottom: $space-md;
-      line-height: $line-height-loose;
-    }
-    
-    .training-stats {
-      display: flex;
-      gap: $space-sm;
-      flex-wrap: wrap;
-      
-      .stat {
-        display: inline-block;
-        padding: $space-xs $space-sm;
-        background: $iron-black;
-        color: $text-inverse;
-        font-size: $font-size-small;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-      }
-    }
   }
 }
 
-// Fighters Section Styles
+// ============================================================
+// FIGHTERS SECTION (Light background)
+// ============================================================
+
 .fighters {
   padding: $space-mega 0;
-  
+
   .section-header {
     text-align: center;
     margin-bottom: $space-xxl;
-    
+
     .section-title {
       font-size: $font-size-huge;
       margin-bottom: $space-md;
     }
-    
+
     .section-description {
       font-size: $font-size-medium;
       max-width: 600px;
@@ -524,21 +1185,21 @@ import CombatButton from '../components/CombatButton.astro';
       opacity: 0.8;
     }
   }
-  
+
   .fighters-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: $space-xl;
-    
+
     @media (max-width: $breakpoint-lg) {
       grid-template-columns: 1fr;
       gap: $space-lg;
     }
   }
-  
+
   .fighter-profile {
     text-align: center;
-    
+
     .fighter-image {
       width: 200px;
       height: 200px;
@@ -547,45 +1208,35 @@ import CombatButton from '../components/CombatButton.astro';
       overflow: hidden;
       border: $border-thick solid $championship-gold;
       position: relative;
-      
-      // Default fallback background for debugging
-      background: linear-gradient(135deg, 
-        rgba($iron-black, 0.9) 0%, 
-        rgba($iron-black, 0.7) 100%
-      ) !important;
-      
-      .fighter-image-content {
-        width: 100%;
-        height: 100%;
-        // Background moved to parent .fighter-image
-      }
-      
+      transition: all $transition-quick;
+
       &:hover {
         transform: scale(1.05);
         box-shadow: 0 0 20px rgba($championship-gold, 0.4);
       }
-      
-      // Enhanced chromatic displacement for circular images
+
       &.chromatic-displacement {
         &::before,
         &::after {
-          border-radius: 50%; // Match the circular crop
+          border-radius: 50%;
+          transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+                      opacity 0.2s ease;
         }
-        
+
         &:hover {
           &::before {
-            opacity: 0.4;
-            transform: translate(-3px, -1px);
+            opacity: 0.5;
+            transform: translate(-5px, -2px);
           }
-          
+
           &::after {
-            opacity: 0.3;
-            transform: translate(3px, 1px);
+            opacity: 0.4;
+            transform: translate(5px, 2px);
           }
         }
       }
     }
-    
+
     .fighter-content {
       .fighter-quote {
         font-size: $font-size-medium;
@@ -593,7 +1244,7 @@ import CombatButton from '../components/CombatButton.astro';
         font-style: italic;
         margin-bottom: $space-md;
         color: $iron-black;
-        
+
         &::before,
         &::after {
           content: '"';
@@ -601,7 +1252,7 @@ import CombatButton from '../components/CombatButton.astro';
           color: $championship-gold;
         }
       }
-      
+
       .fighter-name {
         display: block;
         font-family: $font-display;
@@ -609,10 +1260,10 @@ import CombatButton from '../components/CombatButton.astro';
         color: $championship-gold;
         margin-bottom: $space-xs;
       }
-      
+
       .fighter-title {
         font-size: $font-size-small;
-        color: rgba($text-inverse, 0.7);
+        color: rgba($text-primary, 0.7);
         text-transform: uppercase;
         letter-spacing: 0.1em;
       }
@@ -620,69 +1271,36 @@ import CombatButton from '../components/CombatButton.astro';
   }
 }
 
-// Individual Fighter Profile Images - Ultra specific selectors with !important
-.fighters.section .fighters-grid .fighter-profile:nth-child(1) .fighter-image.chromatic-displacement.mono-to-color {
-  background: linear-gradient(135deg, 
-    rgba($iron-black, 0.3) 0%, 
-    rgba($blood-red, 0.1) 50%, 
-    rgba($championship-gold, 0.1) 100%
-  ),
-  url('/images/fighter-profile-1.jpg') !important;
-  background-size: cover !important;
-  background-position: center !important;
-  border: 4px solid red !important; // Debug - Marcus "Iron" Rodriguez
-}
+// ============================================================
+// JOIN THE FIGHT SECTION
+// ============================================================
 
-.fighters.section .fighters-grid .fighter-profile:nth-child(2) .fighter-image.chromatic-displacement.mono-to-color {
-  background: linear-gradient(135deg, 
-    rgba($iron-black, 0.3) 0%, 
-    rgba($blood-red, 0.1) 50%, 
-    rgba($championship-gold, 0.1) 100%
-  ),
-  url('/images/fighter-profile-2.jpg') !important;
-  background-size: cover !important;
-  background-position: center !important;
-  border: 4px solid blue !important; // Debug - Sarah "Savage" Chen
-}
-
-.fighters.section .fighters-grid .fighter-profile:nth-child(3) .fighter-image.chromatic-displacement.mono-to-color {
-  background: linear-gradient(135deg, 
-    rgba($iron-black, 0.3) 0%, 
-    rgba($blood-red, 0.1) 50%, 
-    rgba($championship-gold, 0.1) 100%
-  ),
-  url('/images/fighter-profile-3.jpg') !important;
-  background-size: cover !important;
-  background-position: center !important;
-  border: 4px solid green !important; // Debug - James "Thunder" Thompson
-}
-// Join Fight Section Styles
 .join-fight {
   padding: $space-mega 0;
-  background: linear-gradient(135deg, 
-    rgba($iron-black, 0.05) 0%, 
-    rgba($blood-red, 0.05) 50%, 
+  background: linear-gradient(135deg,
+    rgba($iron-black, 0.05) 0%,
+    rgba($blood-red, 0.05) 50%,
     rgba($championship-gold, 0.05) 100%
   );
-  
+
   .join-content {
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
-    
+
     .join-header {
       margin-bottom: $space-xl;
-      
+
       .join-title {
         margin-bottom: $space-md;
       }
-      
+
       .join-subtitle {
         color: $text-accent;
         margin-bottom: $space-lg;
       }
     }
-    
+
     .join-body {
       .join-description {
         font-size: $font-size-medium;
@@ -691,28 +1309,28 @@ import CombatButton from '../components/CombatButton.astro';
         padding: 0 $space-sm;
         opacity: 0.9;
       }
-      
+
       .join-features {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: $space-lg;
         margin-bottom: $space-xl;
-        
+
         @media (max-width: $breakpoint-md) {
           grid-template-columns: 1fr;
         }
-        
+
         .feature {
           display: flex;
           flex-direction: column;
           align-items: center;
           gap: $space-sm;
-          
+
           .feature-icon {
             font-size: $font-size-huge;
             filter: grayscale(1);
           }
-          
+
           .feature-text {
             font-family: $font-display;
             font-size: $font-size-medium;
@@ -721,21 +1339,21 @@ import CombatButton from '../components/CombatButton.astro';
           }
         }
       }
-      
+
       .join-actions {
         margin-bottom: $space-xl;
       }
-      
+
       .join-guarantee {
         margin: $space-sm;
         padding: $space-lg;
         border: $border-thick solid $championship-gold;
         background: rgba($championship-gold, 0.1);
-        
+
         .guarantee-text {
           font-size: $font-size-normal;
           margin: 0;
-          
+
           strong {
             color: $championship-gold;
             font-family: $font-display;
@@ -746,62 +1364,1033 @@ import CombatButton from '../components/CombatButton.astro';
   }
 }
 
-// Responsive adjustments
-@media (max-width: $breakpoint-md) {
-  .section-hero {
-    .hero-background {
-      background-attachment: scroll; // Better mobile performance
-      background-position: center top;
+// ============================================================
+// ABOUT HEADER
+// ============================================================
+
+.about-hero {
+  padding: $space-mega 0 $space-xl 0;
+  background: linear-gradient(135deg,
+    rgba($iron-black, 0.95) 0%,
+    rgba($iron-black, 0.8) 50%,
+    rgba($iron-black, 0.95) 100%
+  );
+
+  .about-hero-content {
+    text-align: center;
+    color: $text-inverse;
+    max-width: 900px;
+    margin: 0 auto;
+
+    .display-title {
+      margin-bottom: $space-md;
+      color: $text-inverse;
+      text-shadow: 4px 4px 0 $blood-red;
+    }
+
+    .display-subtitle {
+      color: $championship-gold;
+      margin-bottom: $space-lg;
+    }
+
+    .hero-description {
+      font-size: $font-size-medium;
+      line-height: $line-height-loose;
+      opacity: 0.9;
     }
   }
-  
+}
+
+// ============================================================
+// OUR STORY SECTION
+// ============================================================
+
+.our-story {
+  padding: $space-xl $space-sm;
+
+  .story-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: $space-xxl;
+
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: 1fr;
+      gap: $space-xl;
+    }
+  }
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    margin-bottom: $space-lg;
+
+    i {
+      color: $blood-red;
+      font-size: $font-size-large;
+    }
+  }
+
+  .story-text {
+    p {
+      font-size: $font-size-medium;
+      line-height: $line-height-loose;
+      margin-bottom: $space-md;
+
+      strong {
+        color: $blood-red;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .story-stats {
+    h3 {
+      display: flex;
+      align-items: center;
+      gap: $space-sm;
+      font-family: $font-display;
+      font-size: $font-size-medium;
+      color: $text-primary;
+      margin-bottom: $space-lg;
+
+      i {
+        color: $championship-gold;
+      }
+    }
+
+    .stats-grid {
+      display: grid;
+      gap: $space-md;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: $space-md;
+      border: $border-primary;
+      background: rgba($ghost-white, 0.5);
+
+      .stat-number {
+        display: block;
+        font-family: $font-display;
+        font-size: $font-size-large;
+        color: $blood-red;
+        margin-bottom: $space-xs;
+      }
+
+      .stat-label {
+        font-size: $font-size-small;
+        color: $text-primary;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+    }
+  }
+}
+
+// ============================================================
+// CORE VALUES SECTION (bg-dark — kept as-is, text bug fixed)
+// ============================================================
+
+.core-values {
+  padding: $space-xl $space-sm;
+
+  .section-title {
+    color: $text-inverse;
+    margin-bottom: $space-xxl;
+
+    i {
+      color: $championship-gold;
+      margin-right: $space-sm;
+    }
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-lg;
+
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .value-card {
+    padding: $space-lg;
+    border: $border-thick solid $championship-gold;
+    background: rgba($championship-gold, 0.1);
+    text-align: center;
+
+    .value-icon {
+      font-size: $font-size-huge;
+      color: $championship-gold;
+      margin-bottom: $space-md;
+    }
+
+    h3 {
+      font-family: $font-display;
+      font-size: $font-size-medium;
+      color: $blood-red;
+      margin-bottom: $space-md;
+      letter-spacing: 0.05em;
+    }
+
+    p {
+      line-height: $line-height-loose;
+      color: rgba($iron-black, 0.9);
+    }
+  }
+}
+
+// ============================================================
+// FORGED LEADERS SECTION
+// ============================================================
+
+.leadership {
+  padding: $space-xl $space-sm;
+
+  .section-title {
+    margin-bottom: $space-xxl;
+
+    i {
+      color: $championship-gold;
+      margin-right: $space-sm;
+    }
+  }
+
+  .leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-lg;
+
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .leader-card {
+    display: flex;
+    gap: $space-lg;
+    padding: $space-lg;
+    border: $border-primary;
+    background: rgba($ghost-white, 0.5);
+
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .leader-image {
+      flex-shrink: 0;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: $border-thick solid $championship-gold;
+
+      &.chromatic-displacement {
+        &::before,
+        &::after {
+          border-radius: 50%;
+          transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+                      opacity 0.2s ease;
+        }
+
+        &:hover {
+          &::before {
+            opacity: 0.5;
+            transform: translate(-5px, -2px);
+          }
+
+          &::after {
+            opacity: 0.4;
+            transform: translate(5px, 2px);
+          }
+        }
+      }
+    }
+
+    .leader-content {
+      flex: 1;
+
+      h3 {
+        font-family: $font-display;
+        font-size: $font-size-medium;
+        color: $text-primary;
+        margin-bottom: $space-xs;
+      }
+
+      .leader-title {
+        color: $blood-red;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: $font-size-small;
+        margin-bottom: $space-md;
+        letter-spacing: 0.05em;
+      }
+
+      .leader-bio {
+        line-height: $line-height-loose;
+        margin-bottom: $space-md;
+      }
+
+      .leader-credentials {
+        display: flex;
+        flex-direction: column;
+        gap: $space-xs;
+
+        span {
+          display: flex;
+          align-items: center;
+          gap: $space-xs;
+          font-size: $font-size-small;
+          color: $championship-gold;
+
+          i {
+            color: $blood-red;
+          }
+        }
+      }
+    }
+  }
+}
+
+// ============================================================
+// READY TO BE FORGED SECTION (LIGHT 2 gradient)
+// ============================================================
+
+.about-cta {
+  padding: $space-xl 0;
+  background: linear-gradient(135deg,
+    rgba($iron-black, 0.05) 0%,
+    rgba($blood-red, 0.05) 50%,
+    rgba($championship-gold, 0.05) 100%
+  );
+
+  .cta-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+
+    .cta-title {
+      font-family: $font-display;
+      font-size: $font-size-huge;
+      color: $text-primary;
+      margin-bottom: $space-md;
+      text-shadow: 2px 2px 0 $blood-red;
+    }
+
+    .cta-text {
+      font-size: $font-size-medium;
+      line-height: $line-height-loose;
+      margin-bottom: $space-lg;
+      padding: 0 $space-sm;
+      opacity: 0.9;
+    }
+
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+      gap: $space-lg;
+      flex-wrap: wrap;
+
+      @media (max-width: $breakpoint-md) {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+}
+
+// ============================================================
+// PRICING HEADER
+// ============================================================
+
+.pricing-hero {
+  padding: $space-mega 0 $space-xl 0;
+  background: linear-gradient(135deg,
+    rgba($iron-black, 0.95) 0%,
+    rgba($iron-black, 0.8) 50%,
+    rgba($iron-black, 0.95) 100%
+  );
+
+  .pricing-hero-content {
+    text-align: center;
+    color: $text-inverse;
+    max-width: 800px;
+    margin: 0 auto;
+
+    .display-title {
+      margin-bottom: $space-md;
+      color: $text-inverse;
+      text-shadow: 4px 4px 0 $blood-red;
+    }
+
+    .display-subtitle {
+      color: $championship-gold;
+      margin-bottom: $space-lg;
+    }
+
+    .hero-description {
+      font-size: $font-size-medium;
+      opacity: 0.9;
+    }
+  }
+}
+
+// ============================================================
+// PRICING PLANS + ADDITIONAL OPTIONS
+// ============================================================
+
+.pricing-plans {
+  padding: $space-xl $space-sm;
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-lg;
+    margin-bottom: $space-xxl;
+
+    @media (max-width: 1366px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: $space-md;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: 1fr;
+      gap: $space-md;
+    }
+  }
+}
+
+.pricing-card {
+  position: relative;
+  border: $border-primary;
+  background: $bg-primary;
+  padding: $space-lg;
+  transition: all $transition-quick;
+
+  &:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: $shadow-harsh;
+  }
+
+  &.popular {
+    border-color: $blood-red;
+    border-width: $border-mega;
+    transform: scale(1.05);
+
+    &:hover {
+      transform: scale(1.05) translate(-4px, -4px);
+      box-shadow: $shadow-accent;
+    }
+  }
+
+  .popular-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: $blood-red;
+    color: $text-inverse;
+    padding: $space-xs $space-md;
+    font-family: $font-display;
+    font-size: $font-size-small;
+    letter-spacing: 0.1em;
+
+    i {
+      margin-right: $space-xs;
+    }
+  }
+
+  .card-header {
+    text-align: center;
+    margin-bottom: $space-lg;
+
+    .plan-icon {
+      font-size: $font-size-huge;
+      color: $blood-red;
+      margin-bottom: $space-md;
+    }
+    .warrior-icon {
+        font-size: $font-size-huge;
+        color: $iron-black;
+        margin-bottom: $space-md;
+    }
+    .plan-name {
+      font-family: $font-display;
+      font-size: $font-size-large;
+      color: $text-primary;
+      margin-bottom: $space-xs;
+    }
+
+    .plan-subtitle {
+      color: rgba($text-primary, 0.7);
+      font-size: $font-size-small;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+  }
+
+  &.premium .card-header .plan-icon {
+    color: $championship-gold;
+  }
+
+  .card-pricing {
+    text-align: center;
+    margin-bottom: $space-lg;
+
+    .price {
+      font-family: $font-display;
+      font-size: $font-size-huge;
+      color: $text-primary;
+    }
+
+    .period {
+      font-size: $font-size-normal;
+      color: rgba($text-primary, 0.7);
+    }
+  }
+
+  .card-features {
+    margin-bottom: $space-lg;
+
+    .features-list {
+      list-style: none;
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: $space-sm;
+        padding: $space-xs 0;
+        border-bottom: 1px solid rgba($iron-black, 0.1);
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        i {
+          width: 20px;
+          font-size: $font-size-normal;
+
+          &.fa-check {
+            color: $championship-gold;
+          }
+
+          &.fa-times {
+            color: rgba($text-primary, 0.3);
+          }
+        }
+      }
+    }
+  }
+
+  .card-action {
+    .pricing-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}
+
+.additional-options {
+  .section-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-sm;
+    margin-bottom: $space-lg;
+    text-align: center;
+
+    i {
+      color: $championship-gold;
+    }
+  }
+
+  .options-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $space-md;
+
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .option-card {
+    text-align: center;
+    padding: $space-md;
+    border: $border-primary;
+    background: rgba($ghost-white, 0.5);
+    transition: all $transition-quick;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 4px 4px 0 $iron-black;
+    }
+
+    h4 {
+      font-family: $font-display;
+      font-size: $font-size-medium;
+      color: $text-primary;
+      margin-bottom: $space-sm;
+
+      i {
+        color: $blood-red;
+        margin-right: $space-xs;
+      }
+    }
+
+    .option-price {
+      font-family: $font-display;
+      font-size: $font-size-large;
+      color: $championship-gold;
+      margin-bottom: $space-xs;
+    }
+
+    p:last-child {
+      font-size: $font-size-small;
+      color: rgba($text-primary, 0.7);
+      margin: 0;
+    }
+  }
+}
+
+// ============================================================
+// 30-DAY WARRIOR GUARANTEE (Light background)
+// ============================================================
+
+.guarantee {
+  padding: $space-xl 0;
+  text-align: center;
+
+  .guarantee-content {
+    max-width: 800px;
+    margin: 0 auto;
+    color: $text-primary;
+    padding: $space-xl;
+    border: $border-thick solid $championship-gold;
+    background: rgba($championship-gold, 0.05);
+
+    .guarantee-icon {
+      font-size: 4rem;
+      color: $championship-gold;
+      margin-bottom: $space-md;
+    }
+
+    .guarantee-title {
+      font-family: $font-display;
+      font-size: $font-size-huge;
+      color: $text-primary;
+      margin-bottom: $space-md;
+      text-shadow: 2px 2px 0 $blood-red;
+    }
+
+    .guarantee-text {
+      font-size: $font-size-medium;
+      line-height: $line-height-loose;
+      margin-bottom: $space-lg;
+      opacity: 0.9;
+    }
+
+    .guarantee-action {
+      margin-top: $space-lg;
+    }
+  }
+}
+
+// ============================================================
+// CONTACT HEADER
+// ============================================================
+
+.contact-hero {
+  padding: $space-mega 0 $space-xl 0;
+  background: linear-gradient(135deg,
+    rgba($iron-black, 0.95) 0%,
+    rgba($iron-black, 0.8) 50%,
+    rgba($iron-black, 0.95) 100%
+  );
+
+  .contact-hero-content {
+    text-align: center;
+    color: $text-inverse;
+    max-width: 800px;
+    margin: 0 auto;
+
+    .display-title {
+      margin-bottom: $space-md;
+      color: $text-inverse;
+      text-shadow: 4px 4px 0 $blood-red;
+    }
+
+    .display-subtitle {
+      color: $championship-gold;
+      margin-bottom: $space-lg;
+    }
+
+    .hero-description {
+      font-size: $font-size-medium;
+      opacity: 0.9;
+    }
+  }
+}
+
+// ============================================================
+// CONTACT CONTENT
+// ============================================================
+
+.contact-content {
+  padding: $space-xl $space-sm;
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $space-xxl;
+
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: 1fr;
+      gap: $space-xl;
+    }
+  }
+}
+
+.contact-form-section {
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    margin-bottom: $space-lg;
+
+    i {
+      color: $blood-red;
+      font-size: $font-size-large;
+    }
+  }
+}
+
+.contact-form {
+  .form-group {
+    margin-bottom: $space-lg;
+
+    label {
+      display: block;
+      font-family: $font-display;
+      font-size: $font-size-normal;
+      color: $text-primary;
+      margin-bottom: $space-xs;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: $space-sm;
+      border: $border-primary;
+      background: $bg-primary;
+      color: $text-primary;
+      font-family: $font-body;
+      font-size: $font-size-normal;
+      box-sizing: border-box;
+
+      &:focus {
+        outline: none;
+        border-color: $blood-red;
+        box-shadow: 0 0 0 2px rgba($blood-red, 0.2);
+      }
+    }
+
+    select {
+      width: 100%;
+      padding: $space-sm;
+      border: $border-primary;
+      background: $bg-primary;
+      color: $text-primary;
+      font-family: $font-body;
+      font-size: $font-size-normal;
+      box-sizing: border-box;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231A1A1A' stroke-width='2' stroke-linecap='square' stroke-linejoin='miter'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right $space-sm center;
+      background-size: 16px;
+      padding-right: calc(#{$space-sm} + 24px);
+      min-height: calc(#{$font-size-normal} + #{$space-sm} * 2 + 4px);
+      line-height: $line-height-normal;
+
+      &:focus {
+        outline: none;
+        border-color: $blood-red;
+        box-shadow: 0 0 0 2px rgba($blood-red, 0.2);
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E00000' stroke-width='2' stroke-linecap='square' stroke-linejoin='miter'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+      }
+
+      option {
+        background: $bg-primary;
+        color: $text-primary;
+        font-family: $font-body;
+        padding: $space-xs;
+      }
+
+      @media (max-width: $breakpoint-md) {
+        font-size: 16px;
+        min-height: 44px;
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+  }
+
+  .form-submit-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.contact-info-section {
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    margin-bottom: $space-lg;
+
+    i {
+      color: $championship-gold;
+      font-size: $font-size-large;
+    }
+  }
+}
+
+.contact-info {
+  margin-bottom: $space-xl;
+
+  .info-block {
+    margin-bottom: $space-lg;
+    padding: $space-md;
+    border: $border-primary;
+    background: rgba($ghost-white, 0.5);
+
+    h3 {
+      display: flex;
+      align-items: center;
+      gap: $space-sm;
+      font-family: $font-display;
+      font-size: $font-size-medium;
+      color: $text-primary;
+      margin-bottom: $space-sm;
+
+      i {
+        color: $blood-red;
+      }
+    }
+
+    p {
+      margin: 0;
+      line-height: $line-height-loose;
+
+      a {
+        color: $text-primary;
+        text-decoration: none;
+
+        &:hover {
+          color: $blood-red;
+        }
+      }
+    }
+
+    .hours-list {
+      .hour-row {
+        display: flex;
+        justify-content: space-between;
+        padding: $space-xs 0;
+        border-bottom: 1px solid rgba($iron-black, 0.1);
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        span:first-child {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+.quick-actions {
+  h3 {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    font-family: $font-display;
+    font-size: $font-size-medium;
+    color: $text-primary;
+    margin-bottom: $space-md;
+
+    i {
+      color: $championship-gold;
+    }
+  }
+
+  .action-buttons {
+    display: flex;
+    gap: $space-md;
+    flex-wrap: wrap;
+
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column;
+    }
+  }
+}
+
+// ============================================================
+// RESPONSIVE — Consolidated mobile adjustments
+// ============================================================
+
+@media (max-width: $breakpoint-md) {
+  // Hero
+  .section-hero {
+    .hero-background {
+      background-attachment: scroll;
+      background-position: center top;
+    }
+
+    .hero-content {
+      .hero-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: $space-md;
+      }
+    }
+  }
+
+  // Training
   .training {
     .training-image {
-      height: 250px; // Slightly smaller on mobile
-      
-      // Reduce filter intensity on mobile for performance
+      height: 250px;
+
       &.duotone-red-black,
       &.duotone-gold-black,
       &.tritone-combat {
         filter: none;
-        
+
         &:hover {
           filter: none;
         }
       }
     }
   }
-  
+
+  // Fighters
   .fighters {
     .fighter-image {
       width: 150px;
       height: 150px;
-      
-      // Reduce chromatic displacement on mobile
+
       &.chromatic-displacement {
         &::before,
         &::after {
-          display: none; // Disable chromatic displacement on mobile
+          display: none;
         }
       }
     }
   }
-  
-  .hero-content {
-    .hero-actions {
-      flex-direction: column;
-      align-items: center;
-      gap: $space-md;
+
+  // About header
+  .about-hero {
+    padding: $space-xl 0 $space-lg 0;
+
+    .display-title {
+      font-size: $font-size-huge;
     }
   }
-  
-  .training-grid,
-  .fighters-grid {
-    grid-template-columns: 1fr;
+
+  // Our Story stats
+  .our-story {
+    .story-stats .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
-  
-  .join-features {
-    grid-template-columns: 1fr;
+
+  // Core Values
+  .core-values {
+    .value-card {
+      padding: $space-md;
+
+      .value-icon {
+        font-size: $font-size-large;
+      }
+
+      h3 {
+        font-size: $font-size-normal;
+      }
+    }
+  }
+
+  // Leadership
+  .leadership {
+    .leader-card {
+      .leader-image {
+        width: 160px;
+        height: 160px;
+        margin: 0 auto $space-lg;
+      }
+    }
+  }
+
+  // Ready to be Forged CTA
+  .about-cta {
+    .cta-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  // Pricing header
+  .pricing-hero {
+    padding: $space-xl 0 $space-lg 0;
+
+    .display-title {
+      font-size: $font-size-huge;
+    }
+  }
+
+  // Pricing cards
+  .pricing-card {
+    &.popular {
+      transform: none;
+
+      &:hover {
+        transform: translate(-4px, -4px);
+      }
+    }
+  }
+
+  // Contact header
+  .contact-hero {
+    padding: $space-xl 0 $space-lg 0;
+
+    .display-title {
+      font-size: $font-size-huge;
+    }
+  }
+
+  // Contact quick actions
+  .quick-actions {
+    .action-buttons {
+      .combat-btn {
+        flex: 1;
+        text-align: center;
+      }
+    }
   }
 }
 </style>
