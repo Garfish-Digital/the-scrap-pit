@@ -141,7 +141,7 @@ import CombatButton from '../components/CombatButton.astro';
 
       <div class="fighters-grid reveal-on-scroll stagger-children">
         <div class="fighter-profile">
-          <div class="fighter-image chromatic-displacement mono-to-color" style="background: url('/images/fighter-profile-1.jpg') center/cover;">
+          <div class="fighter-image mono-to-color" style="background: url('/images/fighter-profile-1.webp') center/cover;">
           </div>
           <div class="fighter-content">
             <blockquote class="fighter-quote">The Scrap Pit didn't just teach me to fight. It taught me to conquer the voice in my head that says I can't.</blockquote>
@@ -151,7 +151,7 @@ import CombatButton from '../components/CombatButton.astro';
         </div>
 
         <div class="fighter-profile">
-          <div class="fighter-image chromatic-displacement mono-to-color" style="background: url('/images/fighter-profile-2.jpg') center/cover;">
+          <div class="fighter-image mono-to-color" style="background: url('/images/fighter-profile-2.webp') center/cover;">
           </div>
           <div class="fighter-content">
             <blockquote class="fighter-quote">Every session breaks you down. Every session builds you back up. That's where real strength comes from.</blockquote>
@@ -161,7 +161,7 @@ import CombatButton from '../components/CombatButton.astro';
         </div>
 
         <div class="fighter-profile">
-          <div class="fighter-image chromatic-displacement mono-to-color" style="background: url('/images/fighter-profile-3.jpg') center/cover;">
+          <div class="fighter-image mono-to-color" style="background: url('/images/fighter-profile-3.webp') center/cover;">
           </div>
           <div class="fighter-content">
             <blockquote class="fighter-quote">The pit strips away everything fake. What's left is who you really are and what you're capable of.</blockquote>
@@ -389,7 +389,7 @@ import CombatButton from '../components/CombatButton.astro';
       <div class="leadership-grid reveal-on-scroll stagger-children">
 
         <div class="leader-card">
-          <div class="leader-image mono-to-color chromatic-displacement" style="background: url('/images/leader-mike-rodriguez-coach-and-founder.jpg'); background-size: cover; background-position: center;">
+          <div class="leader-image duotone-gold-black" style="background: url('/images/leader-mike-rodriguez-coach-and-founder.webp'); background-size: cover; background-position: center;">
           </div>
           <div class="leader-content">
             <h3>"Iron" Mike Rodriguez</h3>
@@ -406,7 +406,7 @@ import CombatButton from '../components/CombatButton.astro';
         </div>
 
         <div class="leader-card">
-          <div class="leader-image mono-to-color chromatic-displacement" style="background: url('/images/leader-sarah-chen-mma-director.jpg'); background-size: cover; background-position: center;">
+          <div class="leader-image duotone-gold-black" style="background: url('/images/leader-sarah-chen-mma-director.webp'); background-size: cover; background-position: center;">
           </div>
           <div class="leader-content">
             <h3>Sarah Chen</h3>
@@ -903,7 +903,7 @@ import CombatButton from '../components/CombatButton.astro';
       rgba($iron-black, 0.7) 100%
     ),
     // url('/images/hero-octagon-2.png');
-    url('/images/hero-octagon-scrap.jpg');
+    url('/images/hero-octagon-scrap.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -1034,11 +1034,12 @@ import CombatButton from '../components/CombatButton.astro';
 
         &.tritone-combat {
           filter:
-            contrast(1.6)
-            saturate(0.8)
-            sepia(0.4)
-            hue-rotate(10deg)
-            brightness(1.05);
+            grayscale(1)
+            contrast(1.4)
+            sepia(1)
+            hue-rotate(0deg)
+            saturate(1.05)
+            brightness(1.1);
         }
       }
 
@@ -1128,35 +1129,19 @@ import CombatButton from '../components/CombatButton.astro';
 
   // Individual training block background images
   .training-block[data-stage="striking"] .training-image.duotone-red-black {
-    background: linear-gradient(135deg,
-      rgba($iron-black, 0.4) 0%,
-      rgba($blood-red, 0.2) 50%,
-      rgba($iron-black, 0.3) 100%
-    ),
-    url('/images/fighter-striking.jpg');
+    background: url('/images/fighter-striking.webp');
     background-size: cover;
     background-position: center;
   }
 
   .training-block[data-stage="grappling"] .training-image.duotone-gold-black {
-    background: linear-gradient(135deg,
-      rgba($iron-black, 0.4) 0%,
-      rgba($championship-gold, 0.2) 50%,
-      rgba($iron-black, 0.3) 100%
-    ),
-    url('/images/fighters-grappling.jpg');
+    background: url('/images/fighters-grappling.webp');
     background-size: cover;
     background-position: center;
   }
 
   .training-block[data-stage="conditioning"] .training-image.tritone-combat {
-    background: linear-gradient(135deg,
-      rgba($iron-black, 0.4) 0%,
-      rgba($blood-red, 0.1) 30%,
-      rgba($championship-gold, 0.1) 70%,
-      rgba($iron-black, 0.3) 100%
-    ),
-    url('/images/fighter-conditioning.jpg');
+    background: url('/images/fighter-conditioning.webp');
     background-size: cover;
     background-position: center;
   }
@@ -1199,41 +1184,36 @@ import CombatButton from '../components/CombatButton.astro';
 
   .fighter-profile {
     text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      .fighter-image {
+        transform: translate(-4px, -4px);
+        box-shadow: 6px 6px 0 $iron-black;
+        filter: contrast(1.25) saturate(1.15) brightness(1.05);
+      }
+
+      .fighter-name {
+        text-shadow: 2px 2px 0 rgba($blood-red, 0.3);
+      }
+    }
 
     .fighter-image {
       width: 200px;
       height: 200px;
       margin: 0 auto $space-lg;
-      border-radius: 50%;
+    //   border-radius: 50%;
       overflow: hidden;
       border: $border-thick solid $championship-gold;
       position: relative;
-      transition: all $transition-quick;
+      transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.15s ease,
+                  filter 0.15s ease;
 
-      &:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 20px rgba($championship-gold, 0.4);
-      }
-
-      &.chromatic-displacement {
-        &::before,
-        &::after {
-          border-radius: 50%;
-          transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-                      opacity 0.2s ease;
-        }
-
-        &:hover {
-          &::before {
-            opacity: 0.5;
-            transform: translate(-5px, -2px);
-          }
-
-          &::after {
-            opacity: 0.4;
-            transform: translate(5px, 2px);
-          }
-        }
+      &.impact {
+        transform: translate(0, 0) scale(0.97) !important;
+        box-shadow: 2px 2px 0 $iron-black !important;
+        transition-duration: 0.08s !important;
       }
     }
 
@@ -1259,6 +1239,7 @@ import CombatButton from '../components/CombatButton.astro';
         font-size: $font-size-medium;
         color: $championship-gold;
         margin-bottom: $space-xs;
+        transition: text-shadow 0.15s ease;
       }
 
       .fighter-title {
@@ -1574,38 +1555,35 @@ import CombatButton from '../components/CombatButton.astro';
     padding: $space-lg;
     border: $border-primary;
     background: rgba($ghost-white, 0.5);
+    cursor: pointer;
 
     @media (max-width: $breakpoint-md) {
       flex-direction: column;
       text-align: center;
     }
 
+    &:hover {
+      .leader-image {
+        transform: translate(-4px, -4px);
+        box-shadow: 4px 4px 0 $iron-black;
+        filter: contrast(1.25) saturate(1.15) brightness(1.05);
+      }
+    }
+
     .leader-image {
       flex-shrink: 0;
       width: 120px;
       height: 120px;
-      border-radius: 50%;
+    //   border-radius: 50%;
       border: $border-thick solid $championship-gold;
+      transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.15s ease,
+                  filter 0.15s ease;
 
-      &.chromatic-displacement {
-        &::before,
-        &::after {
-          border-radius: 50%;
-          transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-                      opacity 0.2s ease;
-        }
-
-        &:hover {
-          &::before {
-            opacity: 0.5;
-            transform: translate(-5px, -2px);
-          }
-
-          &::after {
-            opacity: 0.4;
-            transform: translate(5px, 2px);
-          }
-        }
+      &.impact {
+        transform: translate(0, 0) scale(0.97) !important;
+        box-shadow: 2px 2px 0 $iron-black !important;
+        transition-duration: 0.08s !important;
       }
     }
 
@@ -2308,13 +2286,6 @@ import CombatButton from '../components/CombatButton.astro';
     .fighter-image {
       width: 150px;
       height: 150px;
-
-      &.chromatic-displacement {
-        &::before,
-        &::after {
-          display: none;
-        }
-      }
     }
   }
 

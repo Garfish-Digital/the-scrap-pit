@@ -414,20 +414,34 @@ const absoluteImageUrl = new URL(image, Astro.url).href;
         this.init();
       }
 
+      bindImpact(triggerEl: Element, targetEl: Element) {
+        const addImpact = () => targetEl.classList.add('impact');
+        const removeImpact = () => targetEl.classList.remove('impact');
+
+        triggerEl.addEventListener('mousedown', addImpact);
+        triggerEl.addEventListener('mouseup', removeImpact);
+        triggerEl.addEventListener('mouseleave', removeImpact);
+
+        triggerEl.addEventListener('touchstart', addImpact, { passive: true });
+        triggerEl.addEventListener('touchend', () => {
+          setTimeout(removeImpact, 150);
+        }, { passive: true });
+        triggerEl.addEventListener('touchcancel', removeImpact, { passive: true });
+      }
+
       init() {
         document.querySelectorAll('.training-block').forEach(block => {
-          const addImpact = () => block.classList.add('impact');
-          const removeImpact = () => block.classList.remove('impact');
+          this.bindImpact(block, block);
+        });
 
-          block.addEventListener('mousedown', addImpact);
-          block.addEventListener('mouseup', removeImpact);
-          block.addEventListener('mouseleave', removeImpact);
+        document.querySelectorAll('.fighter-profile').forEach(profile => {
+          const image = profile.querySelector('.fighter-image');
+          if (image) this.bindImpact(profile, image);
+        });
 
-          block.addEventListener('touchstart', addImpact, { passive: true });
-          block.addEventListener('touchend', () => {
-            setTimeout(removeImpact, 150);
-          }, { passive: true });
-          block.addEventListener('touchcancel', removeImpact, { passive: true });
+        document.querySelectorAll('.leader-card').forEach(card => {
+          const image = card.querySelector('.leader-image');
+          if (image) this.bindImpact(card, image);
         });
       }
     }

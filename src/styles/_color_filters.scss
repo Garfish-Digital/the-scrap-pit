@@ -31,11 +31,12 @@
 
 // Tritone Filters (Black, Red, Gold)
 .tritone-combat {
-  filter: 
-    contrast(1.4) 
-    saturate(0.6) 
-    sepia(0.3) 
-    hue-rotate(10deg);
+  filter:
+    grayscale(1)
+    contrast(1.2)
+    sepia(1)
+    hue-rotate(0deg)
+    saturate(0.85);
 }
 
 .tritone-intensity {
