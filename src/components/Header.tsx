@@ -78,6 +78,12 @@ export function Header() {
                 </NavLink>
               </li>
             ))}
+            <li>
+              <NavLink to="/studies" className="header__menu-link header__menu-link--studies display">
+                <span className="header__menu-index">0{routes.length + 1}</span>
+                Studies
+              </NavLink>
+            </li>
           </ul>
         </nav>
         <p className="header__menu-foot muted">{site.footerLine}</p>
