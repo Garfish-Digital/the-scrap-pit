@@ -47,13 +47,11 @@ export function Header() {
                 </NavLink>
               </li>
             ))}
-            {import.meta.env.DEV && (
-              <li>
-                <NavLink to="/studies" className="header__link header__link--dev">
-                  Studies
-                </NavLink>
-              </li>
-            )}
+            <li>
+              <NavLink to="/studies" className="header__link header__link--studies">
+                Studies
+              </NavLink>
+            </li>
           </ul>
         </nav>
 

@@ -8,8 +8,9 @@ import { Home } from './pages/Home'
 import { NotFound } from './pages/NotFound'
 import { Training } from './pages/Training'
 
-// Phase 2 design studies — dev server only; the branch is dead code in production builds.
-const Studies = import.meta.env.DEV ? lazy(() => import('./studies')) : null
+// Phase 2 design studies. Published alongside the site (own lazy chunk) so the
+// design process can be viewed on any device; remove the route before client handoff.
+const Studies = lazy(() => import('./studies'))
 
 export default function App() {
   return (
@@ -21,16 +22,14 @@ export default function App() {
           <Route path="fighters" element={<Fighters />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
-          {Studies && (
-            <Route
-              path="studies/*"
-              element={
-                <Suspense fallback={null}>
-                  <Studies />
-                </Suspense>
-              }
-            />
-          )}
+          <Route
+            path="studies/*"
+            element={
+              <Suspense fallback={null}>
+                <Studies />
+              </Suspense>
+            }
+          />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

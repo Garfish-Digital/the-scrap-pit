@@ -42,7 +42,7 @@ src/
     └── patterns.css         # shared page patterns (split hero, CTA band, details list)
 ```
 
-Routes: `/`, `/training` (includes `#striking`, `#grappling`, `#conditioning`, `#pricing`, `#guarantee`), `/fighters`, `/about`, `/contact` (accepts `?plan=warrior|champion|legend`).
+Routes: `/`, `/training` (includes `#striking`, `#grappling`, `#conditioning`, `#pricing`, `#guarantee`), `/fighters`, `/about`, `/contact` (accepts `?plan=warrior|champion|legend`), and `/studies/{type,color,logo}` — the Phase 2 design studies (`src/studies/`, lazy chunk). The studies are published on purpose so the design process can be documented on any device; remove the route and header link before client handoff.
 
 ## Conventions
 

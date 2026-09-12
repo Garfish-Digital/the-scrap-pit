@@ -53,8 +53,8 @@
   margin-left: var(--space-2);
 }
 
-/* Dev-only studies link */
-.header__link--dev {
+/* Design-process studies link (remove before client handoff) */
+.header__link--studies {
   color: var(--victory);
 }
 

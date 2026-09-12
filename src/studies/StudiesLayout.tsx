@@ -3,7 +3,7 @@ import { NavLink, Outlet } from 'react-router'
 import { PageMeta } from '../components/PageMeta'
 import { systems } from './systems'
 
-// Dev-only wrapper for the Phase 2 studies. Loads the candidate typefaces from
+// Wrapper for the Phase 2 studies. Loads the candidate typefaces from
 // Google Fonts for evaluation; the winning faces get self-hosted in the app.
 export function StudiesLayout() {
   useEffect(() => {
@@ -25,7 +25,7 @@ export function StudiesLayout() {
       <PageMeta title="Studies" />
       <nav className="container" aria-label="Studies" style={{ paddingTop: 'var(--space-4)' }}>
         <div className="cluster">
-          <span className="eyebrow">Dev only</span>
+          <span className="eyebrow">Design process</span>
           {[
             ['type', 'Type'],
             ['color', 'Color'],
