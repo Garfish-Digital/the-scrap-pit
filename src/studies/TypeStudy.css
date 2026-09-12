@@ -1,0 +1,334 @@
+/* Study chrome (shared by all studies) */
+
+.study {
+  padding-block: var(--space-8) var(--space-16);
+}
+
+.study__head {
+  display: grid;
+  gap: var(--space-2);
+  margin-bottom: var(--space-8);
+}
+
+.study__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-top: var(--space-2);
+}
+
+.study__ctl {
+  padding: 0.5rem 0.9rem;
+  border: var(--border-w) solid var(--iron-black);
+  background: transparent;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.study__ctl.is-active {
+  background: var(--iron-black);
+  color: var(--ghost-white);
+}
+
+.study__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.study__grid--phone .study__frame {
+  width: 390px;
+  max-width: 100%;
+}
+
+.study__grid--a,
+.study__grid--b,
+.study__grid--c {
+  grid-template-columns: 1fr;
+}
+
+.study__col {
+  display: grid;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.study__sysname {
+  font-size: var(--text-md);
+}
+
+.study__thesis {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.study__frame {
+  border: 1px solid var(--rule);
+  overflow: hidden;
+}
+
+.study__roles {
+  display: grid;
+  gap: 0.25rem;
+  font-size: var(--text-xs);
+}
+
+.study__roles div {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: var(--space-2);
+  padding-block: 0.25rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.study__roles dt {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-label);
+}
+
+.study__notes {
+  font-size: var(--text-sm);
+}
+
+.study__notes h3 {
+  font-size: var(--text-xs);
+  font-family: var(--font-body);
+  letter-spacing: var(--tracking-label);
+  margin: var(--space-2) 0 0.25rem;
+}
+
+.study__notes ul {
+  padding-left: 1.1rem;
+}
+
+.study__foot {
+  margin-top: var(--space-12);
+  display: grid;
+  gap: var(--space-2);
+}
+
+.study__foot p {
+  max-width: 48rem;
+}
+
+@media (max-width: 63.99rem) {
+  .study__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Specimen: every role reads its system's custom properties ---------- */
+
+.spec {
+  background: var(--ghost-white);
+  color: var(--iron-black);
+  container-type: inline-size;
+}
+
+.spec-display {
+  font-family: var(--sd-family);
+  font-weight: var(--sd-weight);
+  font-stretch: var(--sd-stretch);
+  letter-spacing: var(--sd-tracking);
+  text-transform: var(--sd-transform);
+  line-height: var(--sd-lh);
+  margin: 0;
+}
+
+.spec-display--hero {
+  font-size: clamp(3.5rem, 16cqw, 7rem);
+}
+
+.spec-display--sub {
+  font-size: clamp(1.25rem, 5cqw, 1.9rem);
+  color: var(--victory);
+}
+
+.spec-display--h2 {
+  font-size: clamp(2.25rem, 9cqw, 3.5rem);
+}
+
+.spec-display--h3 {
+  font-size: clamp(1.5rem, 6cqw, 2.25rem);
+}
+
+.spec-body {
+  font-family: var(--sb-family);
+  font-weight: var(--sb-weight);
+  font-stretch: var(--sb-stretch);
+  line-height: var(--sb-lh);
+  font-size: 1rem;
+  margin: 0;
+  max-width: 34rem;
+}
+
+.spec-body--lede {
+  font-size: 1.2rem;
+  line-height: 1.45;
+}
+
+.spec-body--sm {
+  font-size: 0.875rem;
+}
+
+.spec-body strong {
+  font-weight: 700;
+}
+
+.spec-muted {
+  opacity: 0.7;
+}
+
+.spec-label {
+  font-family: var(--sl-family);
+  font-weight: var(--sl-weight);
+  font-stretch: var(--sl-stretch);
+  letter-spacing: var(--sl-tracking);
+  text-transform: var(--sl-transform);
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+.spec-eyebrow {
+  display: block;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.spec-eyebrow--gold {
+  color: var(--victory);
+}
+
+.spec-num {
+  font-family: var(--sn-family);
+  font-weight: var(--sn-weight);
+  font-stretch: var(--sn-stretch);
+  letter-spacing: var(--sn-tracking);
+  font-feature-settings: var(--sn-features);
+  font-size: clamp(2rem, 8cqw, 3.25rem);
+  line-height: 1;
+}
+
+.spec-num--price {
+  font-size: clamp(2.5rem, 10cqw, 4rem);
+}
+
+.spec-quote {
+  font-family: var(--sq-family);
+  font-weight: var(--sq-weight);
+  font-stretch: var(--sq-stretch);
+  line-height: var(--sq-lh);
+  font-size: clamp(1.4rem, 5.5cqw, 2rem);
+  margin: 0 0 0.75rem;
+  max-width: 30rem;
+}
+
+/* Specimen layout */
+
+.spec__nav {
+  display: flex;
+  gap: 1.25rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 2px solid var(--iron-black);
+  overflow-x: auto;
+}
+
+.spec__nav .is-active {
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 2px;
+}
+
+.spec__hero {
+  display: grid;
+  gap: 0.75rem;
+  padding: 2.5rem 1.25rem;
+  background: var(--iron-black);
+  color: var(--ghost-white);
+}
+
+.spec__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.spec-btn {
+  display: inline-block;
+  padding: 0.9em 1.5em;
+  border: 2px solid var(--ghost-white);
+  color: var(--ghost-white);
+}
+
+.spec-btn--accent {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--ghost-white);
+}
+
+.spec-textlink {
+  border-bottom: 2px solid currentColor;
+  padding-bottom: 2px;
+}
+
+.spec__section {
+  display: grid;
+  gap: 0.75rem;
+  padding: 2rem 1.25rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.spec__dark {
+  padding: 2rem 1.25rem;
+  background: var(--gradient-dark);
+  color: var(--ghost-white);
+}
+
+.spec__numbers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.spec__numbers > div {
+  border-left: 2px solid var(--rule-inverse);
+  padding-left: 0.75rem;
+}
+
+.spec__price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  margin: 0;
+}
+
+.spec__features {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.spec__field {
+  gap: 0.4rem;
+}
+
+.spec-label--field {
+  color: var(--iron-black);
+}
+
+.spec-input {
+  display: block;
+  padding: 0.8rem 1rem;
+  border: 2px solid var(--iron-black);
+  background: #fff;
+  max-width: 22rem;
+}
+
+.spec-error {
+  color: var(--accent);
+}

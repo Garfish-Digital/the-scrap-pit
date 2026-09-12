@@ -1,0 +1,136 @@
+/* Voices — portrait/quote pairs with an alternating offset. Portraits stay
+   modest (source files are 300–450px). */
+
+.voices {
+  display: grid;
+  gap: var(--space-12);
+}
+
+.voice {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  grid-template-areas:
+    'portrait quote'
+    'portrait cite';
+  column-gap: var(--space-6);
+  row-gap: var(--space-2);
+  align-items: start;
+  max-width: 56rem;
+}
+
+.voice:nth-child(even) {
+  margin-left: auto;
+}
+
+.voice__portrait {
+  grid-area: portrait;
+  width: 10rem;
+  aspect-ratio: 1;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.1);
+}
+
+.voice__quote {
+  grid-area: quote;
+}
+
+.voice__quote p {
+  max-width: none;
+  font-size: var(--text-lg);
+  text-transform: none;
+  line-height: 1.1;
+}
+
+.voice__quote p::before {
+  content: '\201C';
+  color: var(--accent);
+}
+
+.voice__quote p::after {
+  content: '\201D';
+  color: var(--accent);
+}
+
+.voice__cite {
+  grid-area: cite;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem var(--space-2);
+  font-size: var(--text-sm);
+}
+
+.voice__name {
+  font-weight: 700;
+}
+
+@media (max-width: 47.99rem) {
+  .voice {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'portrait'
+      'quote'
+      'cite';
+  }
+  .voice__portrait {
+    width: 6rem;
+  }
+}
+
+/* Bridge */
+
+.bridge__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+@media (max-width: 47.99rem) {
+  .bridge__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+}
+
+/* Leaders */
+
+.leaders {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+}
+
+.leader {
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.leader__portrait {
+  width: 8rem;
+  aspect-ratio: 1;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.1);
+}
+
+.leader__text {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.leader__role {
+  color: var(--victory);
+}
+
+@media (max-width: 63.99rem) {
+  .leaders {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .leader {
+    grid-template-columns: 1fr;
+  }
+}

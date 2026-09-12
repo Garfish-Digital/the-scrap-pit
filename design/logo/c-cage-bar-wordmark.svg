@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 354 96" width="354" height="96">
+  <title>The Scrap Pit — Concept C “Cage Bar” wordmark</title>
+  <!-- Construction: SCRAP PIT at 110px (cap height ≈ 77, top y 15, baseline y 92). Band 10 tall subtracted at the
+       cap midpoint (y 48–58); 8-unit rail inside (y 49–57), trimmed to the letters' box (measured 352 units in Bebas Neue;
+       re-measure after outlining in the chosen face). THE sits above the S, tracked, in the label face. -->
+  <defs>
+    <mask id="c-cut-word">
+      <rect width="354" height="96" fill="#fff"/>
+      <rect x="0" y="48" width="354" height="10" fill="#000"/>
+    </mask>
+  </defs>
+  <g id="wordmark">
+    <text id="the" x="2" y="12" fill="currentColor" font-family="Space Mono, monospace" font-weight="700" font-size="11" letter-spacing="4">THE</text>
+    <text id="letters" x="0" y="92" mask="url(#c-cut-word)" fill="currentColor" font-family="Bebas Neue, Impact, 'Arial Narrow', sans-serif" font-size="110" letter-spacing="2">SCRAP PIT</text>
+    <rect id="rail" x="0" y="49" width="352" height="8" fill="#C8102E"/>
+  </g>
+</svg>

@@ -4,141 +4,57 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**The Scrap Pit** is an Astro-based combat sports training gym website featuring a brutalist design aesthetic. The site embodies the raw, uncompromising intensity of combat sports with a stark visual design system and advanced CSS effects.
+**The Scrap Pit** is a demo website for a fictional combat sports training gym, built by Garfish Digital as a design-capability showcase. Its job is to look expensive and move beautifully; it is not a real business site. v1 (Astro + SCSS, single long-scroll page) is archived separately; this repo is the v2 rebuild.
 
-- **Framework**: Astro (Static Site Generator)
-- **Styling**: SCSS with custom brutalist design system
-- **Theme**: Combat sports training gym
-- **Design Philosophy**: Brutalist aesthetic with "big text, big content, big spaces"
+- **Stack**: Vite 8, React 19, TypeScript, react-router 8 (declarative mode), plain CSS with custom properties
+- **Hosting**: standalone at `the-scrap-pit.netlify.app` (`public/_redirects` handles SPA deep links)
+- **Roadmap**: `PLAN.md` is the living roadmap and decision log. `SITE_REWORK.md` is the owner's notes file — read it, do not edit it.
 
 ## Common Commands
 
 ```bash
-# Development
-cd the-scrap-pit
-npm run dev          # Start development server on http://localhost:4321
-npm run build        # Build for production
-npm run preview      # Preview production build
-npm run astro        # Run Astro CLI commands
-
-# Dependencies
-npm install          # Install dependencies
-npm install sass     # SCSS support (already included)
+npm install
+npm run dev       # Vite dev server on http://localhost:3000 (strictPort)
+npm run build     # tsc -b && vite build -> dist/
+npm run preview   # serve dist/ on :3000
+npm run lint      # oxlint
 ```
 
 ## Architecture
 
-### Project Structure
 ```
-the-scrap-pit/
-├── src/
-│   ├── layouts/
-│   │   └── FightLayout.astro     # Main layout with nav, footer, and cursor
-│   ├── components/
-│   │   ├── CombatButton.astro    # Brutalist button with impact animations
-│   │   └── GritCursor.astro      # Custom cursor with trail effects
-│   ├── styles/
-│   │   ├── global.scss           # Global styles and utilities
-│   │   ├── _variables.scss       # Design system variables
-│   │   └── _color_filters.scss   # Advanced visual effects
-│   └── pages/
-│       └── index.astro           # Main landing page
-├── public/
-└── package.json
+src/
+├── main.tsx                 # entry; imports global + pattern CSS
+├── App.tsx                  # BrowserRouter + route table
+├── components/
+│   ├── Layout.tsx           # Header + <Outlet> + Footer, mounts ScrollManager
+│   ├── Header.tsx/.css      # sticky nav, NavLink active state, mobile full-menu
+│   ├── Footer.tsx/.css
+│   ├── Button.tsx/.css      # <Link> when `to` is given, else <button>; variants primary/accent/victory/ghost
+│   ├── PageMeta.tsx         # per-route title/description/OG via effect
+│   └── ScrollManager.tsx    # route change -> top; `/route#id` -> scroll to section
+├── content/                 # all copy and data, one module per route + site.ts
+├── pages/                   # Home, Training, Fighters, About, Contact, NotFound (+ .css each)
+└── styles/
+    ├── fonts.css            # self-hosted Bebas Neue + Space Mono (pending Phase 2 type study)
+    ├── tokens.css           # color, type, space, surface gradients
+    ├── global.css           # reset, type hierarchy, layout primitives, surfaces
+    └── patterns.css         # shared page patterns (split hero, CTA band, details list)
 ```
 
-### Design System Colors
-- **Primary 1 (Base)**: Ghost White (#F8F8FF) - Background and negative space
-- **Primary 2 (Contrast)**: Iron Black (#1A1A1A) - Text and depth
-- **Accent 1 (Aggression)**: Blood Red (#E00000) - CTAs and intensity
-- **Accent 2 (Victory)**: Championship Gold (#CC9900) - Achievement and prestige
+Routes: `/`, `/training` (includes `#striking`, `#grappling`, `#conditioning`, `#pricing`, `#guarantee`), `/fighters`, `/about`, `/contact` (accepts `?plan=warrior|champion|legend`).
 
-### Typography
-- **Display Text**: Bebas Neue (massive, impactful headlines)
-- **Body Text**: Space Mono (technical, raw, monospace feel)
+## Conventions
 
-### Key Visual Effects
-1. **Monochrome to Color on Scroll**: Hero section transitions from B&W to color
-2. **Duotone/Tritone Filters**: Applied to training section images
-3. **Chromatic Displacement**: Glitch effect on fighter profile images
-4. **Impact Animations**: Sharp, decisive button interactions
-5. **Custom Cursor Trail**: Blood-red cursor with sharp-edged trail
+- **Copy lives in `src/content/`**, never inline in pages. Copy carried over from v1 is preserved verbatim; anything new is marked `// NEW COPY (Phase 3) — review` so the owner can revise it deliberately.
+- **CSS**: tokens in `tokens.css`; page-specific rules in the page's `.css`; shared patterns in `patterns.css`. Dark sections carry the `dark` class so inverse tokens (`.muted`, `.eyebrow`, `.details`, `.rule`) apply. Keep the ghost-white fields and the two `--gradient-*` surfaces; they are brand foundations.
+- **Motion**: currently CSS state changes only. GSAP sequences are Phase 4 (see PLAN.md); do not add scroll reveals or cursor effects ad hoc. No custom cursor, ever.
+- **Contact form** is demo-only: validates locally, shows an on-page "not sent" confirmation, never submits anywhere.
+- **Placeholder photography**: files in `public/images/new-heroes/` marked with the `placeholder-tag` badge are layout stand-ins (rights/branding concerns noted in PLAN.md). Do not tune signature motion around them.
+- Accessibility is a quality bar, not a compliance target: keep focus states, labels, reduced-motion handling, and keyboard use working.
 
-## Key Components
+## Design System (Phase 3 baseline — Phase 2 will refine)
 
-### FightLayout.astro
-- Main layout component with navigation, footer, and JavaScript
-- Implements custom cursor, scroll effects, and impact animations
-- Fixed navigation with brutalist styling
-- Responsive design with mobile considerations
-
-### CombatButton.astro
-- Reusable button component with multiple variants (primary, accent, victory, ghost)
-- Impact flash effects and hover animations
-- Multiple sizes (small, medium, large, mega)
-- Accessibility features and loading states
-
-### GritCursor.astro
-- Standalone custom cursor component
-- Multiple variants (default, red, gold, minimal)
-- Particle trail system with configurable length
-- Hover effects for interactive elements
-- Responsive (hidden on touch devices)
-
-## Page Sections
-
-### Hero: "The Arena Entrance"
-- Fullscreen immersive section
-- Monochrome to color scroll effect
-- Massive typography with text shadows
-- Dual CTA buttons
-
-### Training: "The Gauntlet Stages"
-- Three-column grid (Striking, Grappling, Conditioning)
-- Duotone image filters (red-black, gold-black)
-- Hover effects with shadow displacement
-- Training statistics badges
-
-### Fighters: "Iron Will Profiles"
-- Dark background section
-- Circular profile images with chromatic displacement
-- Testimonial quotes with golden accents
-- Responsive grid layout
-
-### Join: "The Call to Arms"
-- Call-to-action section with features grid
-- Guarantee section with gold border
-- Multiple button variants
-- Responsive feature layout
-
-## Development Guidelines
-
-### SCSS Organization
-- Import order: variables → color_filters → component styles
-- Use design system variables for consistency
-- Extend utility classes for common patterns
-- Maintain responsive breakpoints
-
-### Component Patterns
-- Use Astro component syntax with TypeScript interfaces
-- Implement prop validation and defaults
-- Include accessibility features (focus states, ARIA labels)
-- Follow responsive-first design principles
-
-### Effects Implementation
-- Leverage CSS filters for image effects
-- Use CSS custom properties for dynamic values
-- Implement JavaScript for scroll-triggered animations
-- Maintain performance with efficient selectors
-
-## Browser Support
-- Modern browsers with CSS Grid and Flexbox support
-- Custom cursor hidden on touch devices
-- Reduced motion support for accessibility
-- Progressive enhancement for advanced effects
-
-## Performance Considerations
-- Astro's zero-JS by default approach
-- Minimal JavaScript for interactions only
-- Optimized SCSS compilation
-- Image optimization for filters and effects
+- Colors: Ghost White `#F8F8FF`, Iron Black `#1A1A1A`, Blood Red `#E00000`, Championship Gold `#CC9900`
+- Type: Bebas Neue (display), Space Mono (body/UI) — under review
+- Surface rhythm: ghost white → dark/gradient-dark → gradient-light, alternating per route

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>The Scrap Pit — Concept B “Scrap S” monogram</title>
+  <!-- Construction: 8-unit grid, 12-unit stroke, 45° terminals. The S is broken along a 45° tear through
+       the middle bar with a 3-unit gap and the lower piece carries the accent — a piece of scrap. -->
+  <g id="symbol">
+    <path id="upper" fill="currentColor" d="M8 8H50L56 14V20H20V26H40L28 38H8Z"/>
+    <path id="lower" fill="#C8102E" d="M43 26H56V56H14L8 50V44H44V38H31Z"/>
+  </g>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>The Scrap Pit — Concept A “The Pit” symbol</title>
+  <!-- Construction: 64-unit square. A 28-unit square pit (x 18–46, y 22–50) is cut from the block, reached by an 8-unit slot from the top edge —
+       the way in. One contour. The ember is a 10-unit square rotated 45°, centred in the pit at (32,36). Ink = currentColor. -->
+  <g id="symbol">
+    <path id="block" fill="currentColor" d="M0 0H28V22H18V50H46V22H36V0H64V64H0Z"/>
+    <rect id="ember" x="27" y="31" width="10" height="10" fill="#C8102E" transform="rotate(45 32 36)"/>
+  </g>
+</svg>

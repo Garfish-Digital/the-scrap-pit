@@ -1,0 +1,81 @@
+/* Design tokens — Phase 3 baseline.
+   Colors carry v1 values; the richer red/gold set is a Phase 2 deliverable.
+   Keep this file small: only values that are reused across components. */
+
+:root {
+  /* Color */
+  --ghost-white: #f8f8ff;
+  --iron-black: #1a1a1a;
+  --blood-red: #e00000;
+  --championship-gold: #cc9900;
+
+  --bg: var(--ghost-white);
+  --bg-dark: var(--iron-black);
+  --text: var(--iron-black);
+  --text-inverse: var(--ghost-white);
+  --text-muted: rgba(26, 26, 26, 0.7);
+  --text-muted-inverse: rgba(248, 248, 255, 0.72);
+  --accent: var(--blood-red);
+  --victory: var(--championship-gold);
+  --rule: rgba(26, 26, 26, 0.15);
+  --rule-inverse: rgba(248, 248, 255, 0.2);
+
+  /* Section surfaces carried over from v1 (see SITE_REWORK.md item 2) */
+  --gradient-light: linear-gradient(
+    135deg,
+    rgba(26, 26, 26, 0.05) 0%,
+    rgba(224, 0, 0, 0.05) 50%,
+    rgba(204, 153, 0, 0.05) 100%
+  );
+  --gradient-dark: linear-gradient(
+    135deg,
+    rgba(26, 26, 26, 0.95) 0%,
+    rgba(26, 26, 26, 0.8) 50%,
+    rgba(26, 26, 26, 0.95) 100%
+  );
+
+  /* Type */
+  --font-display: 'Bebas Neue', 'Anton', 'Arial Black', sans-serif;
+  --font-body: 'Space Mono', 'IBM Plex Mono', 'Courier New', monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.25rem;
+  --text-lg: clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);
+  --text-xl: clamp(2.5rem, 1.8rem + 3vw, 4rem);
+  --text-2xl: clamp(3.5rem, 2rem + 6vw, 7rem);
+
+  --leading-tight: 0.92;
+  --leading-snug: 1.2;
+  --leading-body: 1.6;
+
+  --tracking-label: 0.12em;
+
+  /* Space */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-6: 3rem;
+  --space-8: 4rem;
+  --space-12: 6rem;
+  --space-16: 8rem;
+
+  --section-y: clamp(4rem, 6vw + 2rem, 8rem);
+  --gutter: clamp(1rem, 4vw, 3rem);
+  --container: 80rem;
+  --measure: 36rem;
+
+  /* Chrome */
+  --header-h: 4.5rem;
+  --border-w: 2px;
+  --border-strong: 4px;
+
+  /* Motion — simple state changes only; GSAP sequences come in Phase 4 */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 150ms;
+  --dur-base: 250ms;
+
+  --z-header: 50;
+}
