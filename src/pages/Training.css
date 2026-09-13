@@ -55,7 +55,7 @@
   display: grid;
   gap: var(--space-3);
   padding: var(--space-4);
-  border: var(--border-w) solid var(--iron-black);
+  border: var(--border-w) solid var(--rule-strong);
 }
 
 .plan--popular {
@@ -71,8 +71,8 @@
 
 .plan__badge {
   font-size: var(--text-xs);
-  font-weight: 700;
-  letter-spacing: var(--tracking-label);
+  font-weight: var(--label-weight);
+  letter-spacing: var(--label-tracking);
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -154,8 +154,8 @@
 
 .extra__name {
   font-size: var(--text-xs);
-  font-weight: 700;
-  letter-spacing: var(--tracking-label);
+  font-weight: var(--label-weight);
+  letter-spacing: var(--label-tracking);
   text-transform: uppercase;
 }
 

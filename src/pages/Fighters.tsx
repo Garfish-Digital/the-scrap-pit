@@ -34,7 +34,7 @@ export function Fighters() {
             <figure key={f.name} className="voice">
               <img src={f.image} alt={`Portrait of ${f.name}`} className="voice__portrait" loading={i === 0 ? 'eager' : 'lazy'} />
               <blockquote className="voice__quote">
-                <p className="display">{f.quote}</p>
+                <p className="quote">{f.quote}</p>
               </blockquote>
               <figcaption className="voice__cite">
                 <span className="voice__name">{f.name}</span>

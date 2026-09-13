@@ -16,7 +16,9 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: var(--font);
+  font-weight: var(--body-weight);
+  font-stretch: var(--body-stretch);
   font-size: var(--text-base);
   line-height: var(--leading-body);
   color: var(--text);
@@ -51,7 +53,7 @@ ol[role='list'] {
 }
 
 :focus-visible {
-  outline: 3px solid var(--accent);
+  outline: 3px solid var(--focus);
   outline-offset: 3px;
 }
 
@@ -66,17 +68,23 @@ ol[role='list'] {
   }
 }
 
-/* ---------- Type ---------- */
+/* ---------- Type roles ----------
+   Display: condensed black caps for the loudest statements.
+   Body: normal width, regular weight (the default on <body>).
+   Label: semibold tracked caps for nav, eyebrows, CTAs, details.
+   Numerals: semi-expanded bold, tabular. Quotes: medium, slightly condensed. */
 
 h1,
 h2,
 h3,
-h4 {
-  font-family: var(--font-display);
-  font-weight: 400;
+h4,
+.display {
+  font-family: var(--font);
+  font-weight: var(--display-weight);
+  font-stretch: var(--display-stretch);
+  letter-spacing: var(--display-tracking);
   line-height: var(--leading-tight);
   text-transform: uppercase;
-  letter-spacing: 0.02em;
   overflow-wrap: anywhere;
 }
 
@@ -85,24 +93,47 @@ h2 { font-size: var(--text-xl); }
 h3 { font-size: var(--text-lg); }
 h4 { font-size: var(--text-md); }
 
+.label {
+  font-weight: var(--label-weight);
+  font-stretch: var(--label-stretch);
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.num {
+  font-weight: var(--num-weight);
+  font-stretch: var(--num-stretch);
+  letter-spacing: var(--num-tracking);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.quote {
+  font-weight: var(--quote-weight);
+  font-stretch: var(--quote-stretch);
+  line-height: 1.2;
+}
+
 p {
   max-width: var(--measure);
 }
 
-.display {
-  font-family: var(--font-display);
-  font-weight: 400;
-  line-height: var(--leading-tight);
-  text-transform: uppercase;
+strong {
+  font-weight: 700;
 }
 
 .eyebrow {
   display: block;
   font-size: var(--text-xs);
-  font-weight: 700;
-  letter-spacing: var(--tracking-label);
+  font-weight: var(--label-weight);
+  letter-spacing: var(--label-tracking);
   text-transform: uppercase;
   color: var(--accent);
+}
+
+.dark .eyebrow {
+  color: var(--victory-text);
 }
 
 .lede {
@@ -112,15 +143,6 @@ p {
 
 .muted {
   color: var(--text-muted);
-}
-
-.dark .muted {
-  color: var(--text-muted-inverse);
-}
-
-/* Red eyebrows sink into dark surfaces; gold carries the same job there. */
-.dark .eyebrow {
-  color: var(--victory);
 }
 
 /* ---------- Layout primitives ---------- */
@@ -154,7 +176,8 @@ p {
   align-items: center;
 }
 
-/* Surfaces — the v1 rhythm: ghost white, dark, and the two gradients. */
+/* Surfaces — ghost white, ink, and the two gradients. Dark sections carry
+   `.dark`, which re-points the semantic color aliases (see tokens.css). */
 
 .surface-light {
   background: var(--bg);
@@ -164,7 +187,7 @@ p {
 .surface-dark,
 .dark {
   background: var(--bg-dark);
-  color: var(--text-inverse);
+  color: var(--text);
 }
 
 .surface-gradient-light {
@@ -172,20 +195,14 @@ p {
   color: var(--text);
 }
 
-/* Gradient-dark sections should also carry the `dark` class so inverse
-   text tokens (.muted, .eyebrow, .details, .rule) apply. */
 .surface-gradient-dark {
   background: var(--gradient-dark);
-  color: var(--text-inverse);
+  color: var(--text);
 }
 
 .rule {
   border: 0;
   border-top: var(--border-w) solid var(--rule);
-}
-
-.dark .rule {
-  border-top-color: var(--rule-inverse);
 }
 
 /* Utility */
@@ -203,10 +220,10 @@ p {
 }
 
 .text-link {
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-label);
   font-size: var(--text-sm);
+  font-weight: var(--label-weight);
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
   text-decoration: none;
   border-bottom: var(--border-w) solid currentColor;
   padding-bottom: 2px;

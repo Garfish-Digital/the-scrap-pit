@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>The Scrap Pit — Concept D “Pit Frame” symbol (owner's concept v2, cleaned) — light surfaces</title>
+  <!-- Construction: 64-unit square frame with a 32-unit void (x,y 16–48), cut on the rising diagonal (0,64)→(64,0).
+       Each bracket steps back 4 units from the diagonal on both axes → ≈5.7-unit transparent gap (≈9%).
+       Void and gap are transparent, so the mark holds on any ground. Upper-left Red 600, lower-right Ink. -->
+  <g id="symbol">
+    <path id="upper" fill="#C8102E" d="M0 0H60L44 16H16V44L0 60Z"/>
+    <path id="lower" fill="#121214" d="M64 64H4L20 48H48V20L64 4Z"/>
+  </g>
+</svg>

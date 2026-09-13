@@ -10,7 +10,7 @@
 }
 
 .pal {
-  font-family: var(--font-body);
+  font-family: var(--font-body-legacy);
   color: var(--p-ink);
   background: var(--p-bg);
 }
@@ -41,7 +41,7 @@
 }
 
 .swatch__hex {
-  font-family: var(--font-body);
+  font-family: var(--font-body-legacy);
 }
 
 .swatch__role {
@@ -76,7 +76,7 @@
 }
 
 .pal-h {
-  font-family: var(--font-display);
+  font-family: var(--font-display-legacy);
   font-weight: 400;
   text-transform: uppercase;
   font-size: 2.5rem;
@@ -89,7 +89,7 @@
 }
 
 .pal-sub {
-  font-family: var(--font-display);
+  font-family: var(--font-display-legacy);
   text-transform: uppercase;
   font-size: 1.5rem;
   color: var(--p-gold-deep);
@@ -121,7 +121,7 @@
 .pal-eyebrow {
   font-size: var(--text-xs);
   font-weight: 700;
-  letter-spacing: var(--tracking-label);
+  letter-spacing: var(--label-tracking);
   text-transform: uppercase;
   color: var(--p-red);
 }
@@ -151,7 +151,7 @@
 .pal-link {
   font-size: var(--text-sm);
   font-weight: 700;
-  letter-spacing: var(--tracking-label);
+  letter-spacing: var(--label-tracking);
   text-transform: uppercase;
   border-bottom: 2px solid currentColor;
   color: var(--p-red);
@@ -170,7 +170,7 @@
   border: 2px solid;
   font-size: var(--text-xs);
   font-weight: 700;
-  letter-spacing: var(--tracking-label);
+  letter-spacing: var(--label-tracking);
   text-transform: uppercase;
   line-height: 1;
 }
@@ -215,7 +215,7 @@
 }
 
 .pal-num {
-  font-family: var(--font-display);
+  font-family: var(--font-display-legacy);
   font-size: 2.5rem;
   line-height: 1;
 }

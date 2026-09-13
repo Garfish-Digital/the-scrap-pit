@@ -1,5 +1,15 @@
 /* Study chrome (shared by all studies) */
 
+/* The studies are a record of the Phase 2 decision, so they keep the v1 faces
+   and pigments as local values rather than reading the live tokens. */
+.study {
+  --font-display-legacy: 'Bebas Neue', 'Archivo', sans-serif;
+  --font-body-legacy: 'Space Mono', monospace;
+  --victory: #cc9900;
+  --accent: #e00000;
+}
+
+
 .study {
   padding-block: var(--space-8) var(--space-16);
 }
@@ -19,17 +29,17 @@
 
 .study__ctl {
   padding: 0.5rem 0.9rem;
-  border: var(--border-w) solid var(--iron-black);
+  border: var(--border-w) solid var(--ink);
   background: transparent;
   font-size: var(--text-xs);
   font-weight: 700;
-  letter-spacing: var(--tracking-label);
+  letter-spacing: var(--label-tracking);
   text-transform: uppercase;
   cursor: pointer;
 }
 
 .study__ctl.is-active {
-  background: var(--iron-black);
+  background: var(--ink);
   color: var(--ghost-white);
 }
 
@@ -88,7 +98,7 @@
 .study__roles dt {
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: var(--tracking-label);
+  letter-spacing: var(--label-tracking);
 }
 
 .study__notes {
@@ -97,8 +107,8 @@
 
 .study__notes h3 {
   font-size: var(--text-xs);
-  font-family: var(--font-body);
-  letter-spacing: var(--tracking-label);
+  font-family: var(--font-body-legacy);
+  letter-spacing: var(--label-tracking);
   margin: var(--space-2) 0 0.25rem;
 }
 
@@ -126,7 +136,7 @@
 
 .spec {
   background: var(--ghost-white);
-  color: var(--iron-black);
+  color: var(--ink);
   container-type: inline-size;
 }
 
@@ -234,7 +244,7 @@
   display: flex;
   gap: 1.25rem;
   padding: 1rem 1.25rem;
-  border-bottom: 2px solid var(--iron-black);
+  border-bottom: 2px solid var(--ink);
   overflow-x: auto;
 }
 
@@ -247,7 +257,7 @@
   display: grid;
   gap: 0.75rem;
   padding: 2.5rem 1.25rem;
-  background: var(--iron-black);
+  background: var(--ink);
   color: var(--ghost-white);
 }
 
@@ -297,7 +307,7 @@
 }
 
 .spec__numbers > div {
-  border-left: 2px solid var(--rule-inverse);
+  border-left: 2px solid var(--steel-700);
   padding-left: 0.75rem;
 }
 
@@ -318,13 +328,13 @@
 }
 
 .spec-label--field {
-  color: var(--iron-black);
+  color: var(--ink);
 }
 
 .spec-input {
   display: block;
   padding: 0.8rem 1rem;
-  border: 2px solid var(--iron-black);
+  border: 2px solid var(--ink);
   background: #fff;
   max-width: 22rem;
 }

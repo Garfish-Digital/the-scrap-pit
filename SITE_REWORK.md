@@ -34,3 +34,5 @@ ___
 
 ___
 
+-1. The Home hero title is good. Let's leave it stacked.
+-2. The favicon looks amazing. Better than some of the big companies. I provided a screenshot at `/public/dev-images/tab-favicon-comparison.png` for your evaluation.

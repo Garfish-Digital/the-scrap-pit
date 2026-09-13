@@ -55,7 +55,7 @@
 /* Numbers */
 
 .numbers__title {
-  color: var(--victory);
+  color: var(--victory-text);
   margin-bottom: var(--space-6);
 }
 
@@ -66,7 +66,7 @@
 }
 
 .number {
-  border-left: var(--border-w) solid var(--rule-inverse);
+  border-left: var(--border-w) solid var(--rule);
   padding-left: var(--space-3);
 }
 

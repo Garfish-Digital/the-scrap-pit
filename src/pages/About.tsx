@@ -42,7 +42,7 @@ export function About() {
           <dl className="numbers">
             {numbers.stats.map((s) => (
               <div key={s.label} className="number">
-                <dd className="number__value display">{s.value}</dd>
+                <dd className="number__value num">{s.value}</dd>
                 <dt className="number__label muted">{s.label}</dt>
               </div>
             ))}
@@ -60,7 +60,7 @@ export function About() {
           <ol className="values">
             {code.values.map((v, i) => (
               <li key={v.title} className="value">
-                <span className="value__index display">0{i + 1}</span>
+                <span className="value__index num">0{i + 1}</span>
                 <h3>{v.title}</h3>
                 <p>{v.body}</p>
               </li>

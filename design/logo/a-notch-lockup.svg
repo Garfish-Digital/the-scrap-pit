@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 472 64" width="472" height="64">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 522 64" width="522" height="64">
   <title>The Scrap Pit — Concept A “The Pit” horizontal lockup</title>
-  <!-- Symbol at 64, gap 20, wordmark cap height matches symbol height (Bebas cap height ≈ 0.70em → 80px size). -->
+  <!-- Symbol at 64, gap 20, wordmark in Archivo 800 / width 62 (the chosen type system); cap height ≈ 0.72em → 84px size for a 60-unit cap. -->
   <g id="symbol">
     <path fill="currentColor" d="M0 0H28V22H18V50H46V22H36V0H64V64H0Z"/>
     <rect x="27" y="31" width="10" height="10" fill="#C8102E" transform="rotate(45 32 36)"/>
   </g>
-  <text id="wordmark" x="84" y="61" fill="currentColor" font-family="Bebas Neue, Impact, 'Arial Narrow', sans-serif" font-size="86" letter-spacing="1">THE SCRAP PIT</text>
+  <text id="wordmark" x="84" y="62" fill="currentColor" style="font-family:Archivo, Impact, sans-serif;font-weight:800;font-stretch:62%" font-size="84" letter-spacing="0">THE SCRAP PIT</text>
 </svg>

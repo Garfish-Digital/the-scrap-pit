@@ -1,30 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <!-- "SP" Monogram - The Scrap Pit -->
-  <rect width="32" height="32" fill="#1A1A1A"/>
-  
-  <!-- Border Frame -->
-  <rect x="2" y="2" width="28" height="28" fill="none" stroke="#E00000" stroke-width="2"/>
-  
-  <!-- "S" Letter - Brutalist Style -->
-  <rect x="6" y="10" width="6" height="2" fill="#F8F8FF"/>  <!-- Top bar -->
-  <rect x="6" y="12" width="2" height="2" fill="#F8F8FF"/>  <!-- Left top -->
-  <rect x="6" y="14" width="6" height="2" fill="#F8F8FF"/>  <!-- Middle bar -->
-  <rect x="10" y="16" width="2" height="2" fill="#F8F8FF"/> <!-- Right bottom -->
-  <rect x="6" y="18" width="6" height="2" fill="#F8F8FF"/>  <!-- Bottom bar -->
-  
-  <!-- "P" Letter -->
-  <path d="M18 10h6v4c0 1-1 2-2 2h-2v4h-2v-10zm2 2v2h2v-2h-2z" fill="#F8F8FF"/>
-  
-  <!-- Accent Elements -->
-  <rect x="4" y="4" width="2" height="2" fill="#CC9900"/>
-  <rect x="26" y="26" width="2" height="2" fill="#CC9900"/>
-  
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- The Scrap Pit — Pit Frame mark. Lower bracket flips to ghost white on dark browser chrome. -->
   <style>
-    @media (prefers-color-scheme: light) {
-      rect[fill="#1A1A1A"] { fill: #F8F8FF; }
-      rect[stroke="#E00000"] { stroke: #1A1A1A; }
-      path { fill: #1A1A1A; }
-      rect[fill="#CC9900"] { fill: #E00000; }
-    }
+    .lower { fill: #121214; }
+    @media (prefers-color-scheme: dark) { .lower { fill: #F8F8FF; } }
   </style>
+  <path fill="#C8102E" d="M0 0H60L44 16H16V44L0 60Z"/>
+  <path class="lower" d="M64 64H4L20 48H48V20L64 4Z"/>
 </svg>

@@ -79,7 +79,7 @@ export function Training() {
                   <p className="muted">{p.subtitle}</p>
                 </header>
                 <p className="plan__price">
-                  <span className="plan__amount display">${p.price}</span>
+                  <span className="plan__amount num">${p.price}</span>
                   <span className="plan__period">{p.period}</span>
                 </p>
                 <ul role="list" className="plan__features">
@@ -104,7 +104,7 @@ export function Training() {
               {extras.items.map((x) => (
                 <li key={x.name} className="extra">
                   <span className="extra__name">{x.name}</span>
-                  <span className="extra__price display">{x.price}</span>
+                  <span className="extra__price num">{x.price}</span>
                   <span className="extra__note muted">{x.note}</span>
                 </li>
               ))}

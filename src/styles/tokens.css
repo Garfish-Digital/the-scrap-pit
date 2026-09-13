@@ -1,42 +1,72 @@
-/* Design tokens — Phase 3 baseline.
-   Colors carry v1 values; the richer red/gold set is a Phase 2 deliverable.
-   Keep this file small: only values that are reused across components. */
+/* Design tokens — Phase 2 system (approved September 13, 2026).
+   Palette and type roles come from /studies/color and /studies/type (system B).
+   Semantic aliases (--accent, --victory-text, --rule, …) are re-pointed inside
+   `.dark`, so components never branch on surface themselves. */
 
 :root {
-  /* Color */
+  /* ---- Pigments ---- */
   --ghost-white: #f8f8ff;
-  --iron-black: #1a1a1a;
-  --blood-red: #e00000;
-  --championship-gold: #cc9900;
 
+  --ink: #121214;
+  --iron: #1e1e22;
+  --steel-700: #3a3a40;
+  --steel-500: #6e6e76;
+  --steel-300: #b4b4bc;
+  --steel-100: #e4e4ea;
+
+  --red-900: #8e0c1f;
+  --red-600: #c8102e;
+  --red-400: #e62c43;
+
+  --gold-800: #8f6f14;
+  --gold-500: #c9a227;
+  --gold-300: #e8c55a;
+
+  /* ---- Semantic (light surface defaults) ---- */
   --bg: var(--ghost-white);
-  --bg-dark: var(--iron-black);
-  --text: var(--iron-black);
+  --bg-dark: var(--ink);
+  --bg-panel: var(--iron);
+  --text: var(--ink);
   --text-inverse: var(--ghost-white);
-  --text-muted: rgba(26, 26, 26, 0.7);
-  --text-muted-inverse: rgba(248, 248, 255, 0.72);
-  --accent: var(--blood-red);
-  --victory: var(--championship-gold);
-  --rule: rgba(26, 26, 26, 0.15);
-  --rule-inverse: rgba(248, 248, 255, 0.2);
+  --text-muted: var(--steel-500);
+  --rule: var(--steel-100);
+  --rule-strong: var(--ink);
 
-  /* Section surfaces carried over from v1 (see SITE_REWORK.md item 2) */
+  --accent: var(--red-600); /* the only red on white */
+  --accent-strong: var(--red-900); /* hover / pressed */
+  --victory: var(--gold-500); /* gold as a surface */
+  --victory-text: var(--gold-800); /* gold as text */
+  --focus: var(--red-600);
+
+  /* Section surfaces: the v1 135° structure with the new pigments */
   --gradient-light: linear-gradient(
     135deg,
-    rgba(26, 26, 26, 0.05) 0%,
-    rgba(224, 0, 0, 0.05) 50%,
-    rgba(204, 153, 0, 0.05) 100%
+    rgba(18, 18, 20, 0.05) 0%,
+    rgba(200, 16, 46, 0.06) 50%,
+    rgba(201, 162, 39, 0.07) 100%
   );
-  --gradient-dark: linear-gradient(
-    135deg,
-    rgba(26, 26, 26, 0.95) 0%,
-    rgba(26, 26, 26, 0.8) 50%,
-    rgba(26, 26, 26, 0.95) 100%
-  );
+  --gradient-dark: linear-gradient(135deg, var(--ink) 0%, #26262b 50%, var(--ink) 100%);
 
-  /* Type */
-  --font-display: 'Bebas Neue', 'Anton', 'Arial Black', sans-serif;
-  --font-body: 'Space Mono', 'IBM Plex Mono', 'Courier New', monospace;
+  /* ---- Type: one family, four roles ---- */
+  --font: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+
+  --display-weight: 800;
+  --display-stretch: 62%;
+  --display-tracking: 0;
+
+  --body-weight: 400;
+  --body-stretch: 100%;
+
+  --label-weight: 600;
+  --label-stretch: 100%;
+  --label-tracking: 0.1em;
+
+  --num-weight: 700;
+  --num-stretch: 112%;
+  --num-tracking: -0.02em;
+
+  --quote-weight: 500;
+  --quote-stretch: 88%;
 
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
@@ -50,9 +80,7 @@
   --leading-snug: 1.2;
   --leading-body: 1.6;
 
-  --tracking-label: 0.12em;
-
-  /* Space */
+  /* ---- Space ---- */
   --space-1: 0.5rem;
   --space-2: 1rem;
   --space-3: 1.5rem;
@@ -67,15 +95,28 @@
   --container: 80rem;
   --measure: 36rem;
 
-  /* Chrome */
+  /* ---- Chrome ---- */
   --header-h: 4.5rem;
   --border-w: 2px;
   --border-strong: 4px;
 
-  /* Motion — simple state changes only; GSAP sequences come in Phase 4 */
+  /* ---- Motion: simple state changes only; GSAP sequences are Phase 4 ---- */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --dur-fast: 150ms;
   --dur-base: 250ms;
 
   --z-header: 50;
+}
+
+/* Dark surfaces re-point the semantic aliases. */
+.dark {
+  --text: var(--ghost-white);
+  --text-inverse: var(--ink);
+  --text-muted: var(--steel-300);
+  --rule: var(--steel-700);
+  --rule-strong: var(--ghost-white);
+  --accent: var(--red-400);
+  --accent-strong: var(--red-600);
+  --victory-text: var(--gold-300);
+  --focus: var(--gold-300);
 }

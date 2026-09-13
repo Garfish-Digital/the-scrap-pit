@@ -30,6 +30,7 @@ src/
 │   ├── Layout.tsx           # Header + <Outlet> + Footer, mounts ScrollManager
 │   ├── Header.tsx/.css      # sticky nav, NavLink active state, mobile full-menu
 │   ├── Footer.tsx/.css
+│   ├── Logo.tsx/.css        # PitMark symbol + wordmark lockup (currentColor lower bracket)
 │   ├── Button.tsx/.css      # <Link> when `to` is given, else <button>; variants primary/accent/victory/ghost
 │   ├── PageMeta.tsx         # per-route title/description/OG via effect
 │   └── ScrollManager.tsx    # route change -> top; `/route#id` -> scroll to section
@@ -53,8 +54,9 @@ Routes: `/`, `/training` (includes `#striking`, `#grappling`, `#conditioning`, `
 - **Placeholder photography**: files in `public/images/new-heroes/` marked with the `placeholder-tag` badge are layout stand-ins (rights/branding concerns noted in PLAN.md). Do not tune signature motion around them.
 - Accessibility is a quality bar, not a compliance target: keep focus states, labels, reduced-motion handling, and keyboard use working.
 
-## Design System (Phase 3 baseline — Phase 2 will refine)
+## Design System (approved September 13, 2026)
 
-- Colors: Ghost White `#F8F8FF`, Iron Black `#1A1A1A`, Blood Red `#E00000`, Championship Gold `#CC9900`
-- Type: Bebas Neue (display), Space Mono (body/UI) — under review
-- Surface rhythm: ghost white → dark/gradient-dark → gradient-light, alternating per route
+- **Type:** Archivo variable only (`public/fonts/archivo-*.woff2`, latin + latin-ext, upright + italic). Four roles set by tokens: display 800 / width 62 (`h1–h4`, `.display`), body 400 / 100 (default), label 600 / 100 tracked caps (`.label`, `.eyebrow`, `.text-link`, buttons, nav), numerals 700 / 112 tabular (`.num`), quotes 500 / 88 (`.quote`). Never add a second family.
+- **Color:** Ink `#121214`, Iron `#1E1E22`, Steel 700/500/300/100; Red 900/600/400 (`#8E0C1F` / `#C8102E` / `#E62C43`); Gold 800/500/300 (`#8F6F14` / `#C9A227` / `#E8C55A`); Ghost White `#F8F8FF`. Components use semantic aliases (`--accent`, `--accent-strong`, `--victory` for gold surfaces, `--victory-text` for gold text, `--text-muted`, `--rule`, `--rule-strong`, `--focus`); `.dark` re-points them, so never hard-code a dark-surface color in a component.
+- **Logo:** Concept D “Pit Frame” — `src/components/Logo.tsx` (`PitMark` symbol + `Logo` lockup; lower bracket is `currentColor`). Source SVGs in `design/logo/d-split-*.svg`; `public/favicon.svg` swaps the lower bracket on dark browser chrome; `public/og-image.jpg` is rendered from `design/logo/og-image-source.html`.
+- **Surface rhythm:** ghost white → Ink / gradient-dark → gradient-light, alternating per route. Both gradients keep the v1 135° structure.

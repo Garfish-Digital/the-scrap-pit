@@ -50,7 +50,7 @@ export const systems: TypeSystem[] = [
       'Space Mono at paragraph length is tiring; wide mono glyphs make measure short on phones',
       'No true bold or italic for emphasis in body copy',
     ],
-    fonts: '',
+    fonts: 'Bebas+Neue&family=Space+Mono:wght@400;700',
   },
   {
     id: 'b',

@@ -37,8 +37,6 @@
 .voice__quote p {
   max-width: none;
   font-size: var(--text-lg);
-  text-transform: none;
-  line-height: 1.1;
 }
 
 .voice__quote p::before {
@@ -120,7 +118,7 @@
 }
 
 .leader__role {
-  color: var(--victory);
+  color: var(--victory-text);
 }
 
 @media (max-width: 63.99rem) {

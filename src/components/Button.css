@@ -1,17 +1,19 @@
-/* Buttons — plain state changes only. Impact/flash sequences are Phase 4. */
+/* Buttons — plain state changes only. Impact sequences are Phase 4.
+   Colors come from the semantic aliases, so the same classes work on dark
+   sections (where `.dark` re-points --accent, --text, --text-inverse). */
 
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-1);
-  border: var(--border-w) solid var(--iron-black);
-  background: var(--iron-black);
-  color: var(--ghost-white);
-  font-family: var(--font-body);
-  font-weight: 700;
+  border: var(--border-w) solid var(--text);
+  background: var(--text);
+  color: var(--text-inverse);
+  font-weight: var(--label-weight);
+  font-stretch: var(--label-stretch);
   font-size: var(--text-sm);
-  letter-spacing: var(--tracking-label);
+  letter-spacing: var(--label-tracking);
   text-transform: uppercase;
   text-decoration: none;
   line-height: 1;
@@ -25,8 +27,8 @@
 }
 
 .btn:hover {
-  background: var(--ghost-white);
-  color: var(--iron-black);
+  background: transparent;
+  color: var(--text);
 }
 
 .btn:active {
@@ -48,21 +50,19 @@
   color: var(--ghost-white);
 }
 .btn--accent:hover {
-  background: transparent;
-  color: var(--accent);
-}
-.dark .btn--accent:hover {
+  border-color: var(--accent-strong);
+  background: var(--accent-strong);
   color: var(--ghost-white);
 }
 
 .btn--victory {
   border-color: var(--victory);
   background: var(--victory);
-  color: var(--iron-black);
+  color: var(--ink);
 }
 .btn--victory:hover {
   background: transparent;
-  color: var(--victory);
+  color: var(--victory-text);
 }
 
 .btn--ghost {
@@ -71,10 +71,6 @@
   color: inherit;
 }
 .btn--ghost:hover {
-  background: var(--iron-black);
-  color: var(--ghost-white);
-}
-.dark .btn--ghost:hover {
-  background: var(--ghost-white);
-  color: var(--iron-black);
+  background: var(--text);
+  color: var(--text-inverse);
 }

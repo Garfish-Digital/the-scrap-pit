@@ -1,6 +1,7 @@
 import { useEffect, useId, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router'
 import { routes, site } from '../content/site'
+import { Logo } from './Logo'
 import './Header.css'
 
 export function Header() {
@@ -33,22 +34,21 @@ export function Header() {
   return (
     <header className={`header ${open ? 'is-open' : ''}`}>
       <div className="container header__bar">
-        {/* Placeholder wordmark until the Phase 2 logo direction is chosen. */}
-        <Link to="/" className="header__brand display" aria-label={`${site.name} home`}>
-          {site.name}
+        <Link to="/" className="header__brand" aria-label={`${site.name} home`}>
+          <Logo />
         </Link>
 
         <nav className="header__nav" aria-label="Primary">
           <ul role="list" className="header__links">
             {routes.map((r) => (
               <li key={r.path}>
-                <NavLink to={r.path} end={'end' in r && r.end} className="header__link">
+                <NavLink to={r.path} end={'end' in r && r.end} className="header__link label">
                   {r.label}
                 </NavLink>
               </li>
             ))}
             <li>
-              <NavLink to="/studies" className="header__link header__link--studies">
+              <NavLink to="/studies" className="header__link header__link--studies label">
                 Studies
               </NavLink>
             </li>
@@ -57,7 +57,7 @@ export function Header() {
 
         <button
           type="button"
-          className="header__toggle"
+          className="header__toggle label"
           aria-expanded={open}
           aria-controls={menuId}
           onClick={() => setOpen((v) => !v)}
@@ -67,20 +67,20 @@ export function Header() {
         </button>
       </div>
 
-      <div id={menuId} className="header__menu" hidden={!open}>
+      <div id={menuId} className="header__menu dark" hidden={!open}>
         <nav aria-label="Primary, mobile">
           <ul role="list" className="header__menu-links">
             {routes.map((r, i) => (
               <li key={r.path}>
                 <NavLink to={r.path} end={'end' in r && r.end} className="header__menu-link display">
-                  <span className="header__menu-index">0{i + 1}</span>
+                  <span className="header__menu-index label">0{i + 1}</span>
                   {r.label}
                 </NavLink>
               </li>
             ))}
             <li>
               <NavLink to="/studies" className="header__menu-link header__menu-link--studies display">
-                <span className="header__menu-index">0{routes.length + 1}</span>
+                <span className="header__menu-index label">0{routes.length + 1}</span>
                 Studies
               </NavLink>
             </li>

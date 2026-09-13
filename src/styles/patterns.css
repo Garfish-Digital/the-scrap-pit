@@ -12,7 +12,7 @@
 .hero-split__media {
   position: relative;
   overflow: hidden;
-  background: var(--iron-black);
+  background: var(--ink);
 }
 
 .hero-split__media img {
@@ -74,7 +74,7 @@
 
 .cta-band__subtitle {
   font-size: var(--text-lg);
-  color: var(--victory);
+  color: var(--victory-text);
 }
 
 .cta-band .cluster {
@@ -90,11 +90,11 @@
   left: var(--space-2);
   padding: 0.3em 0.6em;
   font-size: var(--text-xs);
-  font-weight: 700;
-  letter-spacing: var(--tracking-label);
+  font-weight: var(--label-weight);
+  letter-spacing: var(--label-tracking);
   text-transform: uppercase;
-  background: var(--iron-black);
-  color: var(--victory);
+  background: var(--ink);
+  color: var(--gold-300);
 }
 
 /* Detail list: small factual items (session length, credentials). */
@@ -104,12 +104,9 @@
   flex-wrap: wrap;
   gap: var(--space-1) var(--space-3);
   font-size: var(--text-xs);
-  font-weight: 700;
-  letter-spacing: var(--tracking-label);
+  font-weight: var(--label-weight);
+  letter-spacing: var(--label-tracking);
   text-transform: uppercase;
   color: var(--text-muted);
 }
 
-.dark .details {
-  color: var(--text-muted-inverse);
-}

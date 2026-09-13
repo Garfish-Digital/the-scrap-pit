@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 472 64" width="472" height="64">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 522 64" width="522" height="64">
   <title>The Scrap Pit — Concept B “Scrap S” horizontal lockup</title>
   <g id="symbol">
     <path fill="currentColor" d="M8 8H50L56 14V20H20V26H40L28 38H8Z"/>
     <path fill="#C8102E" d="M43 26H56V56H14L8 50V44H44V38H31Z"/>
   </g>
-  <text id="wordmark" x="84" y="61" fill="currentColor" font-family="Bebas Neue, Impact, 'Arial Narrow', sans-serif" font-size="86" letter-spacing="1">THE SCRAP PIT</text>
+  <text id="wordmark" x="84" y="62" fill="currentColor" style="font-family:Archivo, Impact, sans-serif;font-weight:800;font-stretch:62%" font-size="84" letter-spacing="0">THE SCRAP PIT</text>
 </svg>

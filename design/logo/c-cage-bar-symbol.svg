@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <title>The Scrap Pit — Concept C “Cage Bar” monogram</title>
-  <!-- Construction: SP set at 76px (cap height ≈ 53), a horizontal band 8 units tall is subtracted at the
+  <!-- Construction: SP set at 70px in Archivo 800/62 (cap height ≈ 50), a horizontal band 8 units tall is subtracted at the
        cap-height midpoint (y 27–35), and a 6-unit rail sits inside the gap leaving a 1-unit light on either side.
        In Figma: outline the text, boolean-subtract the band, then add the rail. -->
   <defs>
@@ -10,7 +10,7 @@
     </mask>
   </defs>
   <g id="symbol">
-    <text id="letters" x="32" y="58" text-anchor="middle" mask="url(#c-cut-sym)" fill="currentColor" font-family="Bebas Neue, Impact, 'Arial Narrow', sans-serif" font-size="76" letter-spacing="-1">SP</text>
+    <text id="letters" x="32" y="58" text-anchor="middle" mask="url(#c-cut-sym)" fill="currentColor" style="font-family:Archivo, Impact, sans-serif;font-weight:800;font-stretch:62%" font-size="70" letter-spacing="-1">SP</text>
     <rect id="rail" x="0" y="28" width="64" height="6" fill="#C8102E"/>
   </g>
 </svg>

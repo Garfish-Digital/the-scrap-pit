@@ -1,0 +1,21 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55em;
+  font-size: 1.75rem; /* sets the lockup scale; mark and wordmark follow */
+  line-height: 1;
+  color: inherit;
+}
+
+.pit-mark {
+  display: block;
+  width: 0.9em;
+  height: 0.9em;
+  flex: none;
+}
+
+.logo__wordmark {
+  font-size: 1em;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}

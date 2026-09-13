@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 522 64" width="522" height="64">
+  <title>The Scrap Pit — Concept D “Pit Frame” horizontal lockup</title>
+  <!-- Symbol at 64, gap 20. Wordmark in Archivo 800 / width 62 (Archivo Condensed ExtraBold in Figma);
+       cap height ≈ 0.72em → 84px size gives a 60-unit cap on the symbol's baseline. Lower bracket is currentColor. -->
+  <g id="symbol">
+    <path fill="#C8102E" d="M0 0H60L44 16H16V44L0 60Z"/>
+    <path fill="currentColor" d="M64 64H4L20 48H48V20L64 4Z"/>
+  </g>
+  <text id="wordmark" x="84" y="62" fill="currentColor" style="font-family:Archivo, Impact, sans-serif;font-weight:800;font-stretch:62%" font-size="84" letter-spacing="0">THE SCRAP PIT</text>
+</svg>

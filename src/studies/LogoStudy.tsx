@@ -4,6 +4,11 @@ import bLockup from '../../design/logo/b-scrap-s-lockup.svg?raw'
 import bSymbol from '../../design/logo/b-scrap-s-symbol.svg?raw'
 import cSymbol from '../../design/logo/c-cage-bar-symbol.svg?raw'
 import cWordmark from '../../design/logo/c-cage-bar-wordmark.svg?raw'
+import dLockup from '../../design/logo/d-split-lockup.svg?raw'
+import dSymbol from '../../design/logo/d-split-symbol.svg?raw'
+import dSymbolDark from '../../design/logo/d-split-symbol-dark.svg?raw'
+import dV1 from '../../public/scrap-pit-logo-4.svg?raw'
+import dV2 from '../../public/scrap-pit-logo-5.svg?raw'
 import { routes } from '../content/site'
 import './LogoStudy.css'
 
@@ -13,6 +18,8 @@ type Concept = {
   idea: string
   lockup: string
   symbol: string
+  symbolDark?: string // separate dark-surface variant, when the mark needs one
+  variants?: { label: string; markup: string; dark?: boolean }[]
   files: string[]
   construction: string[]
   strengths: string[]
@@ -73,11 +80,45 @@ const concepts: Concept[] = [
   },
 ]
 
+const conceptD: Concept = {
+  id: 'd',
+  name: 'D · Pit Frame (owner’s concept)',
+  idea:
+    'A square frame with a void at its centre, torn on a rising diagonal into two brackets: red above, ink below. The void is the pit; the brackets are two corners squaring off across it. Shown cleaned up — void and cut are transparent rather than ghost-white fills, so the mark holds on any ground — with the dark-surface variant.',
+  lockup: dLockup,
+  symbol: dSymbol,
+  symbolDark: dSymbolDark,
+  variants: [
+    { label: 'v1 (public/scrap-pit-logo-4.svg)', markup: dV1 },
+    { label: 'v2 (public/scrap-pit-logo-5.svg)', markup: dV2 },
+    { label: 'Cleaned — light surfaces', markup: dSymbol },
+    { label: 'Cleaned — dark surfaces', markup: dSymbolDark, dark: true },
+  ],
+  files: ['design/logo/d-split-symbol.svg', 'design/logo/d-split-symbol-dark.svg', 'design/logo/d-split-lockup.svg'],
+  construction: [
+    '64-unit square frame, 16-unit walls, 32-unit void (x,y 16–48). Cut on the rising diagonal (0,64)→(64,0); each bracket steps back 4 units on both axes for a ≈5.7-unit gap (≈9%).',
+    'Two closed polygons, no strokes: upper M0 0 H60 L44 16 H16 V44 L0 60 Z; lower M64 64 H4 L20 48 H48 V20 L64 4 Z.',
+    'Light surfaces: Red 600 over Ink. Dark surfaces: Red 600 over Ghost White. Void and gap always transparent.',
+    'Clear space: one wall width (16 units) on all sides. Below 24px consider widening the gap to 6 units so the tear survives.',
+  ],
+  strengths: [
+    'Says “pit” without a letterform; two brackets facing off is combat-specific',
+    'Two colours, transparent centre — sits on photography as well as flat fields',
+    'The rising diagonal and the bracket become reusable devices (corner cuts, image frames, section edges)',
+  ],
+  risks: [
+    'Frame-with-void marks exist in tech/finance; the tear and the red/ink split carry the difference',
+    'Cut gets thin at 16px; test the favicon at 1× and 2× before finalising the gap',
+    'Ship both light and dark files — the mark must never rely on ghost-white fills',
+  ],
+}
+
 function Svg({ markup, className }: { markup: string; className?: string }) {
   return <span className={className} dangerouslySetInnerHTML={{ __html: markup }} />
 }
 
 export function LogoStudy() {
+  const all = [...concepts, conceptD]
   return (
     <div className="study">
       <header className="study__head container">
@@ -85,13 +126,14 @@ export function LogoStudy() {
         <h1>Three directions, editable SVG</h1>
         <p className="lede">
           Each concept ships as SVG under <code>design/logo/</code> with the geometry on an 8-unit grid and the
-          wordmark left as live text, so it opens in Figma as editable layers. Bebas Neue is a stand-in for whichever
-          display face wins the type study. Judge them on white, on ink, in the header, and at favicon size.
+          wordmark left as live text, so it opens in Figma as editable layers. Wordmarks are set in Archivo 800 /
+          width 62 (Archivo Condensed ExtraBold in Figma), the chosen type system. Judge them on white, on ink, in
+          the header, and at favicon size.
         </p>
       </header>
 
       <div className="container logo-concepts">
-        {concepts.map((c) => (
+        {all.map((c) => (
           <section key={c.id} className="logo-concept" aria-labelledby={`logo-${c.id}`}>
             <div className="logo-concept__intro">
               <h2 id={`logo-${c.id}`}>{c.name}</h2>
@@ -110,6 +152,16 @@ export function LogoStudy() {
               <div className="board board--dark">
                 <Svg markup={c.lockup} className="logo-lockup" />
               </div>
+              {c.variants && (
+                <div className="board board--light board--variants">
+                  {c.variants.map((v) => (
+                    <figure key={v.label} className={`variant ${v.dark ? 'variant--dark' : ''}`}>
+                      <Svg markup={v.markup} className="logo-symbol logo-symbol--96" />
+                      <figcaption>{v.label}</figcaption>
+                    </figure>
+                  ))}
+                </div>
+              )}
               <div className="board board--light board--sizes">
                 <Svg markup={c.symbol} className="logo-symbol logo-symbol--96" />
                 <Svg markup={c.symbol} className="logo-symbol logo-symbol--32" />
@@ -117,9 +169,9 @@ export function LogoStudy() {
                 <span className="board__note">96 · 32 · 16</span>
               </div>
               <div className="board board--dark board--sizes">
-                <Svg markup={c.symbol} className="logo-symbol logo-symbol--96" />
-                <Svg markup={c.symbol} className="logo-symbol logo-symbol--32" />
-                <Svg markup={c.symbol} className="logo-symbol logo-symbol--16" />
+                <Svg markup={c.symbolDark ?? c.symbol} className="logo-symbol logo-symbol--96" />
+                <Svg markup={c.symbolDark ?? c.symbol} className="logo-symbol logo-symbol--32" />
+                <Svg markup={c.symbolDark ?? c.symbol} className="logo-symbol logo-symbol--16" />
                 <span className="board__note">96 · 32 · 16</span>
               </div>
 
@@ -169,10 +221,11 @@ export function LogoStudy() {
       <footer className="study__foot container">
         <h2>Recommendation</h2>
         <p>
-          <strong>C (Cage Bar)</strong> if the brief is “expensive”: it is typographic, it scales with the chosen display
-          face, and the rail becomes a device the whole site can reuse. Pair it with the <strong>A</strong> notch as the
-          favicon/social mark if the SP monogram proves too fussy at 16px. <strong>B</strong> is the most literal and the
-          most fun; pick it if the brand should lean harder into “junkyard” than into “championship”.
+          <strong>D (Pit Frame)</strong> is the direction. It names the place without a letterform, the two brackets
+          read as opponents, and it stays quiet enough to let Archivo and the photography carry the personality. The
+          rising diagonal and the bracket corner become the site’s reusable devices. <strong>C</strong> is retired: a
+          typographic signature competes with the vision rather than serving it. <strong>A</strong> and <strong>B</strong>{' '}
+          stay on record as the more illustrative explorations.
         </p>
         <p>
           Whichever direction wins, the next step is yours in Figma: outline the type in the chosen face, set the

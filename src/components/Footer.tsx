@@ -1,5 +1,6 @@
 import { Link } from 'react-router'
 import { routes, site } from '../content/site'
+import { Logo } from './Logo'
 import './Footer.css'
 
 export function Footer() {
@@ -9,7 +10,7 @@ export function Footer() {
     <footer className="footer dark">
       <div className="container footer__grid">
         <div className="footer__brand">
-          <p className="display footer__wordmark">{site.name}</p>
+          <Logo className="footer__logo" />
           <p className="muted">{site.footerLine}</p>
         </div>
 
@@ -17,7 +18,7 @@ export function Footer() {
           <ul role="list" className="footer__links">
             {routes.map((r) => (
               <li key={r.path}>
-                <Link to={r.path} className="footer__link">
+                <Link to={r.path} className="footer__link label">
                   {r.label}
                 </Link>
               </li>

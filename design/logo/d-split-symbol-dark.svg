@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>The Scrap Pit — Concept D “Pit Frame” symbol — dark surfaces</title>
+  <!-- Same construction; the Ink bracket becomes Ghost White so the silhouette survives on Ink. -->
+  <g id="symbol">
+    <path id="upper" fill="#C8102E" d="M0 0H60L44 16H16V44L0 60Z"/>
+    <path id="lower" fill="#F8F8FF" d="M64 64H4L20 48H48V20L64 4Z"/>
+  </g>
+</svg>
