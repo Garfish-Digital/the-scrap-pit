@@ -137,6 +137,8 @@ export const extras = {
 
 export const guarantee = {
   title: '30-Day Warrior Guarantee',
+  days: '30', // rolls up as an odometer
+  titleAfterDays: '-Day Warrior Guarantee',
   body:
     "Not satisfied with your training? Get a full refund within 30 days. We've never had to honor it.",
   cta: 'Start Risk-Free Trial',

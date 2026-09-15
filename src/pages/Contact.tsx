@@ -65,16 +65,16 @@ export function Contact() {
       <PageMeta title="Contact" description={contactHero.body} />
 
       {/* 1. Entrance — type-led, brief so the form appears early */}
-      <section className="hero-type surface-gradient-dark dark" aria-labelledby="contact-title">
+      <section className="hero-type surface-gradient-dark dark" aria-labelledby="contact-title" data-round>
         <div className="container stack">
           <span className="eyebrow">{contactHero.subtitle}</span>
           <h1 id="contact-title">{contactHero.title}</h1>
-          <p className="lede muted">{contactHero.body}</p>
+          <p className="lede muted" data-slam>{contactHero.body}</p>
         </div>
       </section>
 
       {/* 2. Get in Touch / Find the Pit */}
-      <section className="section surface-light" aria-label="Contact details">
+      <section className="section surface-light" aria-label="Contact details" data-round>
         <div className="container contact">
           <div className="contact__form">
             <h2>{form.title}</h2>
@@ -89,7 +89,7 @@ export function Contact() {
               </p>
             )}
 
-            <form noValidate onSubmit={onSubmit} aria-describedby="demo-note">
+            <form noValidate onSubmit={onSubmit} aria-describedby="demo-note" data-rise>
               {plan && <input type="hidden" name="plan" value={plan.id} />}
 
               <div className={`field ${errors.name ? 'field--error' : ''}`}>
@@ -193,7 +193,7 @@ export function Contact() {
           <aside className="contact__info">
             <h2>{findUs.title}</h2>
 
-            <div className="info">
+            <div className="info" data-rise>
               <h3 className="eyebrow">Location</h3>
               <p>
                 {site.address.street}
@@ -202,21 +202,21 @@ export function Contact() {
               </p>
             </div>
 
-            <div className="info">
+            <div className="info" data-rise>
               <h3 className="eyebrow">Phone</h3>
               <p>
                 <a href={site.phoneHref}>{site.phoneDisplay}</a>
               </p>
             </div>
 
-            <div className="info">
+            <div className="info" data-rise>
               <h3 className="eyebrow">Email</h3>
               <p>
                 <a href={`mailto:${site.email}`}>{site.email}</a>
               </p>
             </div>
 
-            <div className="info">
+            <div className="info" data-rise>
               <h3 className="eyebrow">Hours</h3>
               <dl className="hours">
                 {site.hours.map((h) => (

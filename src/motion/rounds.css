@@ -1,0 +1,59 @@
+/* Section entrances — "the Round" (design/MOTION.md, owner decisions #3).
+   Opt-in by attribute; the hook in useRounds.ts drives the custom properties.
+
+   [data-round]            a section that enters as a round
+   .eyebrow, [data-slam]   slam-flash: a red block wipes in from the left, the
+                           text is revealed beneath it, the block retracts right
+   h1, h2 in a round       width-axis reveal (wdth 125 → 62)
+   .section-head, [data-rope]  carries the top rope, drawn left → right
+   [data-rise]             children settle in with a short rise, staggered
+
+   Custom properties are only ever set by GSAP, so with no JS (or reduced
+   motion) every fallback value below is the resting, fully visible state. */
+
+[data-round] .eyebrow,
+[data-round] [data-slam] {
+  position: relative;
+  opacity: var(--slam-text, 1);
+}
+
+/* The slam block hugs the eyebrow text rather than the container. */
+[data-round] .eyebrow {
+  width: fit-content;
+}
+
+[data-round] .eyebrow::before,
+[data-round] [data-slam]::before {
+  content: '';
+  position: absolute;
+  inset: -0.2em -0.4em;
+  z-index: 1;
+  background: var(--red-600);
+  transform: scaleX(var(--slam-x, 0));
+  transform-origin: var(--slam-o, left) center;
+  pointer-events: none;
+}
+
+/* The rope: a 2px Red 600 rail under the head, drawn by --rope. */
+[data-round] .section-head,
+[data-round] [data-rope] {
+  position: relative;
+}
+
+[data-round] .section-head::after,
+[data-round] [data-rope]::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(var(--space-4) * -1 + var(--space-2));
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(var(--rope, 1));
+  transform-origin: left center;
+}
+
+/* Section heads gain room for the rope below them. */
+[data-round] .section-head {
+  padding-bottom: var(--space-3);
+}

@@ -1,5 +1,6 @@
 import { useEffect, useId, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router'
+import { SHOW_STUDIES } from '../config'
 import { routes, site } from '../content/site'
 import { Logo } from './Logo'
 import './Header.css'
@@ -47,11 +48,13 @@ export function Header() {
                 </NavLink>
               </li>
             ))}
-            <li>
-              <NavLink to="/studies" className="header__link header__link--studies label">
-                Studies
-              </NavLink>
-            </li>
+            {SHOW_STUDIES && (
+              <li>
+                <NavLink to="/studies" className="header__link header__link--studies label">
+                  Studies
+                </NavLink>
+              </li>
+            )}
           </ul>
         </nav>
 
@@ -78,12 +81,14 @@ export function Header() {
                 </NavLink>
               </li>
             ))}
-            <li>
-              <NavLink to="/studies" className="header__menu-link header__menu-link--studies display">
-                <span className="header__menu-index label">0{routes.length + 1}</span>
-                Studies
-              </NavLink>
-            </li>
+            {SHOW_STUDIES && (
+              <li>
+                <NavLink to="/studies" className="header__menu-link header__menu-link--studies display">
+                  <span className="header__menu-index label">0{routes.length + 1}</span>
+                  Studies
+                </NavLink>
+              </li>
+            )}
           </ul>
         </nav>
         <p className="header__menu-foot muted">{site.footerLine}</p>

@@ -30,6 +30,7 @@ export function StudiesLayout() {
             ['type', 'Type'],
             ['color', 'Color'],
             ['logo', 'Logo'],
+            ['motion', 'Motion'],
           ].map(([p, label]) => (
             <NavLink key={p} to={`/studies/${p}`} className="text-link">
               {label}

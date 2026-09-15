@@ -1,5 +1,7 @@
 import { Button } from '../components/Button'
 import { PageMeta } from '../components/PageMeta'
+import { PitBrackets } from '../components/PitBrackets'
+import { SlipImage } from '../components/SlipImage'
 import {
   fighters,
   fightersInvitation,
@@ -16,23 +18,24 @@ export function Fighters() {
       <PageMeta title="Fighters" description={profiles.description} />
 
       {/* 1. Entrance — contained photo, title on the adjacent solid field */}
-      <section className="hero-split hero-split--media-right dark" aria-labelledby="fighters-title">
-        <div className="hero-split__media">
-          <img src="/images/new-heroes/fighter-hero-2.png" alt="Two fighters standing together in the training cage" fetchPriority="high" />
+      <section className="hero-split hero-split--media-right dark" aria-labelledby="fighters-title" data-round>
+        <div className="hero-split__media" data-hero-media>
+          <img src="/images/new-heroes/fighter-hero-2.webp" alt="Two fighters standing together in the training cage" fetchPriority="high" />
+          <PitBrackets />
         </div>
         <div className="hero-split__text">
           <span className="eyebrow">Fighters</span>
           <h1 id="fighters-title">{profiles.title}</h1>
-          <p className="lede muted">{profiles.description}</p>
+          <p className="lede muted" data-slam>{profiles.description}</p>
         </div>
       </section>
 
       {/* 2. Iron Will Profiles — three voices */}
-      <section className="section surface-light" aria-label="Fighter stories">
-        <div className="container voices">
+      <section className="section surface-light" aria-label="Fighter stories" data-round>
+        <div className="container voices" data-rise>
           {fighters.map((f, i) => (
             <figure key={f.name} className="voice">
-              <img src={f.image} alt={`Portrait of ${f.name}`} className="voice__portrait" loading={i === 0 ? 'eager' : 'lazy'} />
+              <SlipImage src={f.image} alt={`Portrait of ${f.name}`} ratio="1" className="voice__portrait" loading={i === 0 ? 'eager' : 'lazy'} />
               <blockquote className="voice__quote">
                 <p className="quote">{f.quote}</p>
               </blockquote>
@@ -46,27 +49,27 @@ export function Fighters() {
       </section>
 
       {/* 3. Forged in Fire — bridge from testimony to coaching */}
-      <section className="section surface-gradient-dark dark bridge" aria-labelledby="bridge-title">
+      <section className="section surface-gradient-dark dark bridge" aria-labelledby="bridge-title" data-round>
         <div className="container bridge__grid">
-          <div>
+          <div data-rope>
             <span className="eyebrow">{forgedInFireFighters.subtitle}</span>
             <h2 id="bridge-title">{forgedInFireFighters.title}</h2>
           </div>
-          <p className="lede">{forgedInFireFighters.body}</p>
+          <p className="lede" data-slam>{forgedInFireFighters.body}</p>
         </div>
       </section>
 
       {/* 4. Hardened Leaders */}
-      <section className="section surface-light" aria-labelledby="leaders-title">
+      <section className="section surface-light" aria-labelledby="leaders-title" data-round>
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">Coaching</span>
             <h2 id="leaders-title">{leadersSection.title}</h2>
           </div>
-          <div className="leaders">
+          <div className="leaders" data-rise>
             {leaders.map((l) => (
               <article key={l.name} className="leader">
-                <img src={l.image} alt={`Portrait of ${l.name}`} className="leader__portrait" loading="lazy" />
+                <SlipImage src={l.image} alt={`Portrait of ${l.name}`} ratio="1" className="leader__portrait" />
                 <div className="leader__text">
                   <h3>{l.name}</h3>
                   <p className="eyebrow leader__role">{l.role}</p>
@@ -84,11 +87,11 @@ export function Fighters() {
       </section>
 
       {/* 5. Invitation */}
-      <section className="section surface-gradient-light cta-band" aria-labelledby="invite-title">
+      <section className="section surface-gradient-light cta-band" aria-labelledby="invite-title" data-round>
         <div className="container stack">
           <h2 id="invite-title">{fightersInvitation.title}</h2>
-          <p className="lede">{fightersInvitation.body}</p>
-          <div className="cluster">
+          <p className="lede" data-slam>{fightersInvitation.body}</p>
+          <div className="cluster" data-rise>
             <Button to={fightersInvitation.primary.to} variant="accent" size="lg">
               {fightersInvitation.primary.label}
             </Button>

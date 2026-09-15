@@ -1,0 +1,25 @@
+.odo {
+  display: inline-flex;
+  align-items: baseline;
+  height: 1em;
+  line-height: 1;
+  overflow: hidden;
+  vertical-align: baseline;
+}
+
+.odo__digit {
+  display: inline-block;
+  height: 1em;
+  overflow: hidden;
+}
+
+.odo__strip {
+  display: grid;
+  transform: translateY(var(--odo-y, var(--odo-final, 0%)));
+}
+
+.odo__strip > span {
+  display: block;
+  height: 1em;
+  line-height: 1;
+}

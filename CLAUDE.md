@@ -34,6 +34,7 @@ src/
 │   ├── Button.tsx/.css      # <Link> when `to` is given, else <button>; variants primary/accent/victory/ghost
 │   ├── PageMeta.tsx         # per-route title/description/OG via effect
 │   └── ScrollManager.tsx    # route change -> top; `/route#id` -> scroll to section
+├── motion/                  # live GSAP layer: gsap.ts entry, pit-geometry.ts, PitOverlay (preloader + the Cut)
 ├── content/                 # all copy and data, one module per route + site.ts
 ├── pages/                   # Home, Training, Fighters, About, Contact, NotFound (+ .css each)
 └── styles/
@@ -43,16 +44,16 @@ src/
     └── patterns.css         # shared page patterns (split hero, CTA band, details list)
 ```
 
-Routes: `/`, `/training` (includes `#striking`, `#grappling`, `#conditioning`, `#pricing`, `#guarantee`), `/fighters`, `/about`, `/contact` (accepts `?plan=warrior|champion|legend`), and `/studies/{type,color,logo}` — the Phase 2 design studies (`src/studies/`, lazy chunk). The studies are published on purpose so the design process can be documented on any device; remove the route and header link before client handoff.
+Studies: `/studies/{type,color,logo,motion}` (dropped from the build when `VITE_STUDIES=off`, see `src/config.ts`). Routes: `/`, `/training` (includes `#striking`, `#grappling`, `#conditioning`, `#pricing`, `#guarantee`), `/fighters`, `/about`, `/contact` (accepts `?plan=warrior|champion|legend`), and `/studies/{type,color,logo}` — the Phase 2 design studies (`src/studies/`, lazy chunk). The studies are published on purpose so the design process can be documented on any device; remove the route and header link before client handoff.
 
 ## Conventions
 
 - **Copy lives in `src/content/`**, never inline in pages. Copy carried over from v1 is preserved verbatim; anything new is marked `// NEW COPY (Phase 3) — review` so the owner can revise it deliberately.
 - **CSS**: tokens in `tokens.css`; page-specific rules in the page's `.css`; shared patterns in `patterns.css`. Dark sections carry the `dark` class so inverse tokens (`.muted`, `.eyebrow`, `.details`, `.rule`) apply. Keep the ghost-white fields and the two `--gradient-*` surfaces; they are brand foundations.
-- **Motion**: currently CSS state changes only. GSAP sequences are Phase 4 (see PLAN.md); do not add scroll reveals or cursor effects ad hoc. No custom cursor, ever.
+- **Motion**: the score is `design/MOTION.md` (characters, owner decisions, rules, as-built specs); prototypes live in `src/studies/motion/` at `/studies/motion`; the live motion layer is `src/motion/` (GSAP 3.15). Page altitude is built: `PitOverlay` runs the once-per-session preloader and the Cut route transition, and emits `pit:boot` / `pit:reveal` — start scene-level sequences on those events, not on mount. Import GSAP from `src/motion/gsap.ts`. Follow the score's rules (hits ≤ 300 ms, settles ≥ 600 ms; animate only transform/opacity/clip-path/font-variation-settings; reduced-motion equivalent alongside every sequence). No custom cursor or cursor-follow, ever.
 - **Contact form** is demo-only: validates locally, shows an on-page "not sent" confirmation, never submits anywhere.
 - **Placeholder photography**: files in `public/images/new-heroes/` marked with the `placeholder-tag` badge are layout stand-ins (rights/branding concerns noted in PLAN.md). Do not tune signature motion around them.
-- Accessibility is a quality bar, not a compliance target: keep focus states, labels, reduced-motion handling, and keyboard use working.
+- Accessibility is a quality bar, not a compliance target: keep focus states, labels, reduced-motion handling, and keyboard use working. Motion must never make content unfocusable — hide with opacity, not visibility, and enter a section on `focusin` (see `useRounds`).
 
 ## Design System (approved September 13, 2026)
 

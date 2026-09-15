@@ -7,10 +7,11 @@ import { Fighters } from './pages/Fighters'
 import { Home } from './pages/Home'
 import { NotFound } from './pages/NotFound'
 import { Training } from './pages/Training'
-
-// Phase 2 design studies. Published alongside the site (own lazy chunk) so the
-// design process can be viewed on any device; remove the route before client handoff.
-const Studies = lazy(() => import('./studies'))
+// Phase 2–4 design studies. Published alongside the site (own lazy chunk) so
+// the design process can be viewed on any device; VITE_STUDIES=off removes them.
+// The env check is inlined here (not imported from config.ts) so the bundler
+// can drop the dynamic import entirely when the switch is off.
+const Studies = import.meta.env.VITE_STUDIES !== 'off' ? lazy(() => import('./studies')) : null
 
 export default function App() {
   return (
@@ -22,14 +23,16 @@ export default function App() {
           <Route path="fighters" element={<Fighters />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
-          <Route
-            path="studies/*"
-            element={
-              <Suspense fallback={null}>
-                <Studies />
-              </Suspense>
-            }
-          />
+          {Studies && (
+            <Route
+              path="studies/*"
+              element={
+                <Suspense fallback={null}>
+                  <Studies />
+                </Suspense>
+              }
+            />
+          )}
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

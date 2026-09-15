@@ -1,0 +1,24 @@
+.pit-brackets__tl,
+.pit-brackets__br {
+  position: absolute;
+  z-index: 1;
+  width: clamp(9rem, 26vw, 22rem);
+  height: auto;
+  pointer-events: none;
+}
+
+.pit-brackets__tl {
+  top: -4%;
+  left: -3%;
+}
+
+.pit-brackets__br {
+  right: -3%;
+  bottom: -4%;
+}
+
+/* Split heroes: the pane is narrower, so the brackets scale with it. */
+.hero-split__media .pit-brackets__tl,
+.hero-split__media .pit-brackets__br {
+  width: clamp(7rem, 18vw, 16rem);
+}

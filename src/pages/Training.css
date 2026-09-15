@@ -17,10 +17,8 @@
   order: 2;
 }
 
-.discipline__media img {
+.discipline__media .slip {
   width: 100%;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
 }
 
 .discipline__text {

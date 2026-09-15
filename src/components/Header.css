@@ -130,7 +130,8 @@
   font-size: var(--text-sm);
 }
 
-@media (max-width: 47.99rem) {
+/* Six labels need ~900px of row; below that the full menu takes over. */
+@media (max-width: 63.99rem) {
   .header__nav {
     display: none;
   }
@@ -139,7 +140,7 @@
   }
 }
 
-@media (min-width: 48rem) {
+@media (min-width: 64rem) {
   .header__menu {
     display: none;
   }

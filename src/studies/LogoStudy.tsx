@@ -7,8 +7,8 @@ import cWordmark from '../../design/logo/c-cage-bar-wordmark.svg?raw'
 import dLockup from '../../design/logo/d-split-lockup.svg?raw'
 import dSymbol from '../../design/logo/d-split-symbol.svg?raw'
 import dSymbolDark from '../../design/logo/d-split-symbol-dark.svg?raw'
-import dV1 from '../../public/scrap-pit-logo-4.svg?raw'
-import dV2 from '../../public/scrap-pit-logo-5.svg?raw'
+import dV1 from '../../design/logo/owner-v1-split.svg?raw'
+import dV2 from '../../design/logo/owner-v2-pit-frame.svg?raw'
 import { routes } from '../content/site'
 import './LogoStudy.css'
 
@@ -89,8 +89,8 @@ const conceptD: Concept = {
   symbol: dSymbol,
   symbolDark: dSymbolDark,
   variants: [
-    { label: 'v1 (public/scrap-pit-logo-4.svg)', markup: dV1 },
-    { label: 'v2 (public/scrap-pit-logo-5.svg)', markup: dV2 },
+    { label: 'v1 (design/logo/owner-v1-split.svg)', markup: dV1 },
+    { label: 'v2 (design/logo/owner-v2-pit-frame.svg)', markup: dV2 },
     { label: 'Cleaned — light surfaces', markup: dSymbol },
     { label: 'Cleaned — dark surfaces', markup: dSymbolDark, dark: true },
   ],

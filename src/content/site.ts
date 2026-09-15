@@ -17,7 +17,7 @@ export const site = {
     zip: '30601',
   },
   phoneDisplay: '(555) 321-SCRAP',
-  phoneHref: 'tel:+15551234567', // v1 value; reconcile with the vanity number in Phase 5
+  phoneHref: 'tel:+15553217272', // (555) 321-SCRAP → 321-7272; dialers drop the trailing digit
   email: 'info@thescrappit.com',
   hours: [
     { days: 'Mon-Fri', time: '5:00 AM - 10:00 PM' },

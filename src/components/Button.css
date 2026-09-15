@@ -1,15 +1,21 @@
-/* Buttons — plain state changes only. Impact sequences are Phase 4.
-   Colors come from the semantic aliases, so the same classes work on dark
-   sections (where `.dark` re-points --accent, --text, --text-inverse). */
+/* Buttons — the Impact language (design/MOTION.md, owner decisions #6).
+   Static: solid fill. Hover: ghost white slams in from the left and holds
+   (GSAP, src/motion/useImpact.ts); the label takes the button's colour.
+   Press: flash + 1px drop + shockwave ring. Variants set --btn-fill and
+   --btn-label-hover; `.dark` re-points the accent so it reads on Ink. */
 
 .btn {
+  --btn-fill: var(--text);
+  --btn-ink: var(--text-inverse);
+  --btn-label-hover: var(--text);
+
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-1);
-  border: var(--border-w) solid var(--text);
-  background: var(--text);
-  color: var(--text-inverse);
+  border: var(--border-w) solid var(--btn-fill);
+  background: var(--btn-fill);
+  color: var(--btn-ink);
   font-weight: var(--label-weight);
   font-stretch: var(--label-stretch);
   font-size: var(--text-sm);
@@ -19,20 +25,12 @@
   line-height: 1;
   cursor: pointer;
   white-space: nowrap;
-  transition:
-    background-color var(--dur-fast) var(--ease-out),
-    color var(--dur-fast) var(--ease-out),
-    border-color var(--dur-fast) var(--ease-out),
-    transform var(--dur-fast) var(--ease-out);
+  overflow: visible;
+  transition: color var(--dur-fast) linear;
 }
 
-.btn:hover {
-  background: transparent;
-  color: var(--text);
-}
-
-.btn:active {
-  transform: translateY(1px);
+.btn.is-hover {
+  color: var(--btn-label-hover);
 }
 
 .btn:disabled {
@@ -40,37 +38,70 @@
   cursor: not-allowed;
 }
 
+.btn__label {
+  position: relative;
+  z-index: 2;
+}
+
+.btn__white {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--ghost-white);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.btn__flash {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: var(--ghost-white);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.btn__ring {
+  position: absolute;
+  inset: -1px;
+  border: 1px solid currentColor;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Reduced motion: a plain inverted hover state, no slam */
+.btn.is-reduced .btn__white {
+  opacity: 0;
+}
+.btn.is-reduced.is-hover .btn__white {
+  opacity: 1;
+}
+
 .btn--sm { padding: 0.65em 1.1em; font-size: var(--text-xs); }
 .btn--md { padding: 0.9em 1.5em; }
 .btn--lg { padding: 1.1em 2em; font-size: var(--text-base); }
 
 .btn--accent {
-  border-color: var(--accent);
-  background: var(--accent);
-  color: var(--ghost-white);
-}
-.btn--accent:hover {
-  border-color: var(--accent-strong);
-  background: var(--accent-strong);
-  color: var(--ghost-white);
+  --btn-fill: var(--accent);
+  --btn-ink: var(--ghost-white);
+  --btn-label-hover: var(--accent);
 }
 
 .btn--victory {
-  border-color: var(--victory);
-  background: var(--victory);
-  color: var(--ink);
-}
-.btn--victory:hover {
-  background: transparent;
-  color: var(--victory-text);
+  --btn-fill: var(--victory);
+  --btn-ink: var(--ink);
+  --btn-label-hover: var(--victory-text);
 }
 
+/* Ghost keeps an outline at rest; the slam fills it. */
 .btn--ghost {
-  border-color: currentColor;
+  --btn-fill: currentColor;
+  --btn-ink: inherit;
+  --btn-label-hover: var(--text-inverse);
   background: transparent;
   color: inherit;
+  border-color: currentColor;
 }
-.btn--ghost:hover {
+.btn--ghost .btn__white {
   background: var(--text);
-  color: var(--text-inverse);
 }

@@ -34,5 +34,42 @@ ___
 
 ___
 
--1. The Home hero title is good. Let's leave it stacked.
--2. The favicon looks amazing. Better than some of the big companies. I provided a screenshot at `/public/dev-images/tab-favicon-comparison.png` for your evaluation.
+-These are really great results. Here are my thoughts on each motion section:
+-1. The Cut: Yes, this will be exactly what we want for our page transitions.
+-2. The "width-axis" effect on `home-hero__subtitle` is very good, and it is probable I will want this effect on all h2 elements throughout. I like the brackets snapping to the corners. The three title lines dropping with a skew needs adjusted. Maybe we can try an easi-in with a heavy slam on the end, no skew. We can still do a third of the color applied with each hit, but space the timing out a little further so it can be perceived better. We will change the CTA effect to match what I have described below in #6.
+-3. The eyebrow slamming in with a flash is a great effect, and I think I will want to use that on more than just eyebrows (perhaps on the p elements in the sections). The top rope draw is excellent. I am unsure about the heading rising from under a baseline mask, because I am much more partial to the "width-axis" effect from #2.
+-4. I would like to use the odometer effect on all of our numbers. The impressively high numbers should roll upward ("30" on 30-Day Guarantee on Training page, and all numbers in "Byt the numbers" section), while impressively low numbers should roll down (training package prices on Training page). The spoken quote effect is good for quotes only, of which we only have 3 (on the FIghters page).
+-5. These are perfect, and this effect should be on all images that are not hero images. How will this translate to mobile? I would like to preserve the effect, so maybe we can activate it on scroll somehow so mobile users will experience it.
+-6. First, I want to say I love the press: a 60 ms ghost-white flash, a 1px drop, and a 1px ring expands and fades — a shockwave where the release settles with a short overshoot. Let's not change a thing on the press. I do want to change the static and hover. I want to explore the concept of having their static state as their current hover state, meaning solid backgrounds. Then, on hover, the "white" slams in fram the side (similar to the eyebrow flash in #3, only here it holds while hovered). So basically, on hover they will become as they look now statically, but the effect will slam in from the side.
+
+___
+
+
+
+
+The preloader and the Cut are live on your :3000 server. Nothing committed.
+
+What's built (src/motion/)
+
+One fixed overlay serves both sequences: a square of side max(104vw, 104vh) centred on the viewport, Red 600 above the rising diagonal, Ink below, each with a ghost-white edge along the cut (a drop-shadow on an unclipped wrapper, so it shows over any content). All clip polygons are six points, so triangles morph into brackets — the geometry is in pit-geometry.ts, shared by both.
+
+Preloader — once per session. A tiny inline script in index.html sets html.is-booting before React runs, and CSS paints the closed overlay from the first frame, so no content is ever seen before the mark forms. Then: hold 350 ms → the void punches open to 14% (power4.out, 250 ms) with the hero glimpsed through it → hold 400 ms → the void swallows the viewport (expo.inOut, 900 ms). Total ≈ 1.9 s. Reload to see it again: sessionStorage.removeItem('pit:booted') in the console, or open a new tab.
+
+The Cut — a capture-phase click listener catches every same-origin link to a different route (header, footer, mobile menu, CTAs, pricing ?plan= links). Modifier-clicks, target, download, and anchors on the current route (/training#pricing while on Training) are left to the router. Sequence: converge 450 ms → route swaps behind the overlay (scroll-to-top happens hidden) → void punches open to 30% with the destination glimpsed → hold 120 ms → brackets slide off along the cut.
+
+Events for what comes next: the overlay emits pit:boot and pit:reveal at the moment the page starts being revealed. The hero and section sequences will start on those, not on mount — otherwise the Weigh-in would play behind the overlay.
+
+Reduced motion: no preloader, no overlay, plain navigation.
+
+Verified headless: frame sequences of both, session gating, anchor bypass, reduced-motion bypass, zero console errors. GSAP core adds ~28 KB gzipped to the main bundle.
+
+Two things I hit and fixed
+- The study's 12.5% tear was a 160 px slot at viewport scale; the live tear is 1% with the white edges doing the work.
+- useNavigate hands out a new function per location, which re-ran my effect mid-transition and parked the overlay. It's held in a ref now.
+
+Things to judge by eye
+
+- Tempo. The preloader hold and the Cut's slide-off (expo.out is mostly done in its first 200 ms) are the two numbers I'd expect you to want to touch. Both are single values in PitOverlay.tsx.
+- Back/forward doesn't play the Cut — the router has already moved when popstate fires. It's a known limit rather than a bug; a reveal-only half-Cut on popstate is possible later if it bothers you.
+
+Next: the hero Weigh-in, starting on pit:boot / pit:reveal.
