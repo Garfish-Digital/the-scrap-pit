@@ -24,12 +24,12 @@ export function Training() {
         <div className="hero-split__media" data-hero-media>
           <img src="/images/new-heroes/training-hero-1.webp" alt="" fetchPriority="high" />
           <PitBrackets />
-          <span className="placeholder-tag">Placeholder image</span>
+          {/* <span className="placeholder-tag">Placeholder image</span> */}
         </div>
         <div className="hero-split__text">
           <span className="eyebrow">Training</span>
           <h1 id="training-title">{gauntlet.title}</h1>
-          <p className="lede muted" data-slam>{gauntlet.description}</p>
+          <p className="lede muted">{gauntlet.description}</p>
         </div>
       </section>
 
@@ -56,11 +56,13 @@ export function Training() {
         </div>
       </section>
 
-      {/* 3. Become Scrappy — hinge into commitment */}
-      <section className="section surface-gradient-light cta-band" aria-labelledby="hinge-title" data-round>
-        <div className="container stack">
-          <h2 id="hinge-title">{becomeScrappyTraining.title}</h2>
-          <p className="cta-band__subtitle display" data-slam>{becomeScrappyTraining.subtitle}</p>
+      {/* 3. Become Scrappy — hinge into commitment (same bridge treatment as Fighters' Forged in Fire) */}
+      <section className="section surface-gradient-dark dark bridge" aria-labelledby="hinge-title" data-round>
+        <div className="container bridge__grid">
+          <div data-rope>
+            <span className="eyebrow">{becomeScrappyTraining.subtitle}</span>
+            <h2 id="hinge-title">{becomeScrappyTraining.title}</h2>
+          </div>
           <p className="lede" data-slam>{becomeScrappyTraining.body}</p>
         </div>
       </section>
@@ -97,7 +99,7 @@ export function Training() {
                     </li>
                   ))}
                 </ul>
-                <Button to={`/contact?plan=${p.id}`} variant={p.popular ? 'accent' : 'ghost'} className="plan__cta">
+                <Button to={`/contact?plan=${p.id}`} variant={p.popular ? 'accent' : 'primary'} className="plan__cta">
                   {p.cta}
                 </Button>
               </article>

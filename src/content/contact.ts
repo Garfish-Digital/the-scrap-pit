@@ -3,7 +3,7 @@
 export const contactHero = {
   title: 'Contact the Pit',
   subtitle: 'Ready to start your journey?',
-  body: "Step into our octagon. Tell us where you are. We'll tell you what comes next.",
+  body: "Tell us where you are. We'll tell you what comes next.",
 }
 
 export const form = {
@@ -16,12 +16,11 @@ export const form = {
   ],
   messagePlaceholder: 'Tell us about your goals...',
   submit: 'Send Message',
-  demoNote: 'Demo form: nothing is sent. Submitting shows a local confirmation only.',
-  // NEW COPY (Phase 3) — on-page confirmation for the demo-only form.
+  // NEW COPY (Phase 5) — on-page confirmation. The form does not transmit;
+  // the copy no longer says so (owner decision: no "demo" language in the UI).
   confirmation: {
-    title: 'Message received (locally)',
-    body:
-      'This is a demo site, so your message was not sent anywhere. In a live build it would land in the gym inbox and someone would call you back within a day.',
+    title: 'Message received',
+    body: 'Someone from the Pit will reach out within a day. Bring your questions, and bring the output.',
   },
 }
 

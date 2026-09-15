@@ -40,7 +40,7 @@ export function Footer() {
       <div className="container footer__bottom">
         <hr className="rule" />
         <p className="muted footer__copy">
-          &copy; {year} {site.name}. All rights reserved. Demo site — details are fictional.
+          &copy; {year} {site.name}. All rights reserved.
         </p>
       </div>
     </footer>

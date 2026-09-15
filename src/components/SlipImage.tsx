@@ -9,7 +9,7 @@ type Props = {
   className?: string
 }
 
-// Cut & Slip (design/MOTION.md, owner decisions #5). The image is split on the
+// Cut & Slip (design/scrap-pit-design/MOTION.md, owner decisions #5). The image is split on the
 // rising diagonal into two halves. useSlips drives them: hover/focus on pointer
 // devices, ScrollTrigger on touch. At rest the halves sit 1.5px off the cut and
 // the image is mono; open, they slip 8px apart and colour snaps in.

@@ -14,7 +14,7 @@ export const disciplines: Discipline[] = [
     id: 'striking',
     title: 'Striking',
     summary:
-      'Master the art of controlled violence. Boxing, Muay Thai, and kickboxing fundamentals that make you precise under pressure.',
+      'Boxing, Muay Thai, and kickboxing fundamentals that make you precise under pressure.',
     details: ['45 min sessions', 'High intensity', 'Technique focus'],
     image: '/images/fighter-striking.webp',
     alt: 'Fighter throwing a strike during a striking session',
@@ -23,7 +23,7 @@ export const disciplines: Discipline[] = [
     id: 'grappling',
     title: 'Grappling',
     summary:
-      'Control every outcome. Brazilian Jiu-Jitsu, wrestling, and submission techniques that make you dangerous at every range.',
+      'Brazilian Jiu-Jitsu, wrestling, and submission techniques that make you dangerous at every range.',
     details: ['60 min sessions', 'Full tactical focus', 'Mental warfare'],
     image: '/images/fighters-grappling.webp',
     alt: 'Two fighters grappling on the mat',
@@ -32,7 +32,7 @@ export const disciplines: Discipline[] = [
     id: 'conditioning',
     title: 'Conditioning',
     summary:
-      'Discover new ceilings. Brutal strength and conditioning sessions that build unbreakable mental and physical fortitude.',
+      'Brutal strength and conditioning sessions that build unbreakable mental and physical fortitude.',
     details: ['30 min sessions', 'Maximum intensity', 'Pain tolerance'],
     image: '/images/fighter-conditioning.webp',
     alt: 'Fighter mid-conditioning session',
@@ -70,7 +70,7 @@ export const pricing = {
   title: 'Choose Your Training',
   subtitle: 'Pricing plans for every fighter',
   description:
-    'From beginner to champion, we have a plan that fits your commitment level and goals.',
+    'From beginner to champion, we have a plan that fits you.',
 }
 
 export const plans: Plan[] = [

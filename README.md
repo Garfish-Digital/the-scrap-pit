@@ -23,8 +23,8 @@ npm run lint      # oxlint
 | | |
 | --- | --- |
 | `PLAN.md` | roadmap and decision log, phase by phase |
-| `design/MOTION.md` | the motion score: characters, owner decisions, rules, as-built sequence specs |
-| `design/logo/` | logo sources (SVG), OG image source |
+| `design/scrap-pit-design/MOTION.md` | the motion score: characters, owner decisions, rules, as-built sequence specs |
+| `design/scrap-pit-design/` | design sources: logo SVGs, OG image source, photo originals, dev images |
 | `src/content/` | all copy and data, one module per route |
 | `src/motion/` | live GSAP layer: preloader + route Cut (`PitOverlay`), hero Weigh-in, section Rounds, Cut & Slip, Impact buttons |
 | `src/studies/` | the published studies |
@@ -32,9 +32,9 @@ npm run lint      # oxlint
 
 ## Intentionally demo-only
 
-- **Contact form** validates locally and shows an on-page confirmation. Nothing is sent anywhere.
-- **Business details** (address, phone, hours, prices, stats, fighter and coach bios) are fictional. The vanity number `(555) 321-SCRAP` dials `+1 555 321 7272`.
-- **Placeholder photography:** the Training hero and About backdrop carry a visible "Placeholder image" badge (event marks and sponsor logos visible in the source photos). Replace before any public use; the originals and WebP derivatives are in `public/images/new-heroes/`.
+- **Contact form** validates locally and shows an on-page confirmation that reads as a real receipt. Nothing is sent anywhere — the UI deliberately does not say so (owner decision: no "demo" language on the site).
+- **Business details** (address, phone, hours, prices, stats, fighter and coach bios) are fictional and the site no longer labels them as such. The vanity number `(555) 321-SCRAP` dials `+1 555 321 7272`.
+- **Placeholder photography:** the Training hero and About backdrop carry a visible "Placeholder image" badge (event marks and sponsor logos visible in the source photos). Replace before any public use. Only the WebP derivatives ship (`public/images/new-heroes/`); the originals and the unused candidates live in `design/scrap-pit-design/photo-sources/`, outside the deploy.
 - **Preloader** plays once per browser session (`sessionStorage` key `pit:booted`); open a new tab to see it again.
 - **`noindex`** is set on every page.
 

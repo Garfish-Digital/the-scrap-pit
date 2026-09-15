@@ -31,7 +31,6 @@ export function Home() {
       subtitle: q('.home-hero__subtitle'),
       cta: q('.home-hero__cta'),
       ctaLabel: q('.home-hero__cta .btn__label'),
-      link: q('.home-hero__link'),
     }
     const ctx = gsap.context(() => setHeroHidden(parts.current!), el)
     return () => {
@@ -67,9 +66,6 @@ export function Home() {
             <Button to={hero.primary.to} variant="accent" size="lg" className="home-hero__cta">
               {hero.primary.label}
             </Button>
-            <Link to={hero.secondary.to} className="text-link home-hero__link">
-              {hero.secondary.label}
-            </Link>
           </div>
         </div>
       </section>
@@ -92,11 +88,11 @@ export function Home() {
               </li>
             ))}
           </ul>
-          <p className="gateway__more">
-            <Link to="/training" className="text-link">
-              {trainingGateway.linkLabel}
-            </Link>
-          </p>
+          <div className="gateway__more" data-rise>
+            <Button to={trainingGateway.cta.to} variant="victory">
+              {trainingGateway.cta.label}
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -109,11 +105,11 @@ export function Home() {
           </div>
           <div className="stack">
             <p className="lede" data-slam>{forgedInFireHome.body}</p>
-            <p>
-              <Link to="/about" className="text-link">
-                {forgedInFireHome.linkLabel}
-              </Link>
-            </p>
+            <div className="cluster" data-rise>
+              <Button to={forgedInFireHome.cta.to} variant="primary">
+                {forgedInFireHome.cta.label}
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -121,7 +117,7 @@ export function Home() {
       {/* 4. Become Scrappy */}
       <section className="section surface-gradient-light cta-band" aria-labelledby="scrappy-title" data-round>
         <div className="container stack">
-          <h2 id="scrappy-title" className="display" style={{ fontSize: 'var(--text-2xl)' }}>
+          <h2 id="scrappy-title" className="display">
             {becomeScrappyHome.title}
           </h2>
           <p className="cta-band__subtitle display" data-slam>{becomeScrappyHome.subtitle}</p>

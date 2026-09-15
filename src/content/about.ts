@@ -1,17 +1,17 @@
 // About page content — copy carried over from v1 index.astro.
 
 export const mission = {
-  title: 'Forged in Fire',
-  subtitle: 'The Scrap Pit philosophy',
+  title: 'Hard like iron',
+  subtitle: 'Our philosophy',
   body:
-    "We don't just train fighters. We build warriors who refuse to accept limits, who turn pain into power, and who emerge from every battle stronger than before.",
+    "We don't just train fighters. We build warriors who emerge stronger than before.",
 }
 
 export const story = {
   title: 'Our Story',
   paragraphs: [
-    'The Scrap Pit was born from a simple belief: authentic strength comes from authentic struggle. Founded in 2018 by former professional fighters who understood that training had become entertainment, we created a space where weakness is not coddled, but conquered.',
-    "In an era of hyper-sensitivity and safe spaces, The Scrap Pit stands as a fortress of uncompromising training. Here, you don't get rewarded for showing up—you earn respect through raising your expectations and pushing beyond what you thought possible.",
+    'The Scrap Pit was born from a simple belief: authentic strength comes from authentic struggle. Founded in 2018 by former professional fighters who understood that training had become entertainment.',
+    "In an era of hyper-sensitivity and safe spaces, The Scrap Pit stands as a place of uncompromising training.",
     "Every piece of equipment, every training method, every philosophy we embrace serves one purpose: to strip away everything and reveal what you're truly made of.",
   ],
 }
@@ -54,7 +54,7 @@ export const code = {
 
 export const readyCta = {
   title: 'Ready for the Pit?',
-  body: "The Scrap Pit isn't for everyone. The door is open. What you do with it is yours.",
+  body: "The door is open. What you do with it is yours.",
   primary: { label: 'Start Your Trial', to: '/contact' },
   secondary: { label: 'View Pricing', to: '/training#pricing' },
 }

@@ -3,7 +3,7 @@
 
 .voices {
   display: grid;
-  gap: var(--space-12);
+  gap: var(--space-16);
 }
 
 .voice {
@@ -36,13 +36,7 @@
   font-size: var(--text-lg);
 }
 
-.voice__quote p::before {
-  content: '\201C';
-  color: var(--accent);
-}
-
-.voice__quote p::after {
-  content: '\201D';
+.voice__q {
   color: var(--accent);
 }
 
@@ -68,22 +62,6 @@
   }
   .voice__portrait {
     width: 6rem;
-  }
-}
-
-/* Bridge */
-
-.bridge__grid {
-  display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: var(--space-8);
-  align-items: start;
-}
-
-@media (max-width: 47.99rem) {
-  .bridge__grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-4);
   }
 }
 

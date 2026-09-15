@@ -9,7 +9,7 @@ export type Fighter = {
 
 export const profiles = {
   title: 'Iron Will Profiles',
-  description: 'Voices changed by the pit. Real fighters, real stories, real results.',
+  description: 'Real fighters, real stories, real results.',
 }
 
 export const fighters: Fighter[] = [
@@ -40,10 +40,10 @@ export const fighters: Fighter[] = [
 // statement; this Fighters version bridges fighter testimony to the coaches.
 // NEW COPY (Phase 3) — review before Phase 5.
 export const forgedInFireFighters = {
-  title: 'Forged in Fire',
-  subtitle: 'Nobody walks out the way they walked in',
+  title: 'Walk through Fire',
+  subtitle: 'Nobody comes out the way they came in',
   body:
-    'The voices above are not testimonials. They are receipts. Each one was earned under the people below, one round at a time.',
+    'The voices above are not testimonials. They are receipts.',
 }
 
 export type Leader = {

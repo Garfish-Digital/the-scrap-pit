@@ -73,7 +73,7 @@ function Sample({ p }: { p: Palette }) {
       <div className="pal__grad-dark">
         <span className="pal-eyebrow pal-eyebrow--dark">Ready to start your journey?</span>
         <h3 className="pal-h pal-h--inv">Contact the Pit</h3>
-        <p className="pal-muted-inv">Step into our octagon. Tell us where you are.</p>
+        <p className="pal-muted-inv">Tell us where you are.</p>
       </div>
     </div>
   )

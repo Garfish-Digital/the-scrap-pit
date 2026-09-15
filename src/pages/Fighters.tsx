@@ -26,7 +26,7 @@ export function Fighters() {
         <div className="hero-split__text">
           <span className="eyebrow">Fighters</span>
           <h1 id="fighters-title">{profiles.title}</h1>
-          <p className="lede muted" data-slam>{profiles.description}</p>
+          <p className="lede muted">{profiles.description}</p>
         </div>
       </section>
 
@@ -37,7 +37,11 @@ export function Fighters() {
             <figure key={f.name} className="voice">
               <SlipImage src={f.image} alt={`Portrait of ${f.name}`} ratio="1" className="voice__portrait" loading={i === 0 ? 'eager' : 'lazy'} />
               <blockquote className="voice__quote">
-                <p className="quote">{f.quote}</p>
+                <p className="quote" data-spoken>
+                  <span className="voice__q">“</span>
+                  {f.quote}
+                  <span className="voice__q">”</span>
+                </p>
               </blockquote>
               <figcaption className="voice__cite">
                 <span className="voice__name">{f.name}</span>
@@ -95,7 +99,7 @@ export function Fighters() {
             <Button to={fightersInvitation.primary.to} variant="accent" size="lg">
               {fightersInvitation.primary.label}
             </Button>
-            <Button to={fightersInvitation.secondary.to} variant="ghost">
+            <Button to={fightersInvitation.secondary.to} variant="primary">
               {fightersInvitation.secondary.label}
             </Button>
           </div>

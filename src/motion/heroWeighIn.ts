@@ -1,11 +1,11 @@
 import { gsap } from './gsap'
 
-// Scene altitude — the home hero's "Weigh-in" (design/MOTION.md, owner
+// Scene altitude — the home hero's "Weigh-in" (design/scrap-pit-design/MOTION.md, owner
 // decisions #2). Brackets snap to the corners (hit). Three title lines drop on
 // an ease-in and slam — no skew, a landing compression — 320 ms apart; each
 // landing jolts the image and adds a third of its colour. The subtitle tightens
-// along the width axis (settle). The CTA slams in from the left; the text link
-// follows. Then an 18-second idle drift.
+// along the width axis (settle). The CTA slams in from the left. Then an
+// 18-second idle drift.
 
 export type HeroParts = {
   img: HTMLElement
@@ -15,7 +15,6 @@ export type HeroParts = {
   subtitle: HTMLElement
   cta: HTMLElement
   ctaLabel: HTMLElement
-  link: HTMLElement
 }
 
 export function setHeroHidden(p: HeroParts) {
@@ -26,7 +25,6 @@ export function setHeroHidden(p: HeroParts) {
   gsap.set(p.subtitle, { autoAlpha: 0, fontVariationSettings: "'wdth' 125" })
   gsap.set(p.cta, { scaleX: 0, transformOrigin: 'left center' })
   gsap.set(p.ctaLabel, { autoAlpha: 0 })
-  gsap.set(p.link, { autoAlpha: 0, x: -12 })
 }
 
 export function heroWeighIn(p: HeroParts) {
@@ -65,7 +63,6 @@ export function heroWeighIn(p: HeroParts) {
     // HIT — CTA slams in from the left, label appears; the text link follows
     .to(p.cta, { scaleX: 1, duration: 0.06, ease: 'none' }, after + 0.35)
     .to(p.ctaLabel, { autoAlpha: 1, duration: 0.12, ease: 'none' }, after + 0.41)
-    .to(p.link, { autoAlpha: 1, x: 0, duration: 0.5, ease: 'power3.out' }, after + 0.5)
     // idle drift
     .to(p.img, { scale: 1.0, duration: 18, ease: 'none' }, after + 0.4)
     // release the inline width axis so the token value governs from here on

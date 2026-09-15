@@ -90,7 +90,7 @@
   --space-12: 6rem;
   --space-16: 8rem;
 
-  --section-y: clamp(4rem, 6vw + 2rem, 8rem);
+  --section-y: clamp(6rem, 7vw + 3rem, 12rem);
   --gutter: clamp(1rem, 4vw, 3rem);
   --container: 80rem;
   --measure: 36rem;

@@ -1,0 +1,7 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Client-facing deploys: drop the design studies from the bundle.
+# [build.environment]
+#   VITE_STUDIES = "off"

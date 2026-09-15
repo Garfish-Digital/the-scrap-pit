@@ -69,7 +69,7 @@ export function Contact() {
         <div className="container stack">
           <span className="eyebrow">{contactHero.subtitle}</span>
           <h1 id="contact-title">{contactHero.title}</h1>
-          <p className="lede muted" data-slam>{contactHero.body}</p>
+          <p className="lede muted">{contactHero.body}</p>
         </div>
       </section>
 
@@ -89,7 +89,7 @@ export function Contact() {
               </p>
             )}
 
-            <form noValidate onSubmit={onSubmit} aria-describedby="demo-note" data-rise>
+            <form noValidate onSubmit={onSubmit} data-rise>
               {plan && <input type="hidden" name="plan" value={plan.id} />}
 
               <div className={`field ${errors.name ? 'field--error' : ''}`}>
@@ -171,12 +171,9 @@ export function Contact() {
               </div>
 
               <div className="contact__submit">
-                <Button type="submit" variant="accent" size="lg">
+                <Button type="submit" variant="primary" size="lg">
                   {form.submit}
                 </Button>
-                <p id="demo-note" className="contact__demo-note muted">
-                  {form.demoNote}
-                </p>
               </div>
             </form>
 

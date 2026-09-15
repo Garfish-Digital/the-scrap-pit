@@ -2,7 +2,7 @@
 
 .gauntlet {
   display: grid;
-  gap: var(--space-12);
+  gap: var(--space-16);
 }
 
 .discipline {
@@ -129,8 +129,8 @@
 /* Extras — quieter secondary tier */
 
 .extras {
-  margin-top: var(--space-8);
-  padding-top: var(--space-6);
+  margin-top: var(--space-12);
+  padding-top: var(--space-8);
   border-top: var(--border-w) solid var(--rule);
 }
 

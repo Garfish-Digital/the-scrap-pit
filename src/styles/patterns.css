@@ -57,6 +57,24 @@
   gap: var(--space-3);
 }
 
+/* Bridge: a dark hinge between two sections — eyebrow + heading with the rope
+   on the left, one lede on the right (Fighters' Forged in Fire, Training's
+   Become Scrappy). */
+
+.bridge__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+@media (max-width: 47.99rem) {
+  .bridge__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+}
+
 /* CTA band: centered invitation on a gradient surface. */
 
 .cta-band {

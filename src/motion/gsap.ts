@@ -1,11 +1,12 @@
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { SplitText } from 'gsap/SplitText'
 
 // Single GSAP entry for the live site. Plugins are registered here as they
 // come into use so pages import from one place.
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger, SplitText)
 
-export { gsap, ScrollTrigger }
+export { gsap, ScrollTrigger, SplitText }
 
 export const reducedMotion = () =>
   typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches

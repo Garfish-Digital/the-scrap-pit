@@ -27,7 +27,7 @@ export function Specimen({ system }: { system: TypeSystem }) {
         <p className="spec-display spec-display--sub">{hero.subtitle}</p>
         <div className="spec__row">
           <span className="spec-btn spec-label">{hero.primary.label}</span>
-          <span className="spec-textlink spec-label">{hero.secondary.label}</span>
+          <span className="spec-textlink spec-label">Meet the Fighters</span>
         </div>
       </div>
 

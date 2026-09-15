@@ -116,7 +116,7 @@
 }
 
 .gateway__more {
-  margin-top: var(--space-6);
+  margin-top: var(--space-8);
 }
 
 @media (max-width: 47.99rem) {

@@ -99,6 +99,16 @@ Implementation notes that fall out of these:
 - The slam-flash is one reusable primitive (block wipes in from the left at 40 ms, target revealed, block retracts to the right at 180 ms). Eyebrows, paragraphs, and the Impact hover all use it; only hold behaviour differs.
 - Reduced motion: the Cut becomes a 200 ms crossfade; slams become instant reveals; odometers set their final value; width-axis reveals become opacity fades; Cut & Slip shows colour with no slip.
 
+## Owner adjustments (September 15, 2026, after the full build)
+
+- **Buttons:** every button is solid at rest; the former outline ("ghost") style is an alias of primary. Home hero CTA is "How to Join" → `/contact`; "Meet the Fighters" removed; the gateway and manifesto text links became gold and black buttons. Contact's submit is black.
+- **Slam-flash** blocks are `--steel-700`, not red. They stay on all eyebrows and section paragraphs/ledes, and are **removed from hero ledes**.
+- **Heading reveal is line-stable:** headings are split into lines at their final width once fonts are ready; each line is `nowrap` and tightens from `wdth` 110 → 62 in place, horizontally clipped, so line count never changes during the effect.
+- **Spoken quotes** are live on the three fighter quotes (`data-spoken`), quote marks included in the split.
+- **Spacing:** `--section-y` is `clamp(6rem, 7vw + 3rem, 12rem)`; section heads sit `--space-12` above content; the Gauntlet and the voices open up to `--space-16`.
+- No "demo" language in the UI: footer line and form note removed; the confirmation reads as a real receipt (the form still does not transmit — see README).
+- **Training's "Become Scrappy"** uses the same bridge treatment as Fighters' "Forged in Fire" (dark gradient, eyebrow + heading with the rope on the left, lede on the right); `.bridge__grid` lives in `patterns.css`.
+
 ## Sequence specs (as built)
 
 | Sequence | Trigger | Stages (duration · ease) | Purpose | Reduced-motion |

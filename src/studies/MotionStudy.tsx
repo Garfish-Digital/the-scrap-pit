@@ -87,7 +87,7 @@ export function MotionStudy() {
         <span className="eyebrow">Phase 4 · Motion study</span>
         <h1>Six signature moves</h1>
         <p className="lede">
-          Working GSAP prototypes of the sequences proposed in <code>design/MOTION.md</code>. Three characters —{' '}
+          Working GSAP prototypes of the sequences proposed in <code>design/scrap-pit-design/MOTION.md</code>. Three characters —{' '}
           <strong>The Tear</strong> (geometric, from the mark’s diagonal), <strong>Weigh-in</strong> (cinematic, long
           settles punctuated by hits), <strong>Scoreboard</strong> (mechanical, counters and rails) — assigned by
           altitude: page, scene, detail, control. Judge the tempo and the character, not the polish; every value here

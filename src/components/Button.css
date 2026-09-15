@@ -1,4 +1,4 @@
-/* Buttons — the Impact language (design/MOTION.md, owner decisions #6).
+/* Buttons — the Impact language (design/scrap-pit-design/MOTION.md, owner decisions #6).
    Static: solid fill. Hover: ghost white slams in from the left and holds
    (GSAP, src/motion/useImpact.ts); the label takes the button's colour.
    Press: flash + 1px drop + shockwave ring. Variants set --btn-fill and
@@ -93,15 +93,9 @@
   --btn-label-hover: var(--victory-text);
 }
 
-/* Ghost keeps an outline at rest; the slam fills it. */
+/* Ghost is an alias of primary: every button is solid at rest (owner decision). */
 .btn--ghost {
-  --btn-fill: currentColor;
-  --btn-ink: inherit;
-  --btn-label-hover: var(--text-inverse);
-  background: transparent;
-  color: inherit;
-  border-color: currentColor;
-}
-.btn--ghost .btn__white {
-  background: var(--text);
+  --btn-fill: var(--text);
+  --btn-ink: var(--text-inverse);
+  --btn-label-hover: var(--text);
 }

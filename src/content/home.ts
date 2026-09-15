@@ -3,8 +3,7 @@
 export const hero = {
   title: 'The Scrap Pit',
   subtitle: 'Forget potential - bring the output',
-  primary: { label: 'View Training', to: '/training' },
-  secondary: { label: 'Meet the Fighters', to: '/fighters' },
+  primary: { label: 'How to Join', to: '/contact' },
   image: '/images/hero-octagon-scrap.webp',
 }
 
@@ -12,23 +11,23 @@ export const hero = {
 export const trainingGateway = {
   eyebrow: 'Training',
   title: 'Three paths. One pit.',
-  linkLabel: 'Explore the Gauntlet',
+  cta: { label: 'Explore the Gauntlet', to: '/training' },
 }
 
 // Compact version of the v1 "Forged in Fire" philosophy header.
 export const forgedInFireHome = {
-  title: 'Forged in Fire',
-  subtitle: 'The Scrap Pit philosophy',
+  title: 'Set in Fire',
+  subtitle: 'Our philosophy',
   body:
-    "We don't just train fighters. We build warriors who refuse to accept limits, who turn pain into power, and who emerge from every battle stronger than before.",
-  linkLabel: 'Read our story',
+    "We don't just train fighters.",
+  cta: { label: 'Read Our Story', to: '/about' },
 }
 
 export const becomeScrappyHome = {
   title: 'Become Scrappy',
   subtitle: 'And learn to fight',
   body:
-    "Are you ready to step into the pit? To face your fears, push your limits, and discover what you're truly capable of? You already know this is for you.",
+    "Face your fears, push your limits, and discover who you truly are.",
   features: ['Unlimited training', 'Championship coaching', 'Brutal conditioning'],
   primary: { label: 'Start Free Trial', to: '/contact' },
   secondary: { label: 'View Pricing', to: '/training#pricing' },

@@ -1,4 +1,4 @@
-/* Section entrances — "the Round" (design/MOTION.md, owner decisions #3).
+/* Section entrances — "the Round" (design/scrap-pit-design/MOTION.md, owner decisions #3).
    Opt-in by attribute; the hook in useRounds.ts drives the custom properties.
 
    [data-round]            a section that enters as a round
@@ -28,10 +28,27 @@
   position: absolute;
   inset: -0.2em -0.4em;
   z-index: 1;
-  background: var(--red-600);
+  background: var(--steel-700);
   transform: scaleX(var(--slam-x, 0));
   transform-origin: var(--slam-o, left) center;
   pointer-events: none;
+}
+
+/* Width-axis heading reveal: the heading is split into lines at its final
+   width; each line is nowrap and tightens in place, so the line count never
+   changes during the effect. Overflow while wide is clipped horizontally. */
+[data-round] .is-width-reveal {
+  overflow-x: clip;
+}
+
+[data-round] .is-width-reveal .wr-line {
+  display: block;
+  white-space: nowrap;
+}
+
+/* Spoken quotes: words blur in while the width axis settles 62 → 88. */
+[data-round] [data-spoken] .spoken-word {
+  display: inline-block;
 }
 
 /* The rope: a 2px Red 600 rail under the head, drawn by --rope. */

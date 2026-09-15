@@ -15,12 +15,12 @@ export function About() {
         <div className="about-hero__media" data-hero-media>
           <img src="/images/new-heroes/about-hero.webp" alt="" fetchPriority="high" />
           <PitBrackets />
-          <span className="placeholder-tag">Placeholder image</span>
+          {/* <span className="placeholder-tag">Placeholder image</span> */}
         </div>
         <div className="container about-hero__text">
           <span className="eyebrow">{mission.subtitle}</span>
           <h1 id="about-title">{mission.title}</h1>
-          <p className="lede" data-slam>{mission.body}</p>
+          <p className="lede">{mission.body}</p>
         </div>
       </section>
 

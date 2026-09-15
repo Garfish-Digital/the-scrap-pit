@@ -1,14 +1,14 @@
-import aLockup from '../../design/logo/a-notch-lockup.svg?raw'
-import aSymbol from '../../design/logo/a-notch-symbol.svg?raw'
-import bLockup from '../../design/logo/b-scrap-s-lockup.svg?raw'
-import bSymbol from '../../design/logo/b-scrap-s-symbol.svg?raw'
-import cSymbol from '../../design/logo/c-cage-bar-symbol.svg?raw'
-import cWordmark from '../../design/logo/c-cage-bar-wordmark.svg?raw'
-import dLockup from '../../design/logo/d-split-lockup.svg?raw'
-import dSymbol from '../../design/logo/d-split-symbol.svg?raw'
-import dSymbolDark from '../../design/logo/d-split-symbol-dark.svg?raw'
-import dV1 from '../../design/logo/owner-v1-split.svg?raw'
-import dV2 from '../../design/logo/owner-v2-pit-frame.svg?raw'
+import aLockup from '../../design/scrap-pit-design/logo/a-notch-lockup.svg?raw'
+import aSymbol from '../../design/scrap-pit-design/logo/a-notch-symbol.svg?raw'
+import bLockup from '../../design/scrap-pit-design/logo/b-scrap-s-lockup.svg?raw'
+import bSymbol from '../../design/scrap-pit-design/logo/b-scrap-s-symbol.svg?raw'
+import cSymbol from '../../design/scrap-pit-design/logo/c-cage-bar-symbol.svg?raw'
+import cWordmark from '../../design/scrap-pit-design/logo/c-cage-bar-wordmark.svg?raw'
+import dLockup from '../../design/scrap-pit-design/logo/d-split-lockup.svg?raw'
+import dSymbol from '../../design/scrap-pit-design/logo/d-split-symbol.svg?raw'
+import dSymbolDark from '../../design/scrap-pit-design/logo/d-split-symbol-dark.svg?raw'
+import dV1 from '../../design/scrap-pit-design/logo/owner-v1-split.svg?raw'
+import dV2 from '../../design/scrap-pit-design/logo/owner-v2-pit-frame.svg?raw'
 import { routes } from '../content/site'
 import './LogoStudy.css'
 
@@ -34,7 +34,7 @@ const concepts: Concept[] = [
       'A solid block with a square pit cut into it, a narrow slot for the way in, and an ember burning at the bottom. The gym is the ground you get thrown into; what is left burning is you. The symbol carries the whole idea, so the wordmark can stay plain.',
     lockup: aLockup,
     symbol: aSymbol,
-    files: ['design/logo/a-notch-symbol.svg', 'design/logo/a-notch-lockup.svg'],
+    files: ['design/scrap-pit-design/logo/a-notch-symbol.svg', 'design/scrap-pit-design/logo/a-notch-lockup.svg'],
     construction: [
       '64-unit square. A 28-unit square pit (x 18–46, y 22–50) cut from the block, reached by an 8-unit slot from the top edge. One contour, no overlaps.',
       'Ember: 10-unit square rotated 45°, centred in the pit at (32,36). Red 600.',
@@ -51,7 +51,7 @@ const concepts: Concept[] = [
       'A stencil-cut S torn along a 45° line, the lower piece in red — a piece of scrap metal that still reads as a letter. Junkyard tough, literally.',
     lockup: bLockup,
     symbol: bSymbol,
-    files: ['design/logo/b-scrap-s-symbol.svg', 'design/logo/b-scrap-s-lockup.svg'],
+    files: ['design/scrap-pit-design/logo/b-scrap-s-symbol.svg', 'design/scrap-pit-design/logo/b-scrap-s-lockup.svg'],
     construction: [
       '8-unit grid, 12-unit stroke, 45° terminals top-right and bottom-left.',
       'Tear: 45° line through the middle bar with a 3-unit gap; lower piece takes Red 600.',
@@ -68,7 +68,7 @@ const concepts: Concept[] = [
       'The wordmark is the logo. A red rail slices horizontally through SCRAP PIT at cap-midpoint — the top rail of the cage seen from inside the pit. The monogram “SP” carries the same cut.',
     lockup: cWordmark,
     symbol: cSymbol,
-    files: ['design/logo/c-cage-bar-wordmark.svg', 'design/logo/c-cage-bar-symbol.svg'],
+    files: ['design/scrap-pit-design/logo/c-cage-bar-wordmark.svg', 'design/scrap-pit-design/logo/c-cage-bar-symbol.svg'],
     construction: [
       'Type is live text in the SVG; outline it in Figma, boolean-subtract a band at cap midpoint.',
       'Band = ~9% of cap height; rail = band minus 1 unit of light on each side.',
@@ -89,12 +89,12 @@ const conceptD: Concept = {
   symbol: dSymbol,
   symbolDark: dSymbolDark,
   variants: [
-    { label: 'v1 (design/logo/owner-v1-split.svg)', markup: dV1 },
-    { label: 'v2 (design/logo/owner-v2-pit-frame.svg)', markup: dV2 },
+    { label: 'v1 (design/scrap-pit-design/logo/owner-v1-split.svg)', markup: dV1 },
+    { label: 'v2 (design/scrap-pit-design/logo/owner-v2-pit-frame.svg)', markup: dV2 },
     { label: 'Cleaned — light surfaces', markup: dSymbol },
     { label: 'Cleaned — dark surfaces', markup: dSymbolDark, dark: true },
   ],
-  files: ['design/logo/d-split-symbol.svg', 'design/logo/d-split-symbol-dark.svg', 'design/logo/d-split-lockup.svg'],
+  files: ['design/scrap-pit-design/logo/d-split-symbol.svg', 'design/scrap-pit-design/logo/d-split-symbol-dark.svg', 'design/scrap-pit-design/logo/d-split-lockup.svg'],
   construction: [
     '64-unit square frame, 16-unit walls, 32-unit void (x,y 16–48). Cut on the rising diagonal (0,64)→(64,0); each bracket steps back 4 units on both axes for a ≈5.7-unit gap (≈9%).',
     'Two closed polygons, no strokes: upper M0 0 H60 L44 16 H16 V44 L0 60 Z; lower M64 64 H4 L20 48 H48 V20 L64 4 Z.',
@@ -125,7 +125,7 @@ export function LogoStudy() {
         <span className="eyebrow">Phase 2 · Logo concepts</span>
         <h1>Three directions, editable SVG</h1>
         <p className="lede">
-          Each concept ships as SVG under <code>design/logo/</code> with the geometry on an 8-unit grid and the
+          Each concept ships as SVG under <code>design/scrap-pit-design/logo/</code> with the geometry on an 8-unit grid and the
           wordmark left as live text, so it opens in Figma as editable layers. Wordmarks are set in Archivo 800 /
           width 62 (Archivo Condensed ExtraBold in Figma), the chosen type system. Judge them on white, on ink, in
           the header, and at favicon size.
