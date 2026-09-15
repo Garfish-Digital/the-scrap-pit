@@ -18,7 +18,6 @@ type Round = {
   rises: HTMLElement[][];
   odometers: HTMLElement[];
   heroMedia: { img: HTMLElement; tl: HTMLElement; br: HTMLElement }[];
-  voids: HTMLElement[];
   spoken: HTMLElement[];
   lines: HTMLElement[]; // heading lines, split once fonts are ready
   words: HTMLElement[]; // spoken-quote words
@@ -50,7 +49,6 @@ function collect(scope: HTMLElement): Round[] {
         tl: m.querySelector<HTMLElement>(".pit-brackets__tl")!,
         br: m.querySelector<HTMLElement>(".pit-brackets__br")!,
       })),
-      voids: Array.from(el.querySelectorAll<HTMLElement>("[data-void]")),
       spoken: Array.from(el.querySelectorAll<HTMLElement>("[data-spoken]")),
       lines: [],
       words: [],
@@ -101,8 +99,6 @@ function hide(r: Round) {
     gsap.set(m.tl, { xPercent: -120, yPercent: -120 });
     gsap.set(m.br, { xPercent: 120, yPercent: 120 });
   });
-  // images that open through the void
-  gsap.set(r.voids, { clipPath: "inset(34% 34%)" });
 }
 
 // slam-flash: block wipes in from the left (40 ms), the text is revealed
@@ -144,12 +140,6 @@ function enter(r: Round) {
       )
       .to(m.img, { scale: 1.0, duration: 18, ease: "none" }, 0.3);
   });
-  // Images open through the void: a square aperture expands to full bleed.
-  tl.to(
-    r.voids,
-    { clipPath: "inset(0% 0%)", duration: 1.1, ease: "expo.out", stagger: 0.1 },
-    0.15,
-  );
   r.eyebrows.forEach((e, i) => slam(tl, e, i * 0.1));
   tl.to(r.ropes, { "--rope": 1, duration: 1.1, ease: "expo.out" }, 0.05);
   // SETTLE — headings tighten along the width axis, line by line, in place

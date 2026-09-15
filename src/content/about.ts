@@ -4,7 +4,7 @@ export const mission = {
   title: 'Hard like iron',
   subtitle: 'Our philosophy',
   body:
-    "We don't just train fighters. We build warriors who emerge stronger than before.",
+    "We don't just train fighters.",
 }
 
 export const story = {

@@ -38,7 +38,7 @@ export function Training() {
         <div className="container gauntlet">
           {disciplines.map((d, i) => (
             <article key={d.id} id={d.id} className="discipline" data-round>
-              <div className="discipline__media" data-void>
+              <div className="discipline__media" data-rise>
                 <SlipImage src={d.image} alt={d.alt} ratio="3 / 2" loading={i === 0 ? 'eager' : 'lazy'} />
               </div>
               <div className="discipline__text" data-rope>
